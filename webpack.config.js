@@ -31,7 +31,7 @@ var webpackConfig = {
             },
             {
                 test: /\.css$/,
-                loaders: ['to-string-loader', 'css-loader']
+                loader: 'style-loader!css-loader'
             },
             {
                 test: /\.scss$/,
@@ -40,6 +40,10 @@ var webpackConfig = {
             {
                 test: /\.html$/,
                 loader: 'raw-loader'
+            },
+            {
+                test: /\.(png|gif|jpeg|jpg|woff|woff2|eot|ttf|svg)(\?.*$|$)/,
+                loader: 'file-loader'
             }
         ]
     }
