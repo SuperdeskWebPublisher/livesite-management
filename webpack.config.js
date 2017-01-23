@@ -1,88 +1,111 @@
+'use strict';
+
+// Modules
 var webpack = require('webpack');
 var path = require('path');
-var webpackMerge = require('webpack-merge');
+var autoprefixer = require('autoprefixer');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
-var webpackConfig = {
-    entry: {
-        'main': './app/index.ts'
+var ENV = process.env.npm_lifecycle_event;
+var isTest = ENV === 'test' || ENV === 'test-watch';
+var isProd = ENV === 'build';
+
+module.exports = function makeWebpackConfig() {
+    var config = {};
+
+    config.entry = isTest ? {} : {
+        app: './app/index.js'
+    };
+
+    config.output = isTest ? {} : {
+        path: __dirname + '/dist',
+
+        publicPath: isProd ? '/' : 'http://localhost:8080/',
+
+        filename: isProd ? '[name].[hash].js' : '[name].bundle.js',
+
+        chunkFilename: isProd ? '[name].[hash].js' : '[name].bundle.js'
+    };
+
+    if (isTest) {
+        config.devtool = 'inline-source-map';
+    } else if (isProd) {
+        config.devtool = 'source-map';
+    } else {
+        config.devtool = 'eval-source-map';
+    }
+
+    config.resolve = {
+        root: [
+            __dirname,
+            path.join(__dirname, '/app')
+        ],
+        extensions: ['', '.js', '.html']
     },
 
-    output: {
-        publicPath: '',
-        path: path.resolve(__dirname, './dist')
-    },
-
-    plugins: [
-        new webpack.ContextReplacementPlugin(
-                /angular(\\|\/)core(\\|\/)src(\\|\/)linker/,
-                path.resolve(__dirname, './app'), {}
-        )
-    ],
-
-    module: {
+    // Initialize module
+    config.module = {
+        preLoaders: [],
         loaders: [
             {
-                test: /\.ts$/,
-                loaders: [
-                    'awesome-typescript-loader',
-                    'angular2-template-loader',
-                    'angular2-router-loader'
-                ]
-            },
-            {
-                test: /\.css$/,
-                loader: 'style-loader!css-loader'
+                test: /\.js$/,
+                loader: 'babel',
+                exclude: /node_modules/
             },
             {
                 test: /\.scss$/,
-                loaders: ['raw-loader', 'sass-loader']
+                loader: 'style!css!sass'
+            },
+            {
+                test: /\.css$/,
+                loader: isTest ? 'null' : ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap!postcss-loader')
+            },
+            {
+                test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
+                loader: 'file'
             },
             {
                 test: /\.html$/,
-                loader: 'raw-loader'
-            },
-            {
-                test: /\.(png|gif|jpeg|jpg|woff|woff2|eot|ttf|svg)(\?.*$|$)/,
-                loader: 'file-loader'
+                loader: 'raw'
             }
         ]
+    };
+
+    config.postcss = [
+        autoprefixer({
+            browsers: ['last 2 version']
+        })
+    ];
+
+    config.plugins = [];
+
+    if (!isTest) {
+        config.plugins.push(
+                new HtmlWebpackPlugin({
+                    template: 'app/index.html',
+                    inject: 'body'
+                }),
+                new ExtractTextPlugin('[name].[hash].css', {disable: !isProd})
+                );
     }
-};
 
-var defaultConfig = {
-    devtool: 'source-map',
-
-    output: {
-        filename: '[name].bundle.js',
-        sourceMapFilename: '[name].map',
-        chunkFilename: '[id].chunk.js'
-    },
-
-    resolve: {
-        extensions: ['.ts', '.js'],
-        modules: [path.resolve(__dirname, 'node_modules')]
-    },
-
-    devServer: {
-        historyApiFallback: true,
-        watchOptions: {aggregateTimeout: 300, poll: 1000},
-        headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-            "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
-        }
-    },
-
-    node: {
-        global: true,
-        crypto: 'empty',
-        __dirname: true,
-        __filename: true,
-        process: true,
-        Buffer: false,
-        clearImmediate: false,
-        setImmediate: false
+    if (isProd) {
+        config.plugins.push(
+                new webpack.NoErrorsPlugin(),
+                new webpack.optimize.DedupePlugin(),
+                new webpack.optimize.UglifyJsPlugin(),
+                new CopyWebpackPlugin([{
+                        from: __dirname + '/app'
+                    }])
+                );
     }
-};
 
-module.exports = webpackMerge(defaultConfig, webpackConfig);
+    config.devServer = {
+        contentBase: './app',
+        stats: 'minimal'
+    };
+
+    return config;
+}();
