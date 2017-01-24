@@ -59,11 +59,11 @@ module.exports = function makeWebpackConfig() {
                 loader: 'style!css!sass'
             },
             {
-                test: /\.css$/,
-                loader: isTest ? 'null' : ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap!postcss-loader')
+                test: /\.css/,
+                loader: 'style!css'
             },
             {
-                test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
+                test: /\.(png|gif|jpeg|jpg|woff|woff2|eot|ttf|svg)(\?.*$|$)/,
                 loader: 'file'
             },
             {
