@@ -1,3 +1,3 @@
-* {
-    color: red;
-}
+@import '../../node_modules/superdesk-ui-framework/app/styles/_variables.scss';
+
+@import './app/components/toolbar/toolbar.scss';

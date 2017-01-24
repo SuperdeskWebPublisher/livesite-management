@@ -1,0 +1,70 @@
+// $nav-height from superdesk-ui
+$toolbar_height: $nav-height;
+$color_lighter: #9ecbde;
+
+.toolbar{
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: -$toolbar_height;
+    background-color: $sd-blue;
+    color: $white;
+    transition: all .3s;
+    transform: translateX(calc(#{$toolbar_height} - 100%));
+
+    &--active{
+       transform: translateX(0);
+    }
+
+    &__logo{
+        flex: 0 0 auto;
+        width: 160px;
+        height: $toolbar_height;
+        border-right: 1px solid $color_lighter;
+        background: transparent url('images/superdesk-logo-white.svg') center center no-repeat;
+    }
+
+    &__content{
+        width: 100%;
+        padding: .5rem 2rem;
+        font-size: 1.2em;
+        font-weight: 300;
+    }
+
+    &__open, &__close{
+        flex: 0 0 auto;
+        display: flex;
+        line-height: 1em;
+        align-items: center;
+        justify-content: center;
+        width: $toolbar_height;
+        height: $toolbar_height;
+        cursor: pointer;
+
+
+    }
+
+    &__open{
+        background-image: url('images/superdesk-sign-white.svg');
+    }
+
+
+
+    &__close{
+        border-left: 1px solid $color_lighter;
+        color: $color_lighter;
+
+        i{
+            color: $color_lighter;
+            transition: all .2s;
+        }
+
+        &:hover i{
+            color: $white;
+        }
+    }
+
+
+}
