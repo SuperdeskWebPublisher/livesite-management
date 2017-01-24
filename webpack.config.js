@@ -79,16 +79,23 @@ module.exports = function makeWebpackConfig() {
         })
     ];
 
-    config.plugins = [];
+    config.plugins = [
+        new webpack.ProvidePlugin({
+            '$': 'jquery',
+            'window.$': 'jquery',
+            'jQuery': 'jquery',
+            'window.jQuery': 'jquery'
+        })
+    ];
 
     if (!isTest) {
         config.plugins.push(
-                new HtmlWebpackPlugin({
-                    template: 'app/index.html',
-                    inject: 'body'
-                }),
-                new ExtractTextPlugin('[name].[hash].css', {disable: !isProd})
-                );
+            new HtmlWebpackPlugin({
+                template: 'app/index.html',
+                inject: 'body'
+            }),
+            new ExtractTextPlugin('[name].[hash].css', {disable: !isProd})
+            );
     }
 
     if (isProd) {
