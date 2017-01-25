@@ -1,0 +1,25 @@
+$screen-sm: 600px;
+$screen-md: 900px;
+$screen-lg: 1280px;
+
+
+@mixin sm(){
+    @media (min-width: #{$screen-sm}){
+        @content;
+    }
+}
+@mixin md(){
+    @media (min-width: #{$screen-md}){
+        @content;
+    }
+}
+@mixin lg(){
+    @media (min-width: #{$screen-lg}){
+        @content;
+    }
+}
+@mixin xlg(){
+    @media (min-width: 1800px){
+        @content;
+    }
+}

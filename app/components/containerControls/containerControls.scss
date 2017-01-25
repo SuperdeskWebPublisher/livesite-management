@@ -1,0 +1,11 @@
+.leActive{
+    .swp_container{
+        outline: 2px dotted $colorContainer;
+        outline-offset: 5px;
+        position: relative;
+
+        &__controls{
+            display: block;
+        }
+    }
+}
