@@ -13,7 +13,7 @@ angular.module('livesite-management', [
 
 ]).run(function ($document) {
     $document[0].body.prepend(document.createElement('toolbar'));
-    $document[0].body.className += 'livesite-editing';
+
 });
 
 export default 'livesite-management';
