@@ -6,10 +6,11 @@ function toolbar() {
             scope.toolbarActive = false;
             scope.toggleToolbar = function () {
                 scope.toolbarActive = !scope.toolbarActive;
+                document.body.classList.toggle('leActive');
             };
         }
     };
 }
 
 angular.module('livesite-management.components.toolbar', [])
-        .directive('toolbar', toolbar);
+.directive('toolbar', toolbar);

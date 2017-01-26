@@ -1,2 +1,9 @@
 @import '../../node_modules/superdesk-ui-framework/app/styles/_variables.scss';
+@import '_variables';
+@import '_breakpoints';
+@import '_helpers';
+
 @import './app/components/toolbar/toolbar.scss';
+@import './app/components/containerControls/containerControls.scss';
+@import './app/components/widgetControls/widgetControls.scss';
+@import '_blockControls';

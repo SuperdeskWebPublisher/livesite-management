@@ -2,7 +2,7 @@
 $toolbar_height: $nav-height;
 $color_lighter: #9ecbde;
 
-.toolbar{
+.leToolbar{
     display: flex;
     align-items: center;
     position: fixed;
@@ -13,17 +13,23 @@ $color_lighter: #9ecbde;
     color: $white;
     transition: all .3s;
     transform: translateX(calc(#{$toolbar_height} - 100%));
+    box-shadow: 0 0 8px rgba(0,0,0,.3);
+    z-index: 99999;
 
     &--active{
        transform: translateX(0);
     }
 
     &__logo{
+        display: none;
         flex: 0 0 auto;
         width: 160px;
         height: $toolbar_height;
         border-right: 1px solid $color_lighter;
         background: transparent url('images/superdesk-logo-white.svg') center center no-repeat;
+        @include md {
+            display: block;
+        }
     }
 
     &__content{
