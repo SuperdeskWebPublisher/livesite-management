@@ -1,7 +1,4 @@
-import './api.service';
-import './http-endpoint-factory';
+import {APIFactory} from './api.factory';
 
-angular.module('livesite-management.core.api', [
-    'livesite-management.core.api.service',
-    'livesite-management.core.api.http'
-]);
+angular.module('livesite-management.core.api', [])
+        .factory('api', APIFactory);

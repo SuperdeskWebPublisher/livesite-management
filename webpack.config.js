@@ -7,13 +7,17 @@ var autoprefixer = require('autoprefixer');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
+var lodash = require('lodash');
 
 var ENV = process.env.npm_lifecycle_event;
 var isTest = ENV === 'test' || ENV === 'test-watch';
 var isProd = ENV === 'build';
 
-module.exports = function makeWebpackConfig() {
+module.exports = function makeWebpackConfig(grunt) {
     var config = {};
+
+    var appConfigPath = path.join(process.cwd(), 'config.js');
+    const baseConfig = lodash.defaultsDeep(require(appConfigPath)(grunt));
 
     config.entry = isTest ? {} : {
         app: './app/index.js'
@@ -85,6 +89,9 @@ module.exports = function makeWebpackConfig() {
             'window.$': 'jquery',
             'jQuery': 'jquery',
             'window.jQuery': 'jquery'
+        }),
+        new webpack.DefinePlugin({
+            __BASE_CONFIG__: JSON.stringify(baseConfig)
         })
     ];
 
