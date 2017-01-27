@@ -10,7 +10,7 @@ function widgetControls() {
                 controls.show();
             });
             elem.on('mouseleave', function () {
-               controls.hide();
+                controls.hide();
             });
         }
     };
