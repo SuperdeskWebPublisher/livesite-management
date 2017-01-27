@@ -5,7 +5,7 @@ function widgetControls() {
         transclude: true,
         templateUrl: 'components/widgetControls/widgetControls.html',
         link: function (scope, elem, attr, ctrl) {
-            var controls = elem.find('.blockControls');
+            var controls = elem.find('.leBlockControls');
             elem.on('mouseover', function () {
                 controls.show();
             });

@@ -1,0 +1,70 @@
+.leListElement {
+    border: 1px solid $grayLight;
+    border-top: 0;
+    padding: .7em 15px;
+    background-color: #fff;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    &--blueBorder{
+        border-left: 3px solid #4d646f;
+    }
+
+    &--shadow{
+        border: none;
+        border-radius: 2px;
+        box-shadow: 0 1px 3px rgba(0,0,0,.1), 0 0 1px rgba(0,0,0,.08);
+        margin-bottom: 6px;
+    }
+
+    &__icon {
+        flex: 0 0 auto;
+        display: inline-block;
+        line-height: 1em;
+        align-items: center;
+
+        &--marginRight{
+            margin-right: 10px;
+        }
+
+        i {
+            color: $grayLight;
+        }
+
+        &:hover i{
+            color: $gray;
+        }
+
+        &--active{
+            i {
+                color: $gray;
+            }
+
+            &:hover i {
+                color: $grayLight;
+            }
+        }
+
+    }
+
+    &__content {
+        width: 100%;
+        color: $gray;
+
+    }
+
+    &__right{
+        flex: 0 0 auto;
+        align-items: center;
+
+        &--hidden{
+            opacity: 0;
+            transition: all .2s;
+        }
+    }
+
+    &:hover &__right--hidden{
+        opacity: 1;
+    }
+}

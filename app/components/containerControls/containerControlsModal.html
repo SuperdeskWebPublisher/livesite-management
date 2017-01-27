@@ -1,0 +1,20 @@
+<div class="modal__header">
+    <button class="modal__close pull-right" ng-click="toggleModal()"><i class="icon-close-small"></i></button>
+    <h3 class="modal__heading">Edit Container</h3>
+</div>
+<div class="leSubnav">
+    <h4 class="leSubnav__name">Manage Widgets</h4>
+    <div class="leSubnav__button">
+        add
+    </div>
+</div>
+<div class="modal__body">
+    <div class="leScrollable">
+        <p class="leText--uppercase leText--bold leText--light leText--small">Reorder / Edit Widgets</p>
+        <div ng-repeat="data in [1,2,3,4,5]" ng-include="'/components/containerControls/listElement-widget.html'" ></div>
+    </div>
+</div>
+<div class="modal__footer">
+    <button class="btn" ng-click="cancel()">Cancel</button>
+    <button class="btn btn--primary" ng-click="save()">Save</button>
+</div>
