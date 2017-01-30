@@ -6,40 +6,26 @@ var path = require('path');
 var autoprefixer = require('autoprefixer');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
 var lodash = require('lodash');
 
-var ENV = process.env.npm_lifecycle_event;
-var isTest = ENV === 'test' || ENV === 'test-watch';
-var isProd = ENV === 'build';
-
-module.exports = function makeWebpackConfig(grunt) {
-    var config = {};
-
+module.exports = function (grunt) {
     var appConfigPath = path.join(process.cwd(), 'config.js');
     const baseConfig = lodash.defaultsDeep(require(appConfigPath)(grunt));
 
-    config.entry = isTest ? {} : {
+    var config = {};
+
+    config.entry = {
         app: './app/index.js'
     };
 
-    config.output = isTest ? {} : {
+    config.output = {
         path: __dirname + '/dist',
-
-        publicPath: isProd ? '/' : 'http://localhost:8080/',
-
-        filename: isProd ? '[name].[hash].js' : '[name].bundle.js',
-
-        chunkFilename: isProd ? '[name].[hash].js' : '[name].bundle.js'
+        publicPath: '/',
+        filename: '[name].[hash].js',
+        chunkFilename: '[name].[hash].js'
     };
 
-    if (isTest) {
-        config.devtool = 'inline-source-map';
-    } else if (isProd) {
-        config.devtool = 'source-map';
-    } else {
-        config.devtool = 'eval-source-map';
-    }
+    config.devtool = 'source-map';
 
     config.resolve = {
         root: [
@@ -49,7 +35,6 @@ module.exports = function makeWebpackConfig(grunt) {
         extensions: ['', '.js', '.html']
     },
 
-    // Initialize module
     config.module = {
         preLoaders: [],
         loaders: [
@@ -68,11 +53,11 @@ module.exports = function makeWebpackConfig(grunt) {
             },
             {
                 test: /\.(png|gif|jpeg|jpg|woff|woff2|eot|ttf|svg)(\?.*$|$)/,
-                loader: 'file'
+                loader: 'file?name=./assets/[hash].[ext]&publicPath=' + baseConfig.path + '/'
             },
             {
                 test: /\.html$/,
-                loader: 'raw'
+                loader: 'html'
             }
         ]
     };
@@ -95,26 +80,23 @@ module.exports = function makeWebpackConfig(grunt) {
         })
     ];
 
-    if (!isTest) {
-        config.plugins.push(
-            new HtmlWebpackPlugin({
-                template: 'app/index.html',
-                inject: 'body'
-            }),
-            new ExtractTextPlugin('[name].[hash].css', {disable: !isProd})
-            );
-    }
+    config.plugins.push(
+        new HtmlWebpackPlugin({
+            template: 'app/index.html',
+            inject: 'body'
+        }),
+        new ExtractTextPlugin('[name].[hash].css')
+    );
 
-    if (isProd) {
-        config.plugins.push(
-                new webpack.NoErrorsPlugin(),
-                new webpack.optimize.DedupePlugin(),
-                new webpack.optimize.UglifyJsPlugin(),
-                new CopyWebpackPlugin([{
-                        from: __dirname + '/app'
-                    }])
-                );
-    }
+    config.plugins.push(
+        new webpack.NoErrorsPlugin(),
+        new webpack.optimize.DedupePlugin(),
+        new webpack.optimize.UglifyJsPlugin({
+            sourceMap: true,
+            mangle: false,
+            compress: {warnings: false}
+        })
+    );
 
     config.devServer = {
         contentBase: './app',
