@@ -1,7 +1,7 @@
 toolbar.$inject = [];
 function toolbar() {
     return {
-        templateUrl: 'components/toolbar/toolbar.html',
+        templateUrl: 'app/components/toolbar/toolbar.html',
         link: function (scope, elem, attr, ctrl) {
             scope.toolbarActive = false;
             scope.toggleToolbar = function () {
@@ -13,4 +13,4 @@ function toolbar() {
 }
 
 angular.module('livesite-management.components.toolbar', [])
-.directive('toolbar', toolbar);
+        .directive('toolbar', toolbar);

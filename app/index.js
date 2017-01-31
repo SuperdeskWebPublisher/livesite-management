@@ -1,12 +1,12 @@
 /* global __BASE_CONFIG__ */
 
 import angular from 'angular';
-
 import 'vendor';
-
-import 'components';
 import 'core';
+import 'components';
 import 'style';
+
+import 'templates-cache.generated';
 
 angular.module('livesite-management', [
     'superdesk-ui',
