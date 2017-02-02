@@ -25,5 +25,13 @@ function containerControls(api) {
     };
 }
 
+containerControlsModal.$inject = [];
+function containerControlsModal() {
+    return {
+        templateUrl: 'app/components/containerControls/containerControlsModal.html'
+    };
+}
+
 angular.module('livesite-management.components.containerControls', [])
+        .directive('swpContainerControlsModal', containerControlsModal)
         .directive('swpContainer', containerControls);

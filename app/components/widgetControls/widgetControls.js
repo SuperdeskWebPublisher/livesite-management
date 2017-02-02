@@ -16,5 +16,13 @@ function widgetControls() {
     };
 }
 
+listElementWidget.$inject = [];
+function listElementWidget() {
+    return {
+        templateUrl: 'app/components/containerControls/listElement-widget.html'
+    };
+}
+
 angular.module('livesite-management.components.widgetControls', [])
-        .directive('swpWidget', widgetControls);
+        .directive('swpWidget', widgetControls)
+        .directive('swpListElementWidget', listElementWidget);

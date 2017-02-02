@@ -4,9 +4,4 @@
     <a class="leBlockControls__item" ng-click="toggleModal()">Container<i class="icon-pencil icon--white"></i></a>
 </div>
 
-
-<div sd-modal data-model="modalActive" class="modal--large">
-    <ng-include src="'/components/containerControls/containerControlsModal.html'"></ng-include>
-</div>
-
-<div class="modal__backdrop fade in" ng-if="modalActive"></div>
+<div swp-container-controls-modal></div>

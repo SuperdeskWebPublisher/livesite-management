@@ -53,7 +53,7 @@ module.exports = function (grunt) {
             },
             {
                 test: /\.(png|gif|jpeg|jpg|woff|woff2|eot|ttf|svg)(\?.*$|$)/,
-                loader: 'file?name=./assets/[hash].[ext]&publicPath=' + baseConfig.path + '/'
+                loader: 'file?name=[hash].[ext]'
             },
             {
                 test: /\.html$/,
