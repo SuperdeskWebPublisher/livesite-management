@@ -84,6 +84,25 @@ export function APIFactory($http, $q, config) {
 
         /**
          * @ngdoc method
+         * @name api#link
+         * @param {String} resource
+         * @param {String} id - id of item which is saved
+         * @param {Object} header - header which need to be sent
+         * @returns {Promise}
+         * @description Link an item
+         */
+        link(resource, id, header) {
+            return this.req({
+                url: this.resourceURL(resource, id),
+                method: 'LINK',
+                headers: {link: header, Authorization: 'dGVzdF90b2tlbjo='}
+            }).then((response) => {
+                return response;
+            });
+        }
+
+        /**
+         * @ngdoc method
          * @name api#remove
          * @param {String} resource
          * @param {String} id - id of item which is deleted

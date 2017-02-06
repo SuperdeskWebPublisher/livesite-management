@@ -34,33 +34,32 @@ module.exports = function (grunt) {
         ],
         extensions: ['', '.js', '.html']
     },
-
-    config.module = {
-        preLoaders: [],
-        loaders: [
-            {
-                test: /\.js$/,
-                loader: 'babel',
-                exclude: /node_modules/
-            },
-            {
-                test: /\.scss$/,
-                loader: 'style!css!sass'
-            },
-            {
-                test: /\.css/,
-                loader: 'style!css'
-            },
-            {
-                test: /\.(png|gif|jpeg|jpg|woff|woff2|eot|ttf|svg)(\?.*$|$)/,
-                loader: 'file?name=[hash].[ext]'
-            },
-            {
-                test: /\.html$/,
-                loader: 'html'
-            }
-        ]
-    };
+            config.module = {
+                preLoaders: [],
+                loaders: [
+                    {
+                        test: /\.js$/,
+                        loader: 'babel',
+                        exclude: /node_modules/
+                    },
+                    {
+                        test: /\.scss$/,
+                        loader: 'style!css!sass'
+                    },
+                    {
+                        test: /\.css/,
+                        loader: 'style!css'
+                    },
+                    {
+                        test: /\.(png|gif|jpeg|jpg|woff|woff2|eot|ttf|svg)(\?.*$|$)/,
+                        loader: 'file?name=[hash].[ext]&publicPath=' + baseConfig.path + '/'
+                    },
+                    {
+                        test: /\.html$/,
+                        loader: 'html'
+                    }
+                ]
+            };
 
     config.postcss = [
         autoprefixer({
@@ -81,26 +80,31 @@ module.exports = function (grunt) {
     ];
 
     config.plugins.push(
-        new HtmlWebpackPlugin({
-            template: 'app/index.html',
-            inject: 'body'
-        }),
-        new ExtractTextPlugin('[name].[hash].css')
-    );
+            new HtmlWebpackPlugin({
+                template: 'app/index.html',
+                inject: 'body'
+            }),
+            new ExtractTextPlugin('[name].[hash].css')
+            );
 
     config.plugins.push(
-        new webpack.NoErrorsPlugin(),
-        new webpack.optimize.DedupePlugin(),
-        new webpack.optimize.UglifyJsPlugin({
-            sourceMap: true,
-            mangle: false,
-            compress: {warnings: false}
-        })
-    );
+            new webpack.NoErrorsPlugin(),
+            new webpack.optimize.DedupePlugin(),
+            new webpack.optimize.UglifyJsPlugin({
+                sourceMap: true,
+                mangle: false,
+                compress: {warnings: false}
+            })
+            );
 
     config.devServer = {
         contentBase: './app',
-        stats: 'minimal'
+        stats: 'minimal',
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+            "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
+        }
     };
 
     return config;

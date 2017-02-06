@@ -1,15 +1,14 @@
 <div class="leListElement leListElement--shadow">
 
-    <div class="leListElement__content">
+    <div class="leListElement__content" ng-click="pickWidget(widget)">
         <div>
-            <span>Widget Name</span>
+            <span>{{ widget.name || widget.widget.name }}</span>
         </div>
         <div>
-            <span class="leText--light leText--smaller leText--uppercase">widget type</span>
-
+            <span class="leText--light leText--smaller leText--uppercase">{{ widget.type || widget.widget.type }}</span>
         </div>
     </div>
-    <div class="leListElement__right leListElement__right--hidden">
+    <div class="leListElement__right leListElement__right--hidden" ng-hide="addingWidgets">
         <button class="iconButton leListElement__icon">
             <i class="icon-pencil"></i>
         </button>
