@@ -26,7 +26,7 @@ function widgetControls(api) {
 listElementWidget.$inject = [];
 function listElementWidget() {
     return {
-        templateUrl: 'app/components/containerControls/listElement-widget.html'
+        templateUrl: 'app/components/widgetControls/listElement-widget.html'
     };
 }
 

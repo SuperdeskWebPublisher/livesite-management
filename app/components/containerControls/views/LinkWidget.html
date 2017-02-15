@@ -1,0 +1,19 @@
+<div class="modal__header">
+    <button class="modal__close pull-right" ng-click="toggleModal()"><i class="icon-close-small"></i></button>
+    <button class="modal__back pull-left" ng-click="setRoute('main')">
+        <i class="icon-chevron-left-thin"></i>
+    </button>
+
+    <h3 class="modal__heading">Add Widget</h3>
+</div>
+
+<div class="modal__body">
+    <div class="modal__body-content leMinHeight--60vh" >
+        <p class="leText--uppercase leText--bold leText--light leText--small">Pick Widget</p>
+        <div swp-list-element-widget ng-repeat="widget in widgets"></div>
+    </div>
+</div>
+<div class="modal__footer">
+    <button class="btn" ng-click="cancel()">Cancel</button>
+    <button class="btn btn--primary" ng-click="save()">Save</button>
+</div>
