@@ -1,0 +1,40 @@
+<div class="modal__header">
+    <button class="modal__close pull-right" ng-click="toggleModal()"><i class="icon-close-small"></i></button>
+    <h3 class="modal__heading">Edit Container</h3>
+</div>
+
+<div class="modal__body">
+    <div class="modal__body-header">
+        <div class="subnav">
+            <h3 class="subnav__page-title">
+                Manage Widgets
+            </h3>
+            <div class="dropdown dropdown--align-right" dropdown="">
+                <button class="dropdown__toggle navbtn dropdown-toggle" dropdown__toggle="" aria-haspopup="true" aria-expanded="false">
+                    <i class="icon-plus-large"></i>
+                </button>
+                <ul class="dropdown__menu">
+                    <li>
+                        <div class="dropdown__menu-label">Create Widget</div>
+                    </li>
+                    <li class="dropdown__menu-divider"></li>
+                    <li><button>Content List</button></li>
+                    <li><button ng-click="createWidget()">HTML block</button></li>
+                    <li><button>Something else</button></li>
+                    <li class="dropdown__menu-divider"></li>
+                    <li><button ng-click="addWidgets()">Add existing widget</button></li>
+
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="modal__body-content leMinHeight--60vh" >
+        <p class="leText--uppercase leText--bold leText--light leText--small">Reorder / Edit Widgets</p>
+        <div swp-list-element-widget ng-repeat="widget in widgets"></div>
+    </div>
+</div>
+<div class="modal__footer">
+    <button class="btn" ng-click="cancel()">Cancel</button>
+    <button class="btn btn--primary" ng-click="save()">Save</button>
+</div>

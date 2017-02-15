@@ -47,3 +47,9 @@
         color: $gray;
     }
 }
+
+.leMinHeight{
+    &--60vh{
+        min-height: 60vh;
+    }
+}

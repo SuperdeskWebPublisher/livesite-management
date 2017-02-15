@@ -7,6 +7,7 @@ function containerControls(api) {
         link: function (scope, elem, attr, ctrl) {
             scope.modalActive = false;
             scope.containerID = elem[0].id.replace(/^\D+/g, '');
+            scope.route = 'main';
 
             api.query('templates/widgets').then(function (availableWidgets) {
                 scope.availableWidgets = availableWidgets;
@@ -16,6 +17,10 @@ function containerControls(api) {
                 scope.container = container;
                 scope.containerWidgets = container.widgets;
             });
+
+            scope.setRoute = function(route){
+                scope.route = route;
+            };
 
             scope.toggleModal = function () {
                 scope.modalActive = !scope.modalActive;
@@ -29,8 +34,12 @@ function containerControls(api) {
             };
 
             scope.addWidgets = function () {
-                scope.addingWidgets = true;
+                scope.setRoute('linkWidget');
                 scope.widgets = scope.availableWidgets;
+            };
+
+            scope.createWidget = function () {
+                scope.setRoute('createWidget');
             };
 
             scope.pickWidget = function (widget) {
@@ -49,6 +58,7 @@ function containerControls(api) {
 
             scope.cancel = function () {
                 //  todo: clear form or whatever is there to clear
+                scope.setRoute('main');
                 scope.toggleModal();
             };
 
@@ -63,6 +73,30 @@ function containerControlsModal() {
     };
 }
 
+widgetsList.$inject = [];
+function widgetsList() {
+    return {
+        templateUrl: 'app/components/containerControls/views/widgetsList.html'
+    };
+}
+
+linkWidget.$inject = [];
+function linkWidget() {
+    return {
+        templateUrl: 'app/components/containerControls/views/linkWidget.html'
+    };
+}
+
+createWidget.$inject = [];
+function createWidget() {
+    return {
+        templateUrl: 'app/components/containerControls/views/createWidget.html'
+    };
+}
+
 angular.module('livesite-management.components.containerControls', [])
         .directive('swpContainerControlsModal', containerControlsModal)
-        .directive('swpContainer', containerControls);
+        .directive('swpContainer', containerControls)
+        .directive('swpContainerWidgetsList', widgetsList)
+        .directive('swpContainerLinkWidget', linkWidget)
+        .directive('swpContainerCreateWidget', createWidget);
