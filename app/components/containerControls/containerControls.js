@@ -26,11 +26,6 @@ function containerControls(api) {
                 scope.modalActive = !scope.modalActive;
                 scope.addingWidgets = false;
                 scope.widgets = scope.containerWidgets;
-                scope.containerID = elem[0].id.replace(/^\D+/g, '');
-                api.get('templates/containers', scope.containerID).then(function (container) {
-                    scope.container = container;
-                    scope.containerWidgets = container.widgets;
-                });
             };
 
             scope.addWidgets = function () {
@@ -43,12 +38,10 @@ function containerControls(api) {
             };
 
             scope.linkWidget = function (widget) {
-                if (!widget.widget) {
-                    var header = '</api/v1/templates/widgets/' + widget.id + '; rel="widget">';
-                    api.link('templates/containers', scope.container.id, header).then(function (response) {
-                        console.log('linking widget', response);
-                    });
-                }
+                var header = '</api/v1/templates/widgets/' + widget.id + '; rel="widget">';
+                api.link('templates/containers', scope.container.id, header).then(function (response) {
+                    console.log('linking widget', response);
+                });
             };
 
             scope.unlinkWidget = function (widget) {
