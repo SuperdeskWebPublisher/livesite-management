@@ -23,13 +23,8 @@ function widgetControls(api) {
     };
 }
 
-listElementWidget.$inject = [];
-function listElementWidget() {
-    return {
-        templateUrl: 'app/components/widgetControls/listElement-widget.html'
-    };
-}
+
 
 angular.module('livesite-management.components.widgetControls', [])
-        .directive('swpWidget', widgetControls)
-        .directive('swpListElementWidget', listElementWidget);
+        .directive('swpWidget', widgetControls);
+

@@ -42,13 +42,20 @@ function containerControls(api) {
                 scope.setRoute('createWidget');
             };
 
-            scope.pickWidget = function (widget) {
+            scope.linkWidget = function (widget) {
                 if (!widget.widget) {
                     var header = '</api/v1/templates/widgets/' + widget.id + '; rel="widget">';
                     api.link('templates/containers', scope.container.id, header).then(function (response) {
                         console.log('linking widget', response);
                     });
                 }
+            };
+
+            scope.unlinkWidget = function (widget) {
+                var header = '</api/v1/templates/widgets/' + widget.id + '; rel="widget">';
+                api.unlink('templates/containers', scope.container.id, header).then(function (response) {
+                    console.log('unlinking widget', response);
+                });
             };
 
             scope.save = function () {
@@ -94,9 +101,17 @@ function createWidget() {
     };
 }
 
+listElementWidget.$inject = [];
+function listElementWidget() {
+    return {
+        templateUrl: 'app/components/containerControls/listElement-widget.html'
+    };
+}
+
 angular.module('livesite-management.components.containerControls', [])
         .directive('swpContainerControlsModal', containerControlsModal)
         .directive('swpContainer', containerControls)
         .directive('swpContainerWidgetsList', widgetsList)
         .directive('swpContainerLinkWidget', linkWidget)
-        .directive('swpContainerCreateWidget', createWidget);
+        .directive('swpContainerCreateWidget', createWidget)
+        .directive('swpListElementWidget', listElementWidget);
