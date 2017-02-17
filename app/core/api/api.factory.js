@@ -5,30 +5,6 @@ export function APIFactory($http, $q, config) {
             this._base = config.base || '';
             this._protocol = config.protocol || 'http';
             this._domain = config.domain || '';
-            this.setTenant(config.tenant || 'default');
-        }
-
-        /**
-         * @ngdoc method
-         * @name api#setTenant
-         * @param {String} tenant
-         * @description Change the tenant we are using the api for
-         */
-        setTenant(tenant) {
-            this._tenant = tenant;
-            this._server = this.buildServerURL();
-        }
-
-        /**
-         * @ngdoc method
-         * @name api#buildServerURL
-         * @returns {String}
-         * @description Builds base server URL of the site.
-         */
-        buildServerURL() {
-            let subdomain = this._tenant === 'default' ? '' : `${this._tenant}.`;
-
-            return `${this._protocol}://${subdomain}${this._domain}`;
         }
 
         /**
@@ -95,17 +71,15 @@ export function APIFactory($http, $q, config) {
             return this.req({
                 url: this.resourceURL(resource, id),
                 method: 'LINK',
-                headers: {link: header, Authorization: 'dGVzdF90b2tlbjo='}
-            }).then((response) => {
-                return response;
-            });
+                headers: {link: header} //, Authorization: 'dGVzdF90b2tlbjo='
+            }).then((response) => response);
         }
 
         /**
          * @ngdoc method
          * @name api#unlink
          * @param {String} resource
-         * @param {String} id - id of item which is saved
+         * @param {String} id - id of item which is deleted
          * @param {Object} header - header which need to be sent
          * @returns {Promise}
          * @description Unlink an item
@@ -114,10 +88,8 @@ export function APIFactory($http, $q, config) {
             return this.req({
                 url: this.resourceURL(resource, id),
                 method: 'UNLINK',
-                headers: {link: header, Authorization: 'dGVzdF90b2tlbjo='}
-            }).then((response) => {
-                return response;
-            });
+                headers: {link: header} //, Authorization: 'dGVzdF90b2tlbjo='
+            }).then((response) => response);
         }
 
         /**
@@ -144,7 +116,7 @@ export function APIFactory($http, $q, config) {
          * @description Get resource url
          */
         resourceURL(resource, id = '') {
-            return `${this._server}/${this._base}/${resource}/${id}`;
+            return `${this._protocol}://${this._domain}/${this._base}/${resource}/${id}`;
         }
 
         /**

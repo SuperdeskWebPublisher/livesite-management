@@ -1,5 +1,4 @@
 <div class="leListElement leListElement--shadow">
-
     <div class="leListElement__content">
         <div>
             <span>{{ widget.name || widget.widget.name }}</span>
@@ -12,15 +11,11 @@
         <button class="iconButton leListElement__icon" ng-if="route=='main'">
             <i class="icon-pencil"></i>
         </button>
-
         <button class="iconButton leListElement__icon" ng-if="route=='main'" ng-click="unlinkWidget(widget)">
             <i class="icon-trash"></i>
         </button>
-
         <button class="iconButton leListElement__icon" ng-if="route=='linkWidget'" ng-click="linkWidget(widget)">
             <i class="icon-plus-large"></i>
         </button>
-
-
     </div>
 </div>
