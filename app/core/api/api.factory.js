@@ -103,6 +103,25 @@ export function APIFactory($http, $q, config) {
 
         /**
          * @ngdoc method
+         * @name api#unlink
+         * @param {String} resource
+         * @param {String} id - id of item which is saved
+         * @param {Object} header - header which need to be sent
+         * @returns {Promise}
+         * @description Unlink an item
+         */
+        unlink(resource, id, header) {
+            return this.req({
+                url: this.resourceURL(resource, id),
+                method: 'UNLINK',
+                headers: {link: header, Authorization: 'dGVzdF90b2tlbjo='}
+            }).then((response) => {
+                return response;
+            });
+        }
+
+        /**
+         * @ngdoc method
          * @name api#remove
          * @param {String} resource
          * @param {String} id - id of item which is deleted

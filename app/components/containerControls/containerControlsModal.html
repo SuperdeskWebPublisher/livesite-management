@@ -1,21 +1,8 @@
-<div sd-modal data-model="modalActive" class="modal--large">
-    <div class="modal__header">
-        <button class="modal__close pull-right" ng-click="toggleModal()"><i class="icon-close-small"></i></button>
-        <h3 class="modal__heading">Edit Container</h3>
-    </div>
-    <div class="leSubnav">
-        <h4 class="leSubnav__name">Manage Widgets</h4>
-        <div class="leSubnav__button" ng-click="addWidgets()">add</div>
-    </div>
-    <div class="modal__body">
-        <div class="leScrollable">
-            <p class="leText--uppercase leText--bold leText--light leText--small">{{addingWidgets ? 'Add New Widget' : 'Reorder / Edit Widgets'}}</p>
-            <div swp-list-element-widget ng-repeat="widget in widgets"></div>
-        </div>
-    </div>
-    <div class="modal__footer">
-        <button class="btn" ng-click="cancel()">Cancel</button>
-        <button class="btn btn--primary" ng-click="save()">Save</button>
+<div sd-modal data-model="modalActive" class="modal--large modal--tabs" >
+    <div ng-switch on="route">
+        <div ng-switch-when="linkWidget" swp-container-link-widget></div>
+        <div ng-switch-when="createWidget" swp-container-create-widget></div>
+        <div ng-switch-default swp-container-widgets-list></div>
     </div>
 </div>
 
