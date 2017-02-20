@@ -3,6 +3,6 @@ module.exports = function (grunt) {
         protocol: 'http',
         domain: 'daily.s-lab.sourcefabric.org',
         base: 'api/v1',
-        path: ''
+        path: 'http://daily.s-lab.sourcefabric.org/bundles/_themes/swp/daily-theme@89xffd/livesite'
     };
 };

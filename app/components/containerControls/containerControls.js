@@ -15,8 +15,15 @@ function containerControls(api) {
 
             api.get('templates/containers', scope.containerID).then(function (container) {
                 scope.container = container;
-                scope.containerWidgets = container.widgets;
+                scope.container.widgets = container.widgets;
             });
+
+            scope.updateContainerWidgets = function(){
+                api.get('templates/containers', scope.containerID).then(function (container) {
+                    scope.container.widgets = container.widgets;
+                });
+
+            };
 
             scope.setRoute = function(route){
                 scope.route = route;
@@ -24,16 +31,9 @@ function containerControls(api) {
 
             scope.toggleModal = function () {
                 scope.modalActive = !scope.modalActive;
-                scope.addingWidgets = false;
-                scope.widgets = scope.containerWidgets;
             };
 
-            scope.addWidgets = function () {
-                scope.setRoute('linkWidget');
-                scope.widgets = scope.availableWidgets;
-            };
-
-            scope.createWidget = function () {
+            scope.createWidget = function (type) {
                 scope.setRoute('createWidget');
             };
 
@@ -41,13 +41,15 @@ function containerControls(api) {
                 var header = '</api/v1/templates/widgets/' + widget.id + '; rel="widget">';
                 api.link('templates/containers', scope.container.id, header).then(function (response) {
                     console.log('linking widget', response);
+                    scope.updateContainerWidgets();
                 });
             };
 
             scope.unlinkWidget = function (widget) {
-                var header = '</api/v1/templates/widgets/' + widget.id + '; rel="widget">';
+                var header = '</api/v1/templates/widgets/' + widget.widget.id + '; rel="widget">';
                 api.unlink('templates/containers', scope.container.id, header).then(function (response) {
                     console.log('unlinking widget', response);
+                    scope.updateContainerWidgets();
                 });
             };
 

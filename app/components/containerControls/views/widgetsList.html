@@ -23,7 +23,7 @@
                     <li><button ng-click="createWidget('menu')">Menu</button></li>
                     <li><button ng-click="createWidget('adsense')">AdSense</button></li>
                     <li class="dropdown__menu-divider"></li>
-                    <li><button ng-click="addWidgets()">Add existing widget</button></li>
+                    <li><button ng-click="setRoute('linkWidget')">Add existing widget</button></li>
 
 
                 </ul>
@@ -32,7 +32,7 @@
     </div>
     <div class="modal__body-content leMinHeight--60vh" >
         <p class="leText--uppercase leText--bold leText--light leText--small">Reorder / Edit Widgets</p>
-        <div swp-list-element-widget ng-repeat="widget in widgets"></div>
+        <div swp-list-element-widget ng-repeat="widget in container.widgets"></div>
     </div>
 </div>
 <div class="modal__footer">
