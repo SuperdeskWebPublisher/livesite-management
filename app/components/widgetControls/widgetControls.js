@@ -10,7 +10,6 @@ function widgetControls(api) {
 
             api.get('templates/widgets', scope.widgetID).then(function (widget) {
                 scope.widget = widget;
-                console.log('getWidget', widget);
             });
 
             elem.on('mouseover', function () {
