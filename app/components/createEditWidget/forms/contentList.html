@@ -1,0 +1,22 @@
+<div class="form__row">
+    <div class="sd-line-input">
+        <label class="sd-line-input__label">Widget Name</label>
+        <input class="sd-line-input__input" type="text" ng-model="widget.name">
+    </div>
+
+    <div class="sd-line-input sd-line-input--is-select">
+        <label class="sd-line-input__label">Select List</label>
+        <select class="sd-line-input__select"
+            ng-model="widget.parameters.list_id"
+            ng-options="list as list.name for list in availableContentLists track by list.id"
+            >
+            <option style="display:none" value="">select a list</option>
+        </select>
+    </div>
+
+    <div class="sd-line-input">
+        <label class="sd-line-input__label">Template Name</label>
+        <input class="sd-line-input__input" type="text" ng-model="widget.parameters.template_name">
+        <span class="sd-line-input__hint">listTemplate.html.twig</span>
+    </div>
+</div>

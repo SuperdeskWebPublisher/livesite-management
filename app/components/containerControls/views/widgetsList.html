@@ -1,6 +1,6 @@
 <div class="modal__header">
     <button class="modal__close pull-right" ng-click="toggleModal()"><i class="icon-close-small"></i></button>
-    <h3 class="modal__heading">Edit Container</h3>
+    <h3 class="modal__heading">Edit Container - {{container.name}}</h3>
 </div>
 
 <div class="modal__body">
@@ -18,10 +18,10 @@
                         <div class="dropdown__menu-label">Create Widget</div>
                     </li>
                     <li class="dropdown__menu-divider"></li>
-                    <li><button ng-click="createWidget('contentList')">Content List</button></li>
-                    <li><button ng-click="createWidget('html')">HTML block</button></li>
-                    <li><button ng-click="createWidget('menu')">Menu</button></li>
-                    <li><button ng-click="createWidget('adsense')">AdSense</button></li>
+                    <li><button ng-click="createWidget({'type':'contentList', 'action':'create'})">Content List</button></li>
+                    <li><button ng-click="createWidget({'type':'html', 'action':'create'})">HTML block</button></li>
+                    <li><button ng-click="createWidget({'type':'menu', 'action':'create'})">Menu</button></li>
+                    <li><button ng-click="createWidget({'type':'adsense', 'action':'create'})">AdSense</button></li>
                     <li class="dropdown__menu-divider"></li>
                     <li><button ng-click="setRoute('linkWidget')">Add existing widget</button></li>
 

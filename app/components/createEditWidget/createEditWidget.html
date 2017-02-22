@@ -1,0 +1,24 @@
+<div class="modal__header">
+    <button class="modal__close pull-right" ng-click="toggleModal()"><i class="icon-close-small"></i></button>
+    <button class="modal__back pull-left" ng-click="cancel()">
+        <i class="icon-chevron-left-thin"></i>
+    </button>
+
+    <h3 class="modal__heading">{{action | capitalize}} {{readableType}} Widget</h3>
+</div>
+
+<div class="modal__body">
+    <div class="modal__body-content leMinHeight--60vh" >
+        <form novalidate ng-switch="type">
+            <div ng-switch-when="contentList" swp-create-edit-widget-content-list></div>
+            <div ng-switch-when="adsense" swp-create-edit-widget-adsense></div>
+            <div ng-switch-when="menu" swp-create-edit-widget-menu></div>
+            <div ng-switch-default swp-create-edit-widget-html></div>
+        </form>
+    </div>
+</div>
+<div class="modal__footer">
+    <button class="btn" ng-click="cancel()">Cancel</button>
+    <button class="btn btn--primary" ng-click="save()">Save</button>
+</div>
+

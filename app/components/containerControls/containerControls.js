@@ -3,45 +3,58 @@ function containerControls(api) {
     return {
         restrict: 'C',
         transclude: true,
+        scope: {},
         templateUrl: 'app/components/containerControls/containerControls.html',
         link: function (scope, elem, attr, ctrl) {
             scope.modalActive = false;
             scope.containerID = elem[0].id.replace(/^\D+/g, '');
             scope.route = 'main';
-
-            api.query('templates/widgets').then(function (availableWidgets) {
-                scope.availableWidgets = availableWidgets;
-            });
+            // used for creting/editing widget
+            scope.subroute = false;
 
             api.get('templates/containers', scope.containerID).then(function (container) {
                 scope.container = container;
                 scope.container.widgets = container.widgets;
             });
 
-            scope.updateContainerWidgets = function(){
+            scope.getAvailableWidgets = function(){
+                api.query('templates/widgets').then(function (availableWidgets) {
+                    scope.availableWidgets = availableWidgets;
+                });
+            };
+
+
+
+            scope.getContainerWidgets = function(){
                 api.get('templates/containers', scope.containerID).then(function (container) {
                     scope.container.widgets = container.widgets;
                 });
-
             };
 
-            scope.setRoute = function(route){
+            scope.setRoute = function(route, subroute){
+                if(route=='linkWidget')
+                    scope.getAvailableWidgets();
                 scope.route = route;
+                scope.subroute = false;
+                if(subroute)
+                    scope.subroute = subroute;
             };
 
             scope.toggleModal = function () {
+                scope.route = 'main';
+                scope.subroute = false;
                 scope.modalActive = !scope.modalActive;
             };
 
-            scope.createWidget = function (type) {
-                scope.setRoute('createWidget');
+            scope.createWidget = function (subroute) {
+                scope.setRoute('createWidget', subroute);
             };
 
             scope.linkWidget = function (widget) {
                 var header = '</api/v1/templates/widgets/' + widget.id + '; rel="widget">';
                 api.link('templates/containers', scope.container.id, header).then(function (response) {
                     console.log('linking widget', response);
-                    scope.updateContainerWidgets();
+                    scope.getContainerWidgets();
                 });
             };
 
@@ -49,7 +62,7 @@ function containerControls(api) {
                 var header = '</api/v1/templates/widgets/' + widget.widget.id + '; rel="widget">';
                 api.unlink('templates/containers', scope.container.id, header).then(function (response) {
                     console.log('unlinking widget', response);
-                    scope.updateContainerWidgets();
+                    scope.getContainerWidgets();
                 });
             };
 
@@ -89,12 +102,7 @@ function linkWidget() {
     };
 }
 
-createWidget.$inject = [];
-function createWidget() {
-    return {
-        templateUrl: 'app/components/containerControls/views/createWidget.html'
-    };
-}
+
 
 listElementWidget.$inject = [];
 function listElementWidget() {
@@ -108,5 +116,4 @@ angular.module('livesite-management.components.containerControls', [])
         .directive('swpContainer', containerControls)
         .directive('swpContainerWidgetsList', widgetsList)
         .directive('swpContainerLinkWidget', linkWidget)
-        .directive('swpContainerCreateWidget', createWidget)
         .directive('swpListElementWidget', listElementWidget);
