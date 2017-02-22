@@ -22,8 +22,5 @@ function widgetControls(api) {
     };
 }
 
-
-
 angular.module('livesite-management.components.widgetControls', [])
         .directive('swpWidget', widgetControls);
-
