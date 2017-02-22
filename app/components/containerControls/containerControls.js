@@ -12,18 +12,19 @@ function containerControls(api) {
             // used for creting/editing widget
             scope.subroute = false;
 
-            api.get('templates/containers', scope.containerID).then(function (container) {
-                scope.container = container;
-                scope.container.widgets = container.widgets;
-            });
+
+            scope.getContainer = function(containerId) {
+                api.get('templates/containers', containerId).then(function (container) {
+                    scope.container = container;
+                    scope.containerWidgets = container.widgets;
+                });
+            };
 
             scope.getAvailableWidgets = function(){
                 api.query('templates/widgets').then(function (availableWidgets) {
                     scope.availableWidgets = availableWidgets;
                 });
             };
-
-
 
             scope.getContainerWidgets = function(){
                 api.get('templates/containers', scope.containerID).then(function (container) {
@@ -52,18 +53,25 @@ function containerControls(api) {
 
             scope.linkWidget = function (widget) {
                 var header = '</api/v1/templates/widgets/' + widget.id + '; rel="widget">';
-                api.link('templates/containers', scope.container.id, header).then(function (response) {
-                    console.log('linking widget', response);
-                    scope.getContainerWidgets();
-                });
+                api.link('templates/containers', scope.container.id, header);
             };
 
             scope.unlinkWidget = function (widget) {
-                var header = '</api/v1/templates/widgets/' + widget.widget.id + '; rel="widget">';
-                api.unlink('templates/containers', scope.container.id, header).then(function (response) {
-                    console.log('unlinking widget', response);
-                    scope.getContainerWidgets();
-                });
+                var header = '</api/v1/templates/widgets/' + widget.id + '; rel="widget">';
+                api.unlink('templates/containers', scope.container.id, header);
+            };
+
+            scope.reorderWidget = function (widget, position) {
+                if (position > widget.position){
+                    position--;
+                }
+
+                if (widget.position != position) {
+                    var header = '</api/v1/templates/widgets/' + widget.id + '; rel="widget">,<' + position + '; rel="widget-position">';
+                    api.link('templates/containers', scope.container.id, header).then(function (response) {
+                        scope.getContainer(scope.container.id);
+                    });
+                }
             };
 
             scope.save = function () {
@@ -77,6 +85,7 @@ function containerControls(api) {
                 scope.toggleModal();
             };
 
+            scope.getContainer(scope.containerID);
         }
     };
 }

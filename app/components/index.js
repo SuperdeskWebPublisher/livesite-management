@@ -8,7 +8,6 @@ let components = angular.module('livesite-management.components', [
     'livesite-management.components.containerControls',
     'livesite-management.components.widgetControls',
     'livesite-management.components.createEditWidget'
-
 ]);
 
 export default components;
