@@ -20,3 +20,14 @@
     line-height: 48px;
     margin: -12px 20px -12px 0;
 }
+
+.dndDraggingSource {
+    display: none !important;
+}
+
+.dndPlaceholder {
+    background-color: #ddd;
+    display: block;
+    min-height: 42px;
+    margin-bottom: 6px;
+}

@@ -10,6 +10,7 @@ import 'templates-cache.generated';
 
 angular.module('livesite-management', [
     'superdesk-ui',
+    'dndLists',
     'livesite-management.core',
     'livesite-management.components'
 
