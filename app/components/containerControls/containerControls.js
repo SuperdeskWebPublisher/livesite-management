@@ -51,14 +51,14 @@ function containerControls(api) {
             scope.linkWidget = (widget) => {
                 var header = '</api/v1/templates/widgets/' + widget.id + '; rel="widget">';
                 api.link('templates/containers', scope.container.id, header).then(() => {
-                    scope.getContainer();
+                    scope.getContainer(scope.container.id);
                 });
             };
 
             scope.unlinkWidget = (widget) => {
                 var header = '</api/v1/templates/widgets/' + widget.id + '; rel="widget">';
                 api.unlink('templates/containers', scope.container.id, header).then(() => {
-                    scope.getContainer();
+                    scope.getContainer(scope.container.id);
                 });
             };
 
