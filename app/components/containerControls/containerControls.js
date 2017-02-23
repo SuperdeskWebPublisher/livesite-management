@@ -3,57 +3,70 @@ function containerControls(api) {
     return {
         restrict: 'C',
         transclude: true,
+        scope: {},
         templateUrl: 'app/components/containerControls/containerControls.html',
         link: function (scope, elem, attr, ctrl) {
             scope.modalActive = false;
             scope.containerID = elem[0].id.replace(/^\D+/g, '');
             scope.route = 'main';
-
-            api.query('templates/widgets').then(function (availableWidgets) {
-                scope.availableWidgets = availableWidgets;
-            });
+            // used for creting/editing widget
+            scope.subroute = false;
 
             scope.getContainer = function(containerId) {
                 api.get('templates/containers', containerId).then(function (container) {
                     scope.container = container;
-                    scope.containerWidgets = container.widgets;
+                    scope.container.widgets = container.widgets;
                 });
             };
 
-            scope.setRoute = function(route) {
+            scope.getAvailableWidgets = function() {
+                api.query('templates/widgets').then(function (availableWidgets) {
+                    scope.availableWidgets = availableWidgets;
+                });
+            };
+
+
+            scope.setRoute = function(route, subroute) {
+                if(route=='linkWidget'){
+                    scope.getAvailableWidgets();
+                }
                 scope.route = route;
+                scope.subroute = false;
+                if(subroute){
+                    scope.subroute = subroute;
+                }
             };
 
             scope.toggleModal = function () {
+                scope.route = 'main';
+                scope.subroute = false;
                 scope.modalActive = !scope.modalActive;
-                scope.addingWidgets = false;
-                scope.widgets = scope.containerWidgets;
             };
 
-            scope.addWidgets = function () {
-                scope.setRoute('linkWidget');
-                scope.widgets = scope.availableWidgets;
-            };
-
-            scope.createWidget = function () {
-                scope.setRoute('createWidget');
+            scope.createWidget = function (type) {
+                let subroute = {'action' : 'create', 'type' : type};
+                scope.setRoute('createWidget', subroute);
             };
 
             scope.linkWidget = function (widget) {
                 var header = '</api/v1/templates/widgets/' + widget.id + '; rel="widget">';
-                api.link('templates/containers', scope.container.id, header);
+                api.link('templates/containers', scope.container.id, header).then(function(){
+                    scope.getContainer();
+                });
             };
 
             scope.unlinkWidget = function (widget) {
                 var header = '</api/v1/templates/widgets/' + widget.id + '; rel="widget">';
-                api.unlink('templates/containers', scope.container.id, header);
+                api.unlink('templates/containers', scope.container.id, header).then(function(){
+                    scope.getContainer();
+                });
             };
 
             scope.reorderWidget = function (widget, position) {
                 if (position > widget.position){
                     position--;
                 }
-                
+
                 if (widget.position != position) {
                     var header = '</api/v1/templates/widgets/' + widget.id + '; rel="widget">,<' + position + '; rel="widget-position">';
                     api.link('templates/containers', scope.container.id, header).then(function (response) {
@@ -99,12 +112,7 @@ function linkWidget() {
     };
 }
 
-createWidget.$inject = [];
-function createWidget() {
-    return {
-        templateUrl: 'app/components/containerControls/views/createWidget.html'
-    };
-}
+
 
 listElementWidget.$inject = [];
 function listElementWidget() {
@@ -118,5 +126,4 @@ angular.module('livesite-management.components.containerControls', [])
         .directive('swpContainer', containerControls)
         .directive('swpContainerWidgetsList', widgetsList)
         .directive('swpContainerLinkWidget', linkWidget)
-        .directive('swpContainerCreateWidget', createWidget)
         .directive('swpListElementWidget', listElementWidget);

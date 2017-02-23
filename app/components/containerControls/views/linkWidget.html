@@ -10,10 +10,7 @@
 <div class="modal__body">
     <div class="modal__body-content leMinHeight--60vh" >
         <p class="leText--uppercase leText--bold leText--light leText--small">Pick Widget</p>
-        <div swp-list-element-widget ng-repeat="widget in widgets"></div>
+        <div swp-list-element-widget ng-repeat="widget in availableWidgets"></div>
     </div>
 </div>
-<div class="modal__footer">
-    <button class="btn" ng-click="cancel()">Cancel</button>
-    <button class="btn btn--primary" ng-click="save()">Save</button>
-</div>
+

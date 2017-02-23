@@ -1,6 +1,6 @@
 <div class="modal__header">
     <button class="modal__close pull-right" ng-click="toggleModal()"><i class="icon-close-small"></i></button>
-    <h3 class="modal__heading">Edit Container</h3>
+    <h3 class="modal__heading">Edit Container - {{container.name}}</h3>
 </div>
 
 <div class="modal__body">
@@ -23,14 +23,14 @@
                     <li><button ng-click="createWidget('menu')">Menu</button></li>
                     <li><button ng-click="createWidget('adsense')">AdSense</button></li>
                     <li class="dropdown__menu-divider"></li>
-                    <li><button ng-click="addWidgets()">Add existing widget</button></li>
+                    <li><button ng-click="setRoute('linkWidget')">Add existing widget</button></li>
                 </ul>
             </div>
         </div>
     </div>
     <div class="modal__body-content leMinHeight--60vh" >
         <p class="leText--uppercase leText--bold leText--light leText--small">Reorder / Edit Widgets</p>
-        <div swp-list-element-widget dnd-list="widgets" dnd-drop="reorderWidget(item, index)"></div>
+        <div swp-list-element-widget dnd-list="container.widgets" dnd-drop="reorderWidget(item, index)"></div>
     </div>
 </div>
 
