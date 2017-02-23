@@ -28,11 +28,13 @@
             </div>
         </div>
     </div>
-    <div class="modal__body-content leMinHeight--60vh" dnd-list="container.widgets" dnd-drop="reorderWidget(item, index)">
+    <div class="modal__body-content leMinHeight--60vh">
         <p class="leText--uppercase leText--bold leText--light leText--small">Reorder / Edit Widgets</p>
-        <div ng-include="'app/components/containerControls/listElement-widget.html'"
-            ng-repeat="widget in container.widgets | orderBy: 'position'"
-            dnd-draggable="widget">
+        <div dnd-list="container.widgets" dnd-drop="reorderWidget(item, index)">
+            <div ng-include="'app/components/containerControls/listElement-widget.html'"
+                ng-repeat="widget in container.widgets | orderBy: 'position'"
+                dnd-draggable="widget">
+            </div>
         </div>
     </div>
 </div>
