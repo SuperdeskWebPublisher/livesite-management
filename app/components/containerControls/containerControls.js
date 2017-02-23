@@ -15,7 +15,6 @@ function containerControls(api) {
             scope.getContainer = (containerId) => {
                 api.get('templates/containers', containerId).then((container) => {
                     scope.container = container;
-                    scope.container.widgets = container.widgets;
                 });
             };
 
@@ -51,14 +50,14 @@ function containerControls(api) {
             scope.linkWidget = (widget) => {
                 var header = '</api/v1/templates/widgets/' + widget.id + '; rel="widget">';
                 api.link('templates/containers', scope.container.id, header).then(() => {
-                    scope.getContainer();
+                    scope.getContainer(scope.container.id);
                 });
             };
 
             scope.unlinkWidget = (widget) => {
                 var header = '</api/v1/templates/widgets/' + widget.id + '; rel="widget">';
                 api.unlink('templates/containers', scope.container.id, header).then(() => {
-                    scope.getContainer();
+                    scope.getContainer(scope.container.id);
                 });
             };
 
@@ -68,7 +67,7 @@ function containerControls(api) {
                 }
 
                 if (widget.position != position) {
-                    var header = '</api/v1/templates/widgets/' + widget.id + '; rel="widget">,<' + position + '; rel="widget-position">';
+                    var header = '</api/v1/templates/widgets/' + widget.widget.id + '; rel="widget">,<' + position + '; rel="widget-position">';
                     api.link('templates/containers', scope.container.id, header).then((response) => {
                         scope.getContainer(scope.container.id);
                     });
