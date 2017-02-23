@@ -59,3 +59,9 @@
         min-height: 60vh;
     }
 }
+
+.modal__wrapper {
+   display: flex;
+   flex-direction: column;
+   overflow-y: auto;
+}
