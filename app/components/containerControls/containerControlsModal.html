@@ -1,9 +1,7 @@
 <div sd-modal data-model="modalActive" class="modal--large modal--tabs" >
-    <div ng-switch="route">
-        <div ng-switch-when="linkWidget" swp-container-link-widget></div>
-        <div ng-switch-when="createWidget" swp-create-edit-widget></div>
-        <div ng-switch-default swp-container-widgets-list></div>
-    </div>
+    <div ng-if="route == 'linkWidget'" ng-include="'app/components/containerControls/views/linkWidget.html'"></div>
+    <div ng-if="route == 'createWidget'" swp-create-edit-widget></div>
+    <div ng-if="route == 'main'" ng-include="'app/components/containerControls/views/widgetsList.html'"></div>
 </div>
 
 <div class="modal__backdrop fade in" ng-if="modalActive"></div>
