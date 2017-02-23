@@ -14,24 +14,24 @@ function createEditWidget(api) {
             scope.availableMenus = [];
             scope.availableContentLists = [];
 
-            scope.getMenus = function(){
+            scope.getMenus = function() {
                 api.get('menus').then(function (response) {
                     scope.availableMenus = response._embedded._items;
                 });
             };
 
-            scope.getContentLists = function(){
+            scope.getContentLists = function() {
                 api.get('content/lists').then(function (response) {
                     scope.availableContentLists = response._embedded._items;
                 });
             };
 
-            scope.setRoute = function(route){
+            scope.setRoute = function(route) {
                 scope.widget = {};
                 scope.$parent.setRoute(route);
             };
 
-            scope.toggleModal = function(){
+            scope.toggleModal = function() {
                 scope.widget = {};
                 scope.$parent.toggleModal();
             };

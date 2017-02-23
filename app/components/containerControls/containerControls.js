@@ -12,33 +12,29 @@ function containerControls(api) {
             // used for creting/editing widget
             scope.subroute = false;
 
-
             scope.getContainer = function(containerId) {
                 api.get('templates/containers', containerId).then(function (container) {
                     scope.container = container;
-                    scope.containerWidgets = container.widgets;
+                    scope.container.widgets = container.widgets;
                 });
             };
 
-            scope.getAvailableWidgets = function(){
+            scope.getAvailableWidgets = function() {
                 api.query('templates/widgets').then(function (availableWidgets) {
                     scope.availableWidgets = availableWidgets;
                 });
             };
 
-            scope.getContainerWidgets = function(){
-                api.get('templates/containers', scope.containerID).then(function (container) {
-                    scope.container.widgets = container.widgets;
-                });
-            };
 
-            scope.setRoute = function(route, subroute){
-                if(route=='linkWidget')
+            scope.setRoute = function(route, subroute) {
+                if(route=='linkWidget'){
                     scope.getAvailableWidgets();
+                }
                 scope.route = route;
                 scope.subroute = false;
-                if(subroute)
+                if(subroute){
                     scope.subroute = subroute;
+                }
             };
 
             scope.toggleModal = function () {
@@ -47,18 +43,23 @@ function containerControls(api) {
                 scope.modalActive = !scope.modalActive;
             };
 
-            scope.createWidget = function (subroute) {
+            scope.createWidget = function (type) {
+                let subroute = {'action' : 'create', 'type' : type};
                 scope.setRoute('createWidget', subroute);
             };
 
             scope.linkWidget = function (widget) {
                 var header = '</api/v1/templates/widgets/' + widget.id + '; rel="widget">';
-                api.link('templates/containers', scope.container.id, header);
+                api.link('templates/containers', scope.container.id, header).then(function(){
+                    scope.getContainer();
+                });
             };
 
             scope.unlinkWidget = function (widget) {
                 var header = '</api/v1/templates/widgets/' + widget.id + '; rel="widget">';
-                api.unlink('templates/containers', scope.container.id, header);
+                api.unlink('templates/containers', scope.container.id, header).then(function(){
+                    scope.getContainer();
+                });
             };
 
             scope.reorderWidget = function (widget, position) {
