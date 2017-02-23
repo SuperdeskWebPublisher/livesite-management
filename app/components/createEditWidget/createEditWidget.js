@@ -63,40 +63,12 @@ function createEditWidget(api) {
                   scope.widget.type = 4;
                   scope.getContentLists();
                   break;
-               default:
+               case "html":
                   scope.readableType = "HTML Block";
                   scope.widget.type = 1;
+                  break;
             }
         }
-    };
-}
-
-createEditWidgetContentList.$inject = [];
-function createEditWidgetContentList() {
-    return {
-        templateUrl: 'app/components/createEditWidget/forms/contentList.html'
-    };
-}
-
-createEditWidgetHtml.$inject = [];
-function createEditWidgetHtml() {
-    return {
-        templateUrl: 'app/components/createEditWidget/forms/htmlBlock.html'
-    };
-}
-
-createEditWidgetAdsense.$inject = [];
-function createEditWidgetAdsense() {
-    //sense not adsense bcs AdBlock or Disconnect blocks request to file named like that :)
-    return {
-        templateUrl: 'app/components/createEditWidget/forms/sense.html'
-    };
-}
-
-createEditWidgetMenu.$inject = [];
-function createEditWidgetMenu() {
-    return {
-        templateUrl: 'app/components/createEditWidget/forms/menu.html'
     };
 }
 
@@ -108,8 +80,4 @@ function capitalize() {
 
 angular.module('livesite-management.components.createEditWidget', [])
 .directive('swpCreateEditWidget', createEditWidget)
-.directive('swpCreateEditWidgetContentList', createEditWidgetContentList)
-.directive('swpCreateEditWidgetHtml', createEditWidgetHtml)
-.directive('swpCreateEditWidgetAdsense', createEditWidgetAdsense)
-.directive('swpCreateEditWidgetMenu', createEditWidgetMenu)
 .filter('capitalize', capitalize);
