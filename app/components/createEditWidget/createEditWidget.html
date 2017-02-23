@@ -9,11 +9,11 @@
 
 <div class="modal__body">
     <div class="modal__body-content leMinHeight--60vh" >
-        <form novalidate ng-switch="type">
-            <div ng-switch-when="contentList" swp-create-edit-widget-content-list></div>
-            <div ng-switch-when="adsense" swp-create-edit-widget-adsense></div>
-            <div ng-switch-when="menu" swp-create-edit-widget-menu></div>
-            <div ng-switch-default swp-create-edit-widget-html></div>
+        <form novalidate>
+            <div ng-if="type == 'contentList'" ng-include="'app/components/createEditWidget/forms/contentList.html'"></div>
+            <div ng-if="type == 'adsense'" ng-include="'app/components/createEditWidget/forms/sense.html'"></div>
+            <div ng-if="type == 'menu'" ng-include="'app/components/createEditWidget/forms/menu.html'"></div>
+            <div ng-if="type == 'html'" ng-include="'app/components/createEditWidget/forms/htmlBlock.html'"></div>
         </form>
     </div>
 </div>
