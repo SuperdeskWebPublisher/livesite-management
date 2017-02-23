@@ -4,7 +4,7 @@ function createEditWidget(api) {
         restrict: 'AE',
         scope: {},
         templateUrl: 'app/components/createEditWidget/createEditWidget.html',
-        link: function (scope, elem, attr, ctrl) {
+        link: function(scope, elem, attr, ctrl) {
 
             scope.type = scope.$parent.subroute.type;
             scope.action = scope.$parent.subroute.action;
@@ -14,36 +14,36 @@ function createEditWidget(api) {
             scope.availableMenus = [];
             scope.availableContentLists = [];
 
-            scope.getMenus = function() {
-                api.get('menus').then(function (response) {
+            scope.getMenus = () => {
+                api.get('menus').then((response) => {
                     scope.availableMenus = response._embedded._items;
                 });
             };
 
-            scope.getContentLists = function() {
-                api.get('content/lists').then(function (response) {
+            scope.getContentLists = () => {
+                api.get('content/lists').then((response) => {
                     scope.availableContentLists = response._embedded._items;
                 });
             };
 
-            scope.setRoute = function(route) {
+            scope.setRoute = (route) => {
                 scope.widget = {};
                 scope.$parent.setRoute(route);
             };
 
-            scope.toggleModal = function() {
+            scope.toggleModal = () => {
                 scope.widget = {};
                 scope.$parent.toggleModal();
             };
 
-            scope.save = function () {
-                api.save('templates/widgets',{widget: scope.widget}).then(function (response) {
+            scope.save = () => {
+                api.save('templates/widgets', {widget: scope.widget}).then(function(response) {
                     scope.widget = {};
                     scope.$parent.setRoute('linkWidget');
                 });
             };
 
-            scope.cancel = function () {
+            scope.cancel = () => {
                 scope.widget = {};
                 scope.$parent.setRoute('main');
             };
@@ -70,7 +70,6 @@ function createEditWidget(api) {
         }
     };
 }
-
 
 createEditWidgetContentList.$inject = [];
 function createEditWidgetContentList() {
@@ -106,8 +105,6 @@ function capitalize() {
       return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
     };
 }
-
-
 
 angular.module('livesite-management.components.createEditWidget', [])
 .directive('swpCreateEditWidget', createEditWidget)

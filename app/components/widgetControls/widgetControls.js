@@ -8,14 +8,15 @@ function widgetControls(api) {
             var controls = elem.find('.leBlockControls');
             scope.widgetID = elem[0].id.replace(/^\D+/g, '');
 
-            api.get('templates/widgets', scope.widgetID).then(function (widget) {
+            api.get('templates/widgets', scope.widgetID).then((widget) => {
                 scope.widget = widget;
             });
 
-            elem.on('mouseover', function () {
+            elem.on('mouseover', function() {
                 controls.show();
             });
-            elem.on('mouseleave', function () {
+
+            elem.on('mouseleave', function() {
                 controls.hide();
             });
         }

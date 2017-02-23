@@ -12,75 +12,75 @@ function containerControls(api) {
             // used for creting/editing widget
             scope.subroute = false;
 
-            scope.getContainer = function(containerId) {
-                api.get('templates/containers', containerId).then(function (container) {
+            scope.getContainer = (containerId) => {
+                api.get('templates/containers', containerId).then((container) => {
                     scope.container = container;
                     scope.container.widgets = container.widgets;
                 });
             };
 
-            scope.getAvailableWidgets = function() {
-                api.query('templates/widgets').then(function (availableWidgets) {
+            scope.getAvailableWidgets = () => {
+                api.query('templates/widgets').then((availableWidgets) => {
                     scope.availableWidgets = availableWidgets;
                 });
             };
 
-
-            scope.setRoute = function(route, subroute) {
-                if(route=='linkWidget'){
+            scope.setRoute = (route, subroute) => {
+                if (route == 'linkWidget') {
                     scope.getAvailableWidgets();
                 }
+
                 scope.route = route;
                 scope.subroute = false;
-                if(subroute){
+                if (subroute) {
                     scope.subroute = subroute;
                 }
             };
 
-            scope.toggleModal = function () {
+            scope.toggleModal = () => {
                 scope.route = 'main';
                 scope.subroute = false;
                 scope.modalActive = !scope.modalActive;
             };
 
-            scope.createWidget = function (type) {
+            scope.createWidget = (type) => {
                 let subroute = {'action' : 'create', 'type' : type};
                 scope.setRoute('createWidget', subroute);
             };
 
-            scope.linkWidget = function (widget) {
+            scope.linkWidget = (widget) => {
                 var header = '</api/v1/templates/widgets/' + widget.id + '; rel="widget">';
-                api.link('templates/containers', scope.container.id, header).then(function(){
+                api.link('templates/containers', scope.container.id, header).then(() => {
                     scope.getContainer();
                 });
             };
 
-            scope.unlinkWidget = function (widget) {
+            scope.unlinkWidget = (widget) => {
                 var header = '</api/v1/templates/widgets/' + widget.id + '; rel="widget">';
-                api.unlink('templates/containers', scope.container.id, header).then(function(){
+                api.unlink('templates/containers', scope.container.id, header).then(() => {
                     scope.getContainer();
                 });
             };
 
-            scope.reorderWidget = function (widget, position) {
-                if (position > widget.position){
+            scope.reorderWidget = (widget, position) => {
+                if (position > widget.position) {
                     position--;
                 }
 
                 if (widget.position != position) {
                     var header = '</api/v1/templates/widgets/' + widget.id + '; rel="widget">,<' + position + '; rel="widget-position">';
-                    api.link('templates/containers', scope.container.id, header).then(function (response) {
+                    api.link('templates/containers', scope.container.id, header).then((response) => {
                         scope.getContainer(scope.container.id);
                     });
                 }
             };
 
-            scope.save = function () {
+            scope.save = () => {
                 // todo: save data
                 scope.toggleModal();
             };
 
-            scope.cancel = function () {
+            scope.cancel = () => {
                 //  todo: clear form or whatever is there to clear
                 scope.setRoute('main');
                 scope.toggleModal();
@@ -91,39 +91,5 @@ function containerControls(api) {
     };
 }
 
-containerControlsModal.$inject = [];
-function containerControlsModal() {
-    return {
-        templateUrl: 'app/components/containerControls/containerControlsModal.html'
-    };
-}
-
-widgetsList.$inject = [];
-function widgetsList() {
-    return {
-        templateUrl: 'app/components/containerControls/views/widgetsList.html'
-    };
-}
-
-linkWidget.$inject = [];
-function linkWidget() {
-    return {
-        templateUrl: 'app/components/containerControls/views/linkWidget.html'
-    };
-}
-
-
-
-listElementWidget.$inject = [];
-function listElementWidget() {
-    return {
-        templateUrl: 'app/components/containerControls/listElement-widget.html'
-    };
-}
-
 angular.module('livesite-management.components.containerControls', [])
-        .directive('swpContainerControlsModal', containerControlsModal)
-        .directive('swpContainer', containerControls)
-        .directive('swpContainerWidgetsList', widgetsList)
-        .directive('swpContainerLinkWidget', linkWidget)
-        .directive('swpListElementWidget', listElementWidget);
+        .directive('swpContainer', containerControls);
