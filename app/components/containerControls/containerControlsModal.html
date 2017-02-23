@@ -1,7 +1,7 @@
 <div sd-modal data-model="modalActive" class="modal--large modal--tabs" >
-    <div ng-if="route == 'linkWidget'" ng-include="'app/components/containerControls/views/linkWidget.html'"></div>
-    <div ng-if="route == 'createWidget'" swp-create-edit-widget></div>
-    <div ng-if="route == 'main'" ng-include="'app/components/containerControls/views/widgetsList.html'"></div>
+    <div ng-if="route == 'linkWidget'" ng-include="'app/components/containerControls/views/linkWidget.html'" class="modal__wrapper"></div>
+    <div ng-if="route == 'createWidget'" swp-create-edit-widget class="modal__wrapper"></div>
+    <div ng-if="route == 'main'" ng-include="'app/components/containerControls/views/widgetsList.html'" class="modal__wrapper"></div>
 </div>
 
 <div class="modal__backdrop fade in" ng-if="modalActive"></div>
