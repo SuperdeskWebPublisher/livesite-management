@@ -8,7 +8,7 @@
         <label class="sd-line-input__label">Select Menu</label>
         <select class="sd-line-input__select"
             ng-model="widget.parameters.menu_name"
-            ng-options="menu as menu.name for menu in availableMenus track by menu.name"
+            ng-options="menu.name as menu.name for menu in availableMenus"
             >
             <option style="display:none" value="">select menu</option>
         </select>

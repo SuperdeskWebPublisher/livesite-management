@@ -44,7 +44,12 @@ function containerControls(api) {
 
             scope.createWidget = (type) => {
                 let subroute = {'action' : 'create', 'type' : type};
-                scope.setRoute('createWidget', subroute);
+                scope.setRoute('createEditWidget', subroute);
+            };
+
+            scope.editWidget = (widget) => {
+                let subroute = {'action' : 'edit', 'type' : widget.type, 'widget' : widget};
+                scope.setRoute('createEditWidget', subroute);
             };
 
             scope.linkWidget = (widget) => {
@@ -75,12 +80,11 @@ function containerControls(api) {
             };
 
             scope.save = () => {
-                // todo: save data
+                // todo: reload page or container content
                 scope.toggleModal();
             };
 
             scope.cancel = () => {
-                //  todo: clear form or whatever is there to clear
                 scope.setRoute('main');
                 scope.toggleModal();
             };

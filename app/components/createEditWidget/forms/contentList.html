@@ -8,7 +8,7 @@
         <label class="sd-line-input__label">Select List</label>
         <select class="sd-line-input__select"
             ng-model="widget.parameters.list_id"
-            ng-options="list as list.name for list in availableContentLists track by list.id"
+            ng-options="list.id as list.name for list in availableContentLists"
             >
             <option style="display:none" value="">select a list</option>
         </select>
