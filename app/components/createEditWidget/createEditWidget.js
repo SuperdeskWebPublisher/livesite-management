@@ -9,7 +9,7 @@ function createEditWidget(api) {
             scope.action = scope.$parent.subroute.action;
             scope.type = scope.$parent.subroute.type.toLowerCase();
 
-            if(scope.$parent.subroute.hasOwnProperty('widget')){
+            if (scope.$parent.subroute.hasOwnProperty('widget')) {
                 // had to create new object bcs api rejects extra fields
                 scope.widget = {
                     'id' : angular.copy(scope.$parent.subroute.widget.id),
@@ -18,8 +18,7 @@ function createEditWidget(api) {
                     'visible' : 1,
                     'parameters' : angular.copy(scope.$parent.subroute.widget.parameters)
                 };
-
-            }else{
+            } else {
                 scope.widget = {
                     'name' : '',
                     'visible' : 1,
@@ -57,44 +56,39 @@ function createEditWidget(api) {
                 let id = scope.widget.id ? scope.widget.id : '';
                 // api throws error when extra params are included. Temp hack
                 delete scope.widget.id;
-                api.save('templates/widgets', {widget: scope.widget}, id).then(function(response) {
-                    scope.widget = {};
-                    if(id){
-                        scope.$parent.setRoute('main');
-                    }else{
-                        scope.$parent.setRoute('linkWidget');
+                api.save('templates/widgets', {widget: scope.widget}, id).then((response) => {
+                    if (id) {
+                        scope.setRoute('main');
+                    } else {
+                        scope.setRoute('linkWidget');
                     }
                 });
             };
 
             scope.cancel = () => {
-                scope.widget = {};
-                scope.$parent.setRoute('main');
+                scope.setRoute('main');
             };
 
-
-
             // temp hack until they standardize type in api widget object
-            if(/menu/.test(scope.type)){
+            if (/menu/.test(scope.type)) {
                 scope.type = "menu";
                 scope.readableType = "Menu";
                 scope.widget.type = 3;
                 scope.getMenus();
-            }else if(/html/.test(scope.type)){
+            } else if (/html/.test(scope.type)) {
                 scope.type = "html";
                 scope.readableType = "HTML Block";
                 scope.widget.type = 1;
-            }else if(/adsense/.test(scope.type)){
+            } else if (/adsense/.test(scope.type)) {
                 scope.type = "adsense";
                 scope.readableType = "AdSense";
                 scope.widget.type = 2;
-            }else if(/contentlist/.test(scope.type)){
+            } else if (/contentlist/.test(scope.type)) {
                 scope.type = "contentList";
                 scope.readableType = "Content List";
                 scope.widget.type = 4;
                 scope.getContentLists();
             }
-
         }
     };
 }

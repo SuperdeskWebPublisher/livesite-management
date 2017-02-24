@@ -16,8 +16,6 @@ function widgetControls(api) {
                 scope.$parent.toggleModal();
                 scope.$parent.editWidget(widget);
             };
-
-
         }
     };
 }
