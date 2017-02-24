@@ -6,10 +6,27 @@ function createEditWidget(api) {
         templateUrl: 'app/components/createEditWidget/createEditWidget.html',
         link: function(scope, elem, attr, ctrl) {
 
-            scope.type = scope.$parent.subroute.type;
             scope.action = scope.$parent.subroute.action;
-            scope.widget = {};
-            scope.widget.visible = 1;
+            scope.type = scope.$parent.subroute.type.toLowerCase();
+
+            if(scope.$parent.subroute.hasOwnProperty('widget')){
+                // had to create new object bcs api rejects extra fields
+                scope.widget = {
+                    'id' : angular.copy(scope.$parent.subroute.widget.id),
+                    'name' : angular.copy(scope.$parent.subroute.widget.name),
+                    'type' : angular.copy(scope.$parent.subroute.widget.type),
+                    'visible' : 1,
+                    'parameters' : angular.copy(scope.$parent.subroute.widget.parameters)
+                };
+
+            }else{
+                scope.widget = {
+                    'name' : '',
+                    'visible' : 1,
+                    'type' : scope.type,
+                    'parameters' : {}
+                };
+            }
 
             scope.availableMenus = [];
             scope.availableContentLists = [];
@@ -37,9 +54,16 @@ function createEditWidget(api) {
             };
 
             scope.save = () => {
-                api.save('templates/widgets', {widget: scope.widget}).then(function(response) {
+                let id = scope.widget.id ? scope.widget.id : '';
+                // api throws error when extra params are included. Temp hack
+                delete scope.widget.id;
+                api.save('templates/widgets', {widget: scope.widget}, id).then(function(response) {
                     scope.widget = {};
-                    scope.$parent.setRoute('linkWidget');
+                    if(id){
+                        scope.$parent.setRoute('main');
+                    }else{
+                        scope.$parent.setRoute('linkWidget');
+                    }
                 });
             };
 
@@ -48,26 +72,29 @@ function createEditWidget(api) {
                 scope.$parent.setRoute('main');
             };
 
-            switch (scope.type) {
-               case "menu":
-                  scope.readableType = "Menu";
-                  scope.widget.type = 3;
-                  scope.getMenus();
-                  break;
-               case "adsense":
-                  scope.readableType = "AdSense";
-                  scope.widget.type = 2;
-                  break;
-               case "contentList":
-                  scope.readableType = "Content List";
-                  scope.widget.type = 4;
-                  scope.getContentLists();
-                  break;
-               case "html":
-                  scope.readableType = "HTML Block";
-                  scope.widget.type = 1;
-                  break;
+
+
+            // temp hack until they standardize type in api widget object
+            if(/menu/.test(scope.type)){
+                scope.type = "menu";
+                scope.readableType = "Menu";
+                scope.widget.type = 3;
+                scope.getMenus();
+            }else if(/html/.test(scope.type)){
+                scope.type = "html";
+                scope.readableType = "HTML Block";
+                scope.widget.type = 1;
+            }else if(/adsense/.test(scope.type)){
+                scope.type = "adsense";
+                scope.readableType = "AdSense";
+                scope.widget.type = 2;
+            }else if(/contentlist/.test(scope.type)){
+                scope.type = "contentList";
+                scope.readableType = "Content List";
+                scope.widget.type = 4;
+                scope.getContentLists();
             }
+
         }
     };
 }

@@ -1,7 +1,15 @@
+.swp_widget .leBlockControls{
+  display: none;
+}
+
 .leActive{
     .swp_widget:hover{
         outline: 1px dashed $colorWidget;
         outline-offset: 5px;
         position: relative;
+
+        .leBlockControls{
+          display: block;
+        }
     }
 }

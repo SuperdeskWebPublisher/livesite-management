@@ -8,7 +8,7 @@
         </div>
     </div>
     <div class="leListElement__right leListElement__right--hidden" >
-        <button class="iconButton leListElement__icon" ng-if="route=='main'">
+        <button class="iconButton leListElement__icon" ng-if="route=='main'" ng-click="editWidget(widget.widget)">
             <i class="icon-pencil"></i>
         </button>
         <button class="iconButton leListElement__icon" ng-if="route=='main'" ng-click="unlinkWidget(widget.widget)">
