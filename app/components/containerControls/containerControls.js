@@ -9,8 +9,6 @@ function containerControls(api) {
             scope.modalActive = false;
             scope.containerID = elem[0].id.replace(/^\D+/g, '');
             scope.route = 'main';
-            // used for creting/editing widget
-            scope.subroute = false;
 
 
             scope.getContainer = (containerId) => {
@@ -37,15 +35,11 @@ function containerControls(api) {
                 }
 
                 scope.route = route;
-                scope.subroute = false;
-                if (subroute) {
-                    scope.subroute = subroute;
-                }
+                scope.subroute = subroute;
             };
 
             scope.toggleModal = () => {
                 scope.route = 'main';
-                scope.subroute = false;
                 scope.modalActive = !scope.modalActive;
             };
 
