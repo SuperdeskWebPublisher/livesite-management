@@ -15,6 +15,16 @@
     padding: 0;
 }
 
+.leListElementHider{
+    max-height: 100px;
+    overflow: hidden;
+    transition: all .3s;
+
+    &--hide{
+        max-height: 0;
+    }
+}
+
 .leText{
 
     &--light{

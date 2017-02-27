@@ -10,7 +10,7 @@
 <div class="modal__body">
     <div class="modal__body-content leMinHeight--60vh" >
         <p class="leText--uppercase leText--bold leText--light leText--small">Pick Widget</p>
-        <div ng-include="'app/components/containerControls/listElement-widget.html'" ng-repeat="widget in availableWidgets"></div>
+        <div ng-include="'app/components/containerControls/listElement-widget.html'" ng-repeat="widget in availableWidgets" class="leListElementHider" ng-class="{'leListElementHider--hide':(assignedWidgets.indexOf(widget.id) > -1)}"></div>
     </div>
 </div>
 <div class="modal__footer">
