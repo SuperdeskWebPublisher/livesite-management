@@ -3,7 +3,6 @@ function widgetControls(api) {
     return {
         restrict: 'C',
         transclude: true,
-
         templateUrl: 'app/components/widgetControls/widgetControls.html',
         link: function (scope, elem, attr, ctrl) {
             scope.widgetID = elem[0].id.replace(/^\D+/g, '');

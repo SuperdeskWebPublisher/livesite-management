@@ -13,11 +13,15 @@ function containerControls(api) {
             scope.getContainer = (containerId) => {
                 api.get('templates/containers', containerId).then((container) => {
                     scope.container = container;
+                    scope.assignedWidgets = [];
+                    container.widgets.forEach(function (el, i) {
+                        scope.assignedWidgets.push(el.widget.id);
+                    });
                 });
             };
 
             scope.getAvailableWidgets = () => {
-                api.query('templates/widgets').then((availableWidgets) => {
+                api.query('templates/widgets', {'limit':1000}).then((availableWidgets) => {
                     scope.availableWidgets = availableWidgets;
                 });
             };
@@ -25,6 +29,8 @@ function containerControls(api) {
             scope.setRoute = (route, subroute) => {
                 if (route == 'linkWidget') {
                     scope.getAvailableWidgets();
+                } else  if (route == 'main') {
+                    scope.getContainer(scope.container.id);
                 }
 
                 scope.route = route;
@@ -74,7 +80,10 @@ function containerControls(api) {
             };
 
             scope.save = () => {
-                // todo: reload page or container content
+                // reload container content
+                api.get('templates/containers/'+scope.container.id+'/render').then((response) => {
+                    elem.find('ng-transclude').html(response.content);
+                });
                 scope.toggleModal();
             };
 
