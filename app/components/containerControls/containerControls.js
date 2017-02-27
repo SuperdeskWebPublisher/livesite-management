@@ -9,9 +9,6 @@ function containerControls(api) {
             scope.modalActive = false;
             scope.containerID = elem[0].id.replace(/^\D+/g, '');
             scope.route = 'main';
-            // used for creting/editing widget
-            scope.subroute = false;
-
 
             scope.getContainer = (containerId) => {
                 api.get('templates/containers', containerId).then((container) => {
@@ -32,20 +29,16 @@ function containerControls(api) {
             scope.setRoute = (route, subroute) => {
                 if (route == 'linkWidget') {
                     scope.getAvailableWidgets();
-                }else  if (route == 'main') {
+                } else  if (route == 'main') {
                     scope.getContainer(scope.container.id);
                 }
 
                 scope.route = route;
-                scope.subroute = false;
-                if (subroute) {
-                    scope.subroute = subroute;
-                }
+                scope.subroute = subroute;
             };
 
             scope.toggleModal = () => {
                 scope.route = 'main';
-                scope.subroute = false;
                 scope.modalActive = !scope.modalActive;
             };
 
