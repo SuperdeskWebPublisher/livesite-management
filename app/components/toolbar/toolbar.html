@@ -2,7 +2,9 @@
   <div class="leToolbar__logo">
   </div>
   <div class="leToolbar__content">
-    Live Management
+    <button class="btn text--uppercase" ng-class="{'btn--hollow btn--ui-dark': workStage === 'revision'}" ng-click="setStage('live')">live site</button>
+    <button class="btn text--uppercase" ng-class="{'btn--hollow btn--ui-dark': workStage === 'live'}" ng-click="setStage('revision')">working revision</button>
+    <button class="btn btn--highlight pull-right text--uppercase" ng-click="publishChanges()">publish</button>
   </div>
   <a class="leToolbar__close" ng-click="toggleToolbar()">
     <i class="icon-close-thick"></i>
