@@ -7,7 +7,7 @@ function containerControls(api) {
         templateUrl: 'app/components/containerControls/containerControls.html',
         link: function (scope, elem, attr, ctrl) {
             scope.modalActive = false;
-            scope.containerID = elem[0].id.replace(/^\D+/g, '');
+            scope.containerID = elem[0].id.split('_').pop();
             scope.route = 'main';
 
             scope.getContainer = (containerId) => {
