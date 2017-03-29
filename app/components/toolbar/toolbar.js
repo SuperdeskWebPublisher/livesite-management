@@ -28,7 +28,9 @@ function toolbar(api) {
                 if (scope.workStage !== stage) {
                     localStorage.setItem('workStage', stage);
                     api.save(stage === 'revision' ? 'templates/revision/lock/working' : 'templates/revision/unlock/working')
-                        .then(location.reload);
+                        .then(() => {
+                            location.reload();
+                        });
                 }
             };
 
