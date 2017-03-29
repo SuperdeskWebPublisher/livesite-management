@@ -53,7 +53,10 @@ export function APIFactory($http, $q, config) {
                 method: id ? 'PATCH' : 'POST',
                 data: item
             }).then((response) => {
-                angular.extend(item, response);
+                if (item) {
+                    angular.extend(item, response);
+                }
+                
                 return response;
             });
         }
