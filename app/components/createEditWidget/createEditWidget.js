@@ -15,13 +15,13 @@ function createEditWidget(api) {
                     'id' : angular.copy(scope.$parent.subroute.widget.id),
                     'name' : angular.copy(scope.$parent.subroute.widget.name),
                     'type' : angular.copy(scope.$parent.subroute.widget.type),
-                    'visible' : 1,
+                    'visible' : true,
                     'parameters' : angular.copy(scope.$parent.subroute.widget.parameters)
                 };
             } else {
                 scope.widget = {
                     'name' : '',
-                    'visible' : 1,
+                    'visible' : true,
                     'type' : scope.type,
                     'parameters' : {}
                 };
