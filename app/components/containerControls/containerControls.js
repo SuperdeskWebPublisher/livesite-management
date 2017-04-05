@@ -81,7 +81,7 @@ function containerControls(api) {
 
             scope.save = () => {
                 // reload container content
-                api.get('templates/containers/'+scope.container.id+'/render').then((response) => {
+                api.get('templates/containers/'+scope.container.uuid+'/render').then((response) => {
                     elem.find('ng-transclude').html(response.content);
                 });
                 scope.toggleModal();
