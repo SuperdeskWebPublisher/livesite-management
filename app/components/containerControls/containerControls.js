@@ -30,7 +30,7 @@ function containerControls(api) {
                 if (route == 'linkWidget') {
                     scope.getAvailableWidgets();
                 } else  if (route == 'main') {
-                    scope.getContainer(scope.container.id);
+                    scope.getContainer(scope.container.uuid);
                 }
 
                 scope.route = route;
