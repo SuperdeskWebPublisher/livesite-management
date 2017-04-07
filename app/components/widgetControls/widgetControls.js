@@ -2,6 +2,7 @@ widgetControls.$inject = ['api'];
 function widgetControls(api) {
     return {
         restrict: 'C',
+        scope: {},
         transclude: true,
         templateUrl: 'app/components/widgetControls/widgetControls.html',
         link: function (scope, elem, attr, ctrl) {
@@ -12,8 +13,8 @@ function widgetControls(api) {
             });
 
             scope.edit = (widget) => {
-                scope.$parent.toggleModal();
-                scope.$parent.editWidget(widget);
+                scope.$parent.$parent.toggleModal();
+                scope.$parent.$parent.editWidget(widget);
             };
         }
     };
