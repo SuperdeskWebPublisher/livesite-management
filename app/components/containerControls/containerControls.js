@@ -11,7 +11,7 @@ function containerControls(api) {
             scope.route = 'main';
 
             scope.getContainer = (containerId) => {
-                api.get('templates/containers', containerId).then((container) => {
+                scope.busyPromise = api.get('templates/containers', containerId).then((container) => {
                     scope.container = container;
                     scope.assignedWidgets = [];
                     container.widgets.forEach(function (el, i) {
@@ -21,7 +21,7 @@ function containerControls(api) {
             };
 
             scope.getAvailableWidgets = () => {
-                api.query('templates/widgets', {'limit':1000}).then((availableWidgets) => {
+                scope.busyPromise = api.query('templates/widgets', {'limit':1000}).then((availableWidgets) => {
                     scope.availableWidgets = availableWidgets;
                 });
             };
@@ -54,14 +54,14 @@ function containerControls(api) {
 
             scope.linkWidget = (widget) => {
                 var header = '</api/v1/templates/widgets/' + widget.id + '; rel="widget">';
-                api.link('templates/containers', scope.container.uuid, header).then(() => {
+                scope.busyPromise = api.link('templates/containers', scope.container.uuid, header).then(() => {
                     scope.getContainer(scope.container.uuid);
                 });
             };
 
             scope.unlinkWidget = (widget) => {
                 var header = '</api/v1/templates/widgets/' + widget.id + '; rel="widget">';
-                api.unlink('templates/containers', scope.container.uuid, header).then(() => {
+                scope.busyPromise = api.unlink('templates/containers', scope.container.uuid, header).then(() => {
                     scope.getContainer(scope.container.uuid);
                 });
             };
@@ -73,7 +73,7 @@ function containerControls(api) {
 
                 if (widget.position != position) {
                     var header = '</api/v1/templates/widgets/' + widget.widget.id + '; rel="widget">,<' + position + '; rel="widget-position">';
-                    api.link('templates/containers', scope.container.uuid, header).then((response) => {
+                    scope.busyPromise = api.link('templates/containers', scope.container.uuid, header).then((response) => {
                         scope.getContainer(scope.container.uuid);
                     });
                 }

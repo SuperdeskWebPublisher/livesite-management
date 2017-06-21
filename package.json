@@ -8,6 +8,7 @@
     "Tomek Rondio"
   ],
   "dependencies": {
+    "@cgross/angular-busy": "^4.1.4",
     "angular": "^1.6.1",
     "angular-drag-and-drop-lists": "^2.1.0",
     "angular-ui-bootstrap": "0.13.1",

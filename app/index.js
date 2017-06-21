@@ -12,10 +12,22 @@ angular.module('livesite-management', [
     'superdesk-ui',
     'dndLists',
     'livesite-management.core',
-    'livesite-management.components'
+    'livesite-management.components',
+    'cgBusy'
 
-]).run(function ($document) {
+])
+.run(function ($document) {
     $document[0].body.prepend(document.createElement('toolbar'));
-}).constant('config', __BASE_CONFIG__);
+})
+.config(['$qProvider', function ($qProvider) {
+    $qProvider.errorOnUnhandledRejections(false);
+}])
+.constant('config', __BASE_CONFIG__)
+.value('cgBusyDefaults',{
+  message:'',
+  delay: 200,
+  backdrop: false
+});
+
 
 export default 'livesite-management';

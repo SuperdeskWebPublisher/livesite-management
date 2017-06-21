@@ -1,4 +1,4 @@
-<div class="modal__header">
+<div class="modal__header" cg-busy="busyPromise">
     <button class="modal__close pull-right" ng-click="toggleModal()"><i class="icon-close-small"></i></button>
     <button class="modal__back pull-left" ng-click="cancel()">
         <i class="icon-chevron-left-thin"></i>
@@ -8,7 +8,7 @@
 </div>
 
 <div class="modal__body">
-    <div class="modal__body-content leMinHeight--60vh" >
+    <div class="modal__body-content leMinHeight--60vh">
         <form novalidate>
             <div ng-if="type == 'contentList'" ng-include="'app/components/createEditWidget/forms/contentList.html'"></div>
             <div ng-if="type == 'adsense'" ng-include="'app/components/createEditWidget/forms/sense.html'"></div>
