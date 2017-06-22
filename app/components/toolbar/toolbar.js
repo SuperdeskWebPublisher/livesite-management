@@ -27,7 +27,7 @@ function toolbar(api) {
             scope.setStage = (stage) => {
                 if (scope.workStage !== stage) {
                     localStorage.setItem('workStage', stage);
-                    api.save(stage === 'revision' ? 'templates/revision/lock/working' : 'templates/revision/unlock/working')
+                    scope.busyPromise = api.save(stage === 'revision' ? 'templates/revision/lock/working' : 'templates/revision/unlock/working')
                         .then(() => {
                             location.reload();
                         });
@@ -35,7 +35,7 @@ function toolbar(api) {
             };
 
             scope.publishChanges = (stage) => {
-                api.save('templates/revision/publish')
+                scope.busyPromise = api.save('templates/revision/publish')
                     .then(() => {
                         localStorage.removeItem('workStage');
                         location.reload();

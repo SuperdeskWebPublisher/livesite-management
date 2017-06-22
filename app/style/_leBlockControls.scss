@@ -10,15 +10,17 @@
         display: flex;
         align-items: center;
         height: 25px;
+        color: $white !important;
         background: $colorContainer;
         padding: 2px 1em;
-        color: $white;
-        font-size: 9px;
-        line-height: 9px;
+        color: $white !important;
+        font-size: 11px;
+        line-height: 1em;
         text-transform: uppercase;
         cursor: pointer;
 
         &--widget{
+            color: #333 !important;
             background: $colorWidget;
         }
 

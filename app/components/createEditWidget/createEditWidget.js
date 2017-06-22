@@ -31,13 +31,13 @@ function createEditWidget(api) {
             scope.availableContentLists = [];
 
             scope.getMenus = () => {
-                api.get('menus').then((response) => {
+                scope.busyPromise = api.get('menus').then((response) => {
                     scope.availableMenus = response._embedded._items;
                 });
             };
 
             scope.getContentLists = () => {
-                api.get('content/lists').then((response) => {
+                scope.busyPromise = api.get('content/lists').then((response) => {
                     scope.availableContentLists = response._embedded._items;
                 });
             };
@@ -56,7 +56,7 @@ function createEditWidget(api) {
                 let id = scope.widget.id ? scope.widget.id : '';
                 // api throws error when extra params are included. Temp hack
                 delete scope.widget.id;
-                api.save('templates/widgets', {widget: scope.widget}, id).then((response) => {
+                scope.busyPromise = api.save('templates/widgets', {widget: scope.widget}, id).then((response) => {
                     if (id) {
                         scope.setRoute('main');
                     } else {
