@@ -1,5 +1,5 @@
-containerControls.$inject = ['api'];
-function containerControls(api) {
+containerControls.$inject = ['api', '$compile'];
+function containerControls(api, $compile) {
     return {
         restrict: 'C',
         transclude: true,
@@ -83,8 +83,9 @@ function containerControls(api) {
                 // reload container content
                 api.get('templates/containers/'+scope.container.uuid+'/render').then((response) => {
                     elem.find('ng-transclude').html(response.content);
+                    $compile(elem.find('ng-transclude').contents())(scope);
+                    scope.toggleModal();
                 });
-                scope.toggleModal();
             };
 
             scope.cancel = () => {

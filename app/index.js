@@ -13,8 +13,8 @@ angular.module('livesite-management', [
     'dndLists',
     'livesite-management.core',
     'livesite-management.components',
-    'cgBusy'
-
+    'cgBusy',
+    'ngCookies'
 ])
 .run(function ($document) {
     $document[0].body.prepend(document.createElement('toolbar'));
@@ -28,6 +28,5 @@ angular.module('livesite-management', [
   delay: 200,
   backdrop: false
 });
-
 
 export default 'livesite-management';

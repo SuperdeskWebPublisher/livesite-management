@@ -9,6 +9,27 @@ export function APIFactory($http, $q, config) {
 
         /**
          * @ngdoc method
+         * @name api#setToken
+         * @param {String} token
+         * @returns {Promise}
+         * @description Sets token
+         */
+        setToken(token) {
+            this._token = token;
+        }
+
+        /**
+         * @ngdoc method
+         * @name api#getToken
+         * @returns {String}
+         * @description Gets token
+         */
+        getToken() {
+            return this._token;
+        }
+
+        /**
+         * @ngdoc method
          * @name api#query
          * @param {String} resource
          * @param {Object} params
@@ -130,12 +151,13 @@ export function APIFactory($http, $q, config) {
          * @description API Request - Adds basic error reporting, eventually authentication
          */
         req(config) {
+            config.headers = {Authorization: 'Basic ' + this._token};
             return $http(config).then((response) => {
                 if (response.status >= 200 && response.status < 300) {
                     return response.data;
                 }
 
-                console.error(' api error', response);
+                console.error('api error', response);
                 return $q.reject(response);
             });
         }
