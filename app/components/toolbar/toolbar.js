@@ -1,8 +1,22 @@
-toolbar.$inject = ['api'];
-function toolbar(api) {
+toolbar.$inject = ['api', '$cookies'];
+function toolbar(api, $cookies) {
     return {
         templateUrl: 'app/components/toolbar/toolbar.html',
         link: function (scope, elem, attr, ctrl) {
+            let authCookie = $cookies.get('activate_livesite_editor');
+
+            if (authCookie) {
+                sessionStorage.setItem('activate_livesite_editor', authCookie);
+                $cookies.remove('activate_livesite_editor');
+            }
+
+            let authSession = sessionStorage.getItem('activate_livesite_editor');
+
+            if (authSession) {
+                api.setToken(authSession);
+                scope.livesiteActivated = true;
+            }
+
             scope.workStage = localStorage.getItem('workStage');
             scope.toolbarActive = false;
 
@@ -42,7 +56,7 @@ function toolbar(api) {
                     });
             };
 
-            if (scope.workStage) {
+            if (api.getToken()) {
                 scope.toggleToolbar();
             }
         }
