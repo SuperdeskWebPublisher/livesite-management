@@ -42,6 +42,12 @@ function createEditWidget(api) {
                 });
             };
 
+            scope.getTemplates = () => {
+                scope.busyPromise = api.get('templates/widgets/templates').then((response) => {
+                    scope.availableTemplates = response;
+                });
+            };
+
             scope.setRoute = (route) => {
                 scope.widget = {};
                 scope.$parent.setRoute(route);
@@ -79,6 +85,7 @@ function createEditWidget(api) {
                 scope.type = "html";
                 scope.readableType = "HTML Block";
                 scope.widget.type = 1;
+                scope.getTemplates();
             } else if (/adsense/.test(scope.type)) {
                 scope.type = "adsense";
                 scope.readableType = "AdSense";
@@ -88,6 +95,7 @@ function createEditWidget(api) {
                 scope.readableType = "Content List";
                 scope.widget.type = 4;
                 scope.getContentLists();
+                scope.getTemplates();
             }
         }
     };
