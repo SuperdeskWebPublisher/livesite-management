@@ -140,7 +140,10 @@ export function APIFactory($http, $q, config) {
          * @description Get resource url
          */
         resourceURL(resource, id = '') {
-            return `${this._protocol}://${this._domain}/${this._base}/${resource}/${id}`;
+            if (this._domain) {
+                return `${this._protocol}://${this._domain}/${this._base}/${resource}/${id}`;
+            }
+            return `/${this._base}/${resource}/${id}`;
         }
 
         /**

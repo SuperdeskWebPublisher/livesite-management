@@ -81,6 +81,7 @@ function createEditWidget(api) {
                 scope.readableType = "Menu";
                 scope.widget.type = 3;
                 scope.getMenus();
+                scope.getTemplates();
             } else if (/html/.test(scope.type)) {
                 scope.type = "html";
                 scope.readableType = "HTML Block";

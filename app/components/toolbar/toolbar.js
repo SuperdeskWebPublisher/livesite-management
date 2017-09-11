@@ -4,7 +4,7 @@ function toolbar(api, $cookies) {
         templateUrl: 'app/components/toolbar/toolbar.html',
         link: function (scope, elem, attr, ctrl) {
             let authCookie = $cookies.get('activate_livesite_editor');
-
+            
             if (authCookie) {
                 sessionStorage.setItem('activate_livesite_editor', authCookie);
                 $cookies.remove('activate_livesite_editor');
