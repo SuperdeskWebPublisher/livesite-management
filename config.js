@@ -2,7 +2,7 @@ module.exports = function (grunt) {
     return {
         protocol: '',
         domain: '',
-        base: 'app_dev.php/api/v1',
-        path: '/public/le'
+        base: 'api/v1',
+        path: '/livesite_editor/assets'
     };
 };
