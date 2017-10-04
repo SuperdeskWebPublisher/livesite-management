@@ -95,7 +95,7 @@ export function APIFactory($http, $q, config) {
             return this.req({
                 url: this.resourceURL(resource, id),
                 method: 'LINK',
-                headers: {link: header} //, Authorization: 'dGVzdF90b2tlbjo='
+                headers: {link: header}
             }).then((response) => response);
         }
 
@@ -154,7 +154,7 @@ export function APIFactory($http, $q, config) {
          * @description API Request - Adds basic error reporting, eventually authentication
          */
         req(config) {
-            config.headers = {Authorization: 'Basic ' + this._token};
+            config.headers = angular.extend({}, {Authorization: 'Basic ' + this._token}, config.headers)
             return $http(config).then((response) => {
                 if (response.status >= 200 && response.status < 300) {
                     return response.data;
