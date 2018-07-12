@@ -1,4 +1,5 @@
-<div sd-modal data-model="modalActive" class="modal--large modal--tabs">
+<div sd-modal data-model="modalActive" class="modal--large modal--tabs leReset"
+>
     <div ng-if="route == 'linkWidget'" ng-include="'app/components/containerControls/views/linkWidget.html'" class="modal__wrapper" cg-busy="busyPromise"></div>
     <div ng-if="route == 'createEditWidget'" swp-create-edit-widget class="modal__wrapper" cg-busy="busyPromise"></div>
     <div ng-if="route == 'main'" ng-include="'app/components/containerControls/views/widgetsList.html'" class="modal__wrapper" cg-busy="busyPromise"></div>

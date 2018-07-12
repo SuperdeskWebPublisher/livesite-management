@@ -1,5 +1,3 @@
-import 'style/_reset.scss';
-
-import 'superdesk-ui-framework/dist/superdesk-ui-framework.prefixed.css';
+import 'superdesk-ui-framework/dist/superdesk-ui.bundle.css';
 
 import 'style/app.scss';
