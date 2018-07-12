@@ -4,7 +4,7 @@ function toolbar(api, $cookies) {
         templateUrl: 'app/components/toolbar/toolbar.html',
         link: function (scope, elem, attr, ctrl) {
             let authCookie = $cookies.get('activate_livesite_editor');
-            
+
             if (authCookie) {
                 sessionStorage.setItem('activate_livesite_editor', authCookie);
                 $cookies.remove('activate_livesite_editor');
@@ -41,6 +41,7 @@ function toolbar(api, $cookies) {
             scope.setStage = (stage) => {
                 if (scope.workStage !== stage) {
                     localStorage.setItem('workStage', stage);
+
                     scope.busyPromise = api.save(stage === 'revision' ? 'templates/revision/lock/working' : 'templates/revision/unlock/working')
                         .then(() => {
                             location.reload();
