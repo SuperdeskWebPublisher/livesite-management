@@ -1,0 +1,144 @@
+<div class="leContentListEditor" ng-class="{'leContentListEditor--active': active}" cg-busy="busyPromise">
+    <div class="lePaneContent leLayer--2 leBoxShadow">
+        <div class="lePaneContent__header lePaneContent__header--dark">
+            <h3 ng-if="list.type=='automatic'" class="pull-left">Automatic List</h3>
+            <h3 ng-if="list.type=='manual'" class="pull-left">Manual List</h3>
+            <div ng-click="toggle()" class="close-filter">
+                <i class="icon-close-small"></i>
+            </div>
+        </div>
+        <!-- automatic list-->
+        <div ng-if="list.type=='automatic'" class="lePaneContent__content leContentPadding">
+            <ul ng-if="list.items.length" class="leFlatList">
+                <li ng-repeat="article in list.items">
+                    <div class="sd-list-item sd-shadow--z1">
+                        <div class="sd-list-item__border"></div>
+                        <div class="sd-list-item__column" ng-if="article.duplicate" sd-tooltip="duplicate">
+                            <i class="icon-warning-sign icon--red"></i>
+                        </div>
+                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                            <div class="sd-list-item__row">
+                                <span class="sd-overflow-ellipsis">{{ :: article.title || article.content.title}}</span>
+
+                            </div>
+                            <div class="sd-list-item__row">
+                                    <time class="leNoPadding">{{article.updatedAt || article.createdAt || article.content.updatedAt || article.content.createdAt | date : 'dd-MM-yyyy'}}</time>
+
+                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"></span>
+                                <span class="label"
+                                    ng-class="{'label--success label--hollow': (article.status === 'published' || article.content.status === 'published'), 'label--alert': (article.status === 'unpublished' || article.content.status === 'unpublished'), 'label--yellow2': (article.status === 'new' || article.content.status === 'new') }"
+                                    >{{article.route.name || article.content.route.name}}</span>
+                                <span ng-if="article.sticky" class="pull-right label label--primary label--hollow">pinned</span>
+                            </div>
+                        </div>
+                        <div class="sd-list-item__action-menu">
+                            <button class="pull-right" ng-if="article.sticky" ng-click="pinArticle(article)" title="Unpin"><i class="icon-pin"></i></button>
+                            <button class="pull-right" ng-if="!article.sticky" ng-click="pinArticle(article)" title="Pin"><i class="icon-pin"></i></button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- manual list-->
+        <div ng-if="list.type=='manual'" class="lePaneContent__content lePaneContent__content--hasFooter leContentPadding">
+            <div class="leClearfix leMargin--bottom">
+                <a class="btn btn--primary btn--icon-only-circle pull-right" ng-click="allArticlesPaneToggle()"><i class="icon-plus-large"></i></a>
+            </div>
+            <ul ng-if="list.items.length"
+                class="leFlatList"
+                dnd-list="list.items"
+                dnd-drop="onDrop(list, item, index)"
+                dnd-inserted="markDuplicates(list.items)"
+                dnd-allowed-types="['tenant', 'list']"
+            >
+                <li ng-repeat="article in list.items"
+                    dnd-draggable="article"
+                    dnd-moved="onMoved(list, $index)"
+                    dnd-type="article.type"
+                    dnd-effect-allowed="move"
+                >
+                    <div class="sd-list-item sd-shadow--z1">
+                        <div class="sd-list-item__border"></div>
+                        <div class="sd-list-item__column" ng-if="article.duplicate" sd-tooltip="duplicate">
+                            <i class="icon-warning-sign icon--red"></i>
+                        </div>
+                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border leCursorMove">
+                            <div class="sd-list-item__row">
+                                <span class="sd-overflow-ellipsis">{{ :: article.title || article.content.title}}</span>
+
+                            </div>
+                            <div class="sd-list-item__row">
+                                    <time class="leNoPadding">{{article.updatedAt || article.createdAt || article.content.updatedAt || article.content.createdAt | date : 'dd-MM-yyyy'}}</time>
+
+                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"></span>
+                                <span class="label"
+                                    ng-class="{'label--success label--hollow': (article.status === 'published' || article.content.status === 'published'), 'label--alert': (article.status === 'unpublished' || article.content.status === 'unpublished'), 'label--yellow2': (article.status === 'new' || article.content.status === 'new') }"
+                                    >{{article.route.name || article.content.route.name}}</span>
+                                <span ng-if="article.sticky" class="pull-right label label--primary label--hollow">pinned</span>
+                            </div>
+                        </div>
+                        <div class="sd-list-item__action-menu">
+                            <button class="pull-right" ng-click="removeFromList($index)" title="Remove"><i class="icon-trash"></i></button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div ng-if="list.type=='manual'" class="lePaneContent__footer">
+            <button class="btn btn--large btn--primary btn--expanded" ng-click="saveManualList(list)"  ng-disabled="!listChangeFlag">Apply Changes</button>
+        </div>
+        <!-- /manual list-->
+    </div>
+    <!-- all articles pane -->
+    <div class="lePaneContent leAllArticlesPane leLayer--1" ng-class="{'leAllArticlesPane--active': allArticlesPaneActive}">
+        <div class="lePaneContent__header lePaneContent__header--dark">
+            <h3 class="pull-left">All Articles</h3>
+            <div ng-click="allArticlesPaneToggle()" class="close-filter">
+                <i class="icon-close-small"></i>
+            </div>
+        </div>
+        <div  class="lePaneContent__content leContentPadding" id="manualListArticlesScrolling">
+            <div class="sd-line-input">
+                    <input class="sd-line-input__input" type="text" placeholder="search" ng-model="tenantArticles.params.term" ng-model-options="{ debounce: 1000 }" ng-change="filterTenantArticles()">
+            </div>
+            <ul ng-if="tenantArticles.items.length"
+                class="leFlatList"
+                dnd-list="tenantArticles.items"
+                dnd-allowed-types="['tenant']"
+                infinite-scroll="loadMoreTenantArticles()"
+                infinite-scroll-container="'#manualListArticlesScrolling'"
+            >
+                <li ng-repeat="article in tenantArticles.items"
+                    dnd-draggable="article"
+                    dnd-moved="tenantArticles.items.splice($index, 1)"
+                    dnd-type="article.type"
+                    dnd-effect-allowed="move"
+                >
+                    <div class="sd-list-item sd-shadow--z1">
+                        <div class="sd-list-item__border"></div>
+                        <div class="sd-list-item__column" ng-if="article.duplicate" sd-tooltip="duplicate">
+                            <i class="icon-warning-sign icon--red"></i>
+                        </div>
+                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border leCursorMove">
+                            <div class="sd-list-item__row">
+                                <span class="sd-overflow-ellipsis">{{ :: article.title || article.content.title}}</span>
+
+                            </div>
+                            <div class="sd-list-item__row">
+                                    <time class="leNoPadding">{{article.updatedAt || article.createdAt || article.content.updatedAt || article.content.createdAt | date : 'dd-MM-yyyy'}}</time>
+
+                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"></span>
+                                <span class="label"
+                                    ng-class="{'label--success label--hollow': (article.status === 'published' || article.content.status === 'published'), 'label--alert': (article.status === 'unpublished' || article.content.status === 'unpublished'), 'label--yellow2': (article.status === 'new' || article.content.status === 'new') }"
+                                    >{{article.route.name || article.content.route.name}}</span>
+                                <span ng-if="article.sticky" class="pull-right label label--primary label--hollow">pinned</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+

@@ -1,8 +1,9 @@
 .leActive{
     .swp_container{
-        outline: 1px dashed $colorContainer;
+        outline: 5px dashed $colorContainer;
         outline-offset: 5px;
         position: relative;
+        z-index: 5;
 
         &__controls{
             display: block;

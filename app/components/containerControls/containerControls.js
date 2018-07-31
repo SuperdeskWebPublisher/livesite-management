@@ -42,6 +42,12 @@ function containerControls(api, $compile) {
                 scope.modalActive = !scope.modalActive;
             };
 
+            scope.$on('toggleMainModal', (event, data) => {
+                if (data.container == scope.containerID) {
+                    scope.toggleModal();
+                }
+            });
+
             scope.createWidget = (type) => {
                 let subroute = {'action' : 'create', 'type' : type};
                 scope.setRoute('createEditWidget', subroute);
@@ -51,6 +57,13 @@ function containerControls(api, $compile) {
                 let subroute = {'action' : 'edit', 'type' : widget.type, 'widget' : widget};
                 scope.setRoute('createEditWidget', subroute);
             };
+
+            scope.$on('editWidget', (event, data) => {
+                if (data.container == scope.containerID) {
+                    scope.toggleModal();
+                    scope.editWidget(data.widget);
+                }
+            });
 
             scope.linkWidget = (widget) => {
                 var header = '</api/v1/templates/widgets/' + widget.id + '; rel="widget">';
@@ -81,7 +94,7 @@ function containerControls(api, $compile) {
 
             scope.save = () => {
                 // reload container content
-                api.get('templates/containers/'+scope.container.uuid+'/render').then((response) => {
+                api.get('templates/containers/'+scope.container.uuid+'/render?onlyWidgets=true').then((response) => {
                     elem.find('ng-transclude').html(response.content);
                     $compile(elem.find('ng-transclude').contents())(scope);
                     scope.toggleModal();

@@ -1,8 +1,13 @@
-widgetControls.$inject = ['api'];
-function widgetControls(api) {
+widgetControls.$inject = ['api', '$rootScope'];
+function widgetControls(api, $rootScope) {
     return {
         restrict: 'C',
-        scope: {},
+        scope: {
+            type: '@widgetType',
+            listType: '@listType',
+            listId: '@listId',
+            containerId: '@container'
+        },
         transclude: true,
         templateUrl: 'app/components/widgetControls/widgetControls.html',
         link: function (scope, elem, attr, ctrl) {
@@ -13,8 +18,15 @@ function widgetControls(api) {
             });
 
             scope.edit = (widget) => {
-                scope.$parent.$parent.toggleModal();
-                scope.$parent.$parent.editWidget(widget);
+                $rootScope.$broadcast('editWidget', {widget: widget, container: scope.containerId});
+            };
+
+            scope.editList = (type, id, container) => {
+                $rootScope.$broadcast('editContentList', {
+                    type: type,
+                    id: id,
+                    container: container
+                });
             };
         }
     };

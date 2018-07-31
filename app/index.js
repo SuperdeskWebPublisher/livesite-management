@@ -14,10 +14,13 @@ angular.module('livesite-management', [
     'livesite-management.core',
     'livesite-management.components',
     'cgBusy',
-    'ngCookies'
+    'ngCookies',
+    'infinite-scroll'
 ])
 .run(function ($document) {
+    $document[0].body.prepend(document.createElement('overlay'));
     $document[0].body.prepend(document.createElement('toolbar'));
+    $document[0].body.prepend(document.createElement('content-list-editor'));
 })
 .config(['$qProvider', function ($qProvider) {
     $qProvider.errorOnUnhandledRejections(false);

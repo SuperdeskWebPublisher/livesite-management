@@ -2,7 +2,7 @@
     display: none;
     position: absolute;
     left: -7px;
-    top: -30px;
+    top: -10px;
     padding-bottom: 5px;
 
 
@@ -24,6 +24,10 @@
             background: $colorWidget;
         }
 
+        &--list {
+            background: $colorContentList;
+        }
+
         i:last-child{
             margin-left: 1em;
             font-size: 14px;
@@ -31,6 +35,8 @@
     }
 }
 
-.swp_container .swp_widget:first-child .leBlockControls{
+.swp_container .swp_widget .leBlockControls{
+    left: auto;
+    right: -5px;
     top: -5px;
  }

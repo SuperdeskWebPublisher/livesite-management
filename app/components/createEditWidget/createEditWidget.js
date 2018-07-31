@@ -1,8 +1,8 @@
-createEditWidget.$inject = ['api'];
-function createEditWidget(api) {
+createEditWidget.$inject = ['api', '$rootScope'];
+function createEditWidget(api, $rootScope) {
     return {
         restrict: 'AE',
-        scope: {},
+        scope: {containerId: '@container'},
         templateUrl: 'app/components/createEditWidget/createEditWidget.html',
         link: function(scope, elem, attr, ctrl) {
 
@@ -26,7 +26,6 @@ function createEditWidget(api) {
                     'parameters' : {}
                 };
             }
-
             scope.availableMenus = [];
             scope.availableContentLists = [];
 
@@ -55,7 +54,7 @@ function createEditWidget(api) {
 
             scope.toggleModal = () => {
                 scope.widget = {};
-                scope.$parent.toggleModal();
+                $rootScope.$broadcast('toggleMainModal', {container: scope.containerId});
             };
 
             scope.save = () => {

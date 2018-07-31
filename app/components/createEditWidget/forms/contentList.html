@@ -8,9 +8,9 @@
         <label class="sd-line-input__label">Select List</label>
         <select class="sd-line-input__select"
             ng-model="widget.parameters.list_id"
-            ng-options="list.id as list.name for list in availableContentLists"
+            convert-to-number
             >
-            <option style="display:none" value="">select a list</option>
+            <option ng-repeat="list in availableContentLists" value="{{list.id}}">{{list.name}}</option>
         </select>
     </div>
 
