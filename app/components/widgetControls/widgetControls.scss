@@ -3,9 +3,9 @@
 }
 
 .leActive{
-    .swp_widget:hover{
-        outline: 1px dashed $colorWidget;
-        outline-offset: 5px;
+    .swp_widget{
+        outline: 3px dashed $colorWidget;
+        outline-offset: 2px;
         position: relative;
 
         .leBlockControls{

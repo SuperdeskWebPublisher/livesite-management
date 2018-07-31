@@ -2,4 +2,5 @@
 
 <div class="leBlockControls swp_widget__controls">
     <a class="leBlockControls__item leBlockControls__item--widget" ng-click="edit(widget)">{{widget.name}}<i class="icon-pencil"></i></a>
+    <a ng-if="type === 'contentlist' "class="leBlockControls__item leBlockControls__item--list" ng-click="editList(listType, listId, containerId)">Edit Content List<i class="icon-list-view"></i></a>
 </div>

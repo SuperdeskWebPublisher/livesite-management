@@ -9,6 +9,10 @@
   transition: all .2s;
 }
 
+.leContentListEditorOpen {
+    margin-left: 400px;
+}
+
 .leIconButton {
     border: none;
     background: none;
@@ -23,6 +27,51 @@
     &--hide{
         max-height: 0;
     }
+}
+
+.leClearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.leContentPadding {
+    padding: 10px;
+}
+
+.leCursorMove {
+    cursor: move;
+}
+
+.leFlatList {
+    border-top: 1px solid #ddd;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.leNoPadding {
+    padding: 0 !important;
+}
+
+.leMargin {
+    &--bottom {
+        margin-bottom: 10px;
+    }
+}
+
+.leLayer {
+    &--1 {
+        z-index: 1;
+    }
+
+    &--2 {
+        z-index: 2;
+    }
+}
+
+.leBoxShadow {
+    box-shadow: 0 0 8px rgba(0,0,0,.3);
 }
 
 .leText{

@@ -3,4 +3,5 @@ import 'superdesk-ui-framework/dist/superdesk-ui.bundle';
 import 'angular-drag-and-drop-lists/angular-drag-and-drop-lists';
 import '@cgross/angular-busy/dist/angular-busy';
 import 'angular-cookies/angular-cookies';
-
+import 'ng-infinite-scroll';
+import _ from 'lodash';

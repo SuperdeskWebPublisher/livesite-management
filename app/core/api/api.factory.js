@@ -46,6 +46,22 @@ export function APIFactory($http, $q, config) {
 
         /**
          * @ngdoc method
+         * @name api#query
+         * @param {String} resource
+         * @param {Object} params
+         * @returns {Promise}
+         * @description Query resource
+         */
+        queryWithDetails(resource, params) {
+            return this.req({
+                url: this.resourceURL(resource),
+                method: 'GET',
+                params: params
+            });
+        }
+
+        /**
+         * @ngdoc method
          * @name api#get
          * @param {String} resource
          * @param {Number} id
@@ -77,7 +93,26 @@ export function APIFactory($http, $q, config) {
                 if (item) {
                     angular.extend(item, response);
                 }
-                
+
+                return response;
+            });
+        }
+
+        /**
+         * @ngdoc method
+         * @name api#patch
+         * @param {String} resource
+         * @param {Object} item - item which is saved
+         * @returns {Promise}
+         * @description patches an item
+         */
+        patch(resource, item) {
+            return this.req({
+                url: this.resourceURL(resource),
+                method: 'PATCH',
+                data: item
+            }).then((response) => {
+                angular.extend(item, response);
                 return response;
             });
         }
