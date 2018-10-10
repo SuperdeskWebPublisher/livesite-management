@@ -18,7 +18,6 @@ angular.module('livesite-management', [
     'infinite-scroll'
 ])
 .run(function ($document) {
-    $document[0].body.prepend(document.createElement('overlay'));
     $document[0].body.prepend(document.createElement('toolbar'));
     $document[0].body.prepend(document.createElement('content-list-editor'));
 })
