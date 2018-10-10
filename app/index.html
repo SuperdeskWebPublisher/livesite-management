@@ -1,548 +1,1250 @@
 <!DOCTYPE html>
-<!-- saved from url=(0043)https://sp-magazine.s-lab.sourcefabric.org/ -->
-<html ng-app="livesite-management" lang="en" class="wf-opensans-n3-active wf-opensans-i3-active wf-opensans-n4-active wf-opensans-i4-active wf-opensans-n6-active wf-opensans-i6-active wf-opensans-n7-active wf-opensans-n8-active wf-active ng-scope"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+<!-- saved from url=(0047)https://sp-demo-tribune.s-lab.sourcefabric.org/ -->
+<html lang="en" ng-app="livesite-management"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
   <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
   Remove this if you use the .htaccess -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title>Magazine Theme for Superdesk Publisher</title>
+  <title>The Tribune Theme for Superdesk Publisher</title>
   <meta name="author" content="Sourcefabric">
 
-  <meta name="description" content="Superdesk Web Publisher is state of the art publishing system.">
+  <meta name="description" content="Superdesk Publisher is state of the art publishing system.">
   <meta name="keywords" content="Superdesk, Sourcefabric, open source, media, journalism">
+
+  <meta name="google-site-verification" content="uJB4D5iTxa0pKz2QP1XiHFwa3lFd2F0oTcHd-bHpU2U">
+
+  <meta name="robots" content="noindex">
+
+ <!-- RSS & Pingback -->
+  <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="https://sp-demo-tribune.s-lab.sourcefabric.org/">
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="stylesheet" href="./Magazine Theme for Superdesk Publisher_files/style.css" type="text/css" media="all">
-  <link rel="manifest" href="https://sp-magazine.s-lab.sourcefabric.org/manifest.json">
-
-  <link rel="shortcut icon" href="https://sp-magazine.s-lab.sourcefabric.org/public/img/icons/favicon.ico">
-  <link rel="apple-touch-icon" sizes="180x180" href="https://sp-magazine.s-lab.sourcefabric.org/public/img/icons/apple-touch-icon.png">
-  <link rel="icon" type="image/png" href="https://sp-magazine.s-lab.sourcefabric.org/public/img/icons/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="https://sp-magazine.s-lab.sourcefabric.org/public/img/icons/favicon-16x16.png" sizes="16x16">
-  <link rel="mask-icon" href="https://sp-magazine.s-lab.sourcefabric.org/public/img/icons/safari-pinned-tab.svg" color="#4866a4">
-  <meta name="theme-color" content="#4866a4">
+  <link rel="shortcut icon" href="https://sp-demo-tribune.s-lab.sourcefabric.org/public/img/icons/favicon.ico">
 
 
-  <style>
 
-      .box, .button--color, .modalUser input[type="submit"] {
-       background-color: #4866a4;
-    }
+  <link rel="stylesheet" href="https://sp-demo-tribune.s-lab.sourcefabric.org/public/dist/style.css">
 
-    a:hover, .tabs__navItem:hover, .tabs__navItem--active, .nav ul li>a:hover, .nav ul li.current a, .nav__wrap ul li a:hover, .nav__wrap ul li.current a {
-      color: #4866a4;
-    }
+      <style>
+      .article .article__text a {
+        border-bottom-color: #98b96a;
+      }
 
-    </style><link rel="stylesheet" href="./Magazine Theme for Superdesk Publisher_files/css" media="all">
-</head>
-<body>
+      .article .article__entrefilet {
+        background: #98b96a;
+      }
+
+      .articleMetadata .articleMetadata__updated {
+        background: #98b96a;
+      }
+
+      .button--color {
+        background: #98b96a;
+      }
+
+      .editorialComment {
+        background-color: #98b96a;
+      }
+
+      .gallery .gallery__strip {
+        background: #98b96a;
+      }
+
+      .navigation ul li a:hover {
+        color: #98b96a;
+      }
+
+      .navigation ul li.current a {
+        color: #98b96a;
+      }
+
+      .okayNav__menu-toggle.icon--active span {
+        background: #98b96a;
+      }
+
+      .pagination ul li.active {
+        border-bottom-color: #98b96a;
+      }
+      .pagination ul li.active a {
+        color: #98b96a;
+      }
+
+      .sidebarMenu__headline--active {
+        border-bottom-color: #98b96a;
+      }
+      .trendingTopics ul.trendingTopics__items li:first-child {
+        background: #98b96a;
+      }
+      .trendingTopics ul li a:hover {
+        color: #98b96a;
+      }
+
+    </style>
+  <script async="" src="./The Tribune Theme for Superdesk Publisher_files/async-ads.js"></script><script id="playbuzz-sdk" src="./The Tribune Theme for Superdesk Publisher_files/sdk.js"></script><script src="./The Tribune Theme for Superdesk Publisher_files/jsapi" type="text/javascript"></script><link rel="preload" href="https://pb-story.playbuzz.com/production/56c435271c4917dd680bf0f9ffb11d082b0d715c-2018-10-03-10-32-36/story-viewer.js" as="script"><link type="text/css" href="./The Tribune Theme for Superdesk Publisher_files/default+en.css" rel="stylesheet"><link type="text/css" href="./The Tribune Theme for Superdesk Publisher_files/default.css" rel="stylesheet"><script type="text/javascript" src="./The Tribune Theme for Superdesk Publisher_files/default+en.I.js"></script><style type="text/css">.gsc-control-cse{font-family:arial, sans-serif}.gsc-control-cse .gsc-table-result{font-family:arial, sans-serif}.gsc-control-cse{border-color:#FFFFFF;background-color:#FFFFFF}input.gsc-input,.gsc-input-box,.gsc-input-box-hover,.gsc-input-box-focus{border-color:#D9D9D9}.gsc-search-button-v2,.gsc-search-button-v2:hover,.gsc-search-button-v2:focus{border-color:#666666;background-color:#CECECE;background-image:none;filter:none}.gsc-search-button-v2 svg{fill:#FFFFFF}.gsc-tabHeader.gsc-tabhInactive{border-color:#E9E9E9;background-color:#E9E9E9}.gsc-tabHeader.gsc-tabhActive{border-color:#FF9900;border-bottom-color:#FFFFFF;background-color:#FFFFFF}.gsc-tabsArea{border-color:#FF9900}.gsc-webResult.gsc-result,.gsc-results .gsc-imageResult{border-color:#FFFFFF;background-color:#FFFFFF}.gsc-webResult.gsc-result:hover,.gsc-imageResult:hover{border-color:#FFFFFF;background-color:#FFFFFF}.gs-webResult.gs-result a.gs-title:link,.gs-webResult.gs-result a.gs-title:link b,.gs-imageResult a.gs-title:link,.gs-imageResult a.gs-title:link b{color:#0000CC}.gs-webResult.gs-result a.gs-title:visited,.gs-webResult.gs-result a.gs-title:visited b,.gs-imageResult a.gs-title:visited,.gs-imageResult a.gs-title:visited b{color:#0000CC}.gs-webResult.gs-result a.gs-title:hover,.gs-webResult.gs-result a.gs-title:hover b,.gs-imageResult a.gs-title:hover,.gs-imageResult a.gs-title:hover b{color:#0000CC}.gs-webResult.gs-result a.gs-title:active,.gs-webResult.gs-result a.gs-title:active b,.gs-imageResult a.gs-title:active,.gs-imageResult a.gs-title:active b{color:#0000CC}.gsc-cursor-page{color:#0000CC}a.gsc-trailing-more-results:link{color:#0000CC}.gs-webResult .gs-snippet,.gs-imageResult .gs-snippet,.gs-fileFormatType{color:#000000}.gs-webResult div.gs-visibleUrl,.gs-imageResult div.gs-visibleUrl{color:#008000}.gs-webResult div.gs-visibleUrl-short{color:#008000}.gs-webResult div.gs-visibleUrl-short{display:none}.gs-webResult div.gs-visibleUrl-long{display:block}.gs-promotion div.gs-visibleUrl-short{display:none}.gs-promotion div.gs-visibleUrl-long{display:block}.gsc-cursor-box{border-color:#FFFFFF}.gsc-results .gsc-cursor-box .gsc-cursor-page{border-color:#E9E9E9;background-color:#FFFFFF;color:#0000CC}.gsc-results .gsc-cursor-box .gsc-cursor-current-page{border-color:#FF9900;background-color:#FFFFFF;color:#0000CC}.gsc-webResult.gsc-result.gsc-promotion{border-color:#336699;background-color:#FFFFFF}.gsc-completion-title{color:#0000CC}.gsc-completion-snippet{color:#000000}.gs-promotion a.gs-title:link,.gs-promotion a.gs-title:link *,.gs-promotion .gs-snippet a:link{color:#0000CC}.gs-promotion a.gs-title:visited,.gs-promotion a.gs-title:visited *,.gs-promotion .gs-snippet a:visited{color:#0000CC}.gs-promotion a.gs-title:hover,.gs-promotion a.gs-title:hover *,.gs-promotion .gs-snippet a:hover{color:#0000CC}.gs-promotion a.gs-title:active,.gs-promotion a.gs-title:active *,.gs-promotion .gs-snippet a:active{color:#0000CC}.gs-promotion .gs-snippet,.gs-promotion .gs-title .gs-promotion-title-right,.gs-promotion .gs-title .gs-promotion-title-right *{color:#000000}.gs-promotion .gs-visibleUrl,.gs-promotion .gs-visibleUrl-short{color:#008000}.gcsc-find-more-on-google{color:#0000CC}.gcsc-find-more-on-google-magnifier{fill:#0000CC}</style><style type="text/css">.gscb_a{display:inline-block;font:27px/13px arial,sans-serif}.gsst_a .gscb_a{color:#a1b9ed;cursor:pointer}.gsst_a:hover .gscb_a,.gsst_a:focus .gscb_a{color:#36c}.gsst_a{display:inline-block}.gsst_a{cursor:pointer;padding:0 4px}.gsst_a:hover{text-decoration:none!important}.gsst_b{font-size:16px;padding:0 2px;position:relative;user-select:none;-webkit-user-select:none;white-space:nowrap}.gsst_e{opacity:0.55;}.gsst_a:hover .gsst_e,.gsst_a:focus .gsst_e{opacity:0.72;}.gsst_a:active .gsst_e{opacity:1;}.gsst_f{background:white;text-align:left}.gsst_g{background-color:white;border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);margin:-1px -3px;padding:0 6px}.gsst_h{background-color:white;height:1px;margin-bottom:-1px;position:relative;top:-1px}.gsib_a{width:100%;padding:4px 6px 0}.gsib_a,.gsib_b{vertical-align:top}.gssb_c{border:0;position:absolute;z-index:989}.gssb_e{border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);cursor:default}.gssb_f{visibility:hidden;white-space:nowrap}.gssb_k{border:0;display:block;position:absolute;top:0;z-index:988}.gsdd_a{border:none!important}.gsq_a{padding:0}.gscsep_a{display:none}.gssb_a{padding:0 7px}.gssb_a,.gssb_a td{white-space:nowrap;overflow:hidden;line-height:22px}#gssb_b{font-size:11px;color:#36c;text-decoration:none}#gssb_b:hover{font-size:11px;color:#36c;text-decoration:underline}.gssb_g{text-align:center;padding:8px 0 7px;position:relative}.gssb_h{font-size:15px;height:28px;margin:0.2em;-webkit-appearance:button}.gssb_i{background:#eee}.gss_ifl{visibility:hidden;padding-left:5px}.gssb_i .gss_ifl{visibility:visible}a.gssb_j{font-size:13px;color:#36c;text-decoration:none;line-height:100%}a.gssb_j:hover{text-decoration:underline}.gssb_l{height:1px;background-color:#e5e5e5}.gssb_m{color:#000;background:#fff}.gsfe_a{border:1px solid #b9b9b9;border-top-color:#a0a0a0;box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);-moz-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);-webkit-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);}.gsfe_b{border:1px solid #4d90fe;outline:none;box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);-moz-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);-webkit-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);}.gssb_a{padding:0 9px}.gsib_a{padding-right:8px;padding-left:8px}.gsst_a{padding-top:5.5px}.gssb_e{border:0}.gssb_l{margin:5px 0}input.gsc-input::-webkit-input-placeholder{font-size:14px}input.gsc-input:-moz-placeholder{font-size:14px}input.gsc-input::-moz-placeholder{font-size:14px}input.gsc-input:-ms-input-placeholder{font-size:14px}input.gsc-input:focus::-webkit-input-placeholder{color:transparent}input.gsc-input:focus:-moz-placeholder{color:transparent}input.gsc-input:focus::-moz-placeholder{color:transparent}input.gsc-input:focus:-ms-input-placeholder{color:transparent}.gssb_c .gsc-completion-container{position:static}.gssb_c{z-index:5000}.gsc-completion-container table{background:transparent;font-size:inherit;font-family:inherit}.gssb_c > tbody > tr,.gssb_c > tbody > tr > td,.gssb_d,.gssb_d > tbody > tr,.gssb_d > tbody > tr > td,.gssb_e,.gssb_e > tbody > tr,.gssb_e > tbody > tr > td{padding:0;margin:0;border:0}.gssb_a table,.gssb_a table tr,.gssb_a table tr td{padding:0;margin:0;border:0}</style><style>.pb_p_logo{position:absolute;display:block;width:30px;margin:auto;top:0;left:0;}</style><style>.pb_feed_loading{height:320px;overflow:hidden}.pb_top_content_container{opacity:0}.pb_feed_placeholder_container{position:absolute;top:0;width:100%;height:100%;}.pb_feed_placeholder_container,.pb_feed_placeholder_container *{direction:ltr !important;}.pb_embed_spinner_iframe{position:relative;max-width:640px;width:100%;height:320px;margin:auto;border:0}.pb_feed_placeholder_inner{position:relative;max-width:640px;width:100%;height:100%;margin:auto;}.pb_feed_placeholder_content{width:100%;height:100%;background-color:#f2f2f2;border-radius:5px;}.pb_feed_placeholder_preloader{position:absolute;top:50%;left:50%;width:29px;height:38px;margin-top:-36px;margin-left:-15px;overflow:hidden;box-sizing:border-box;}.pb_ie_fixer{position:absolute;top:50%;left:50%;width:30px;height:38px;margin-top:-36px;margin-left:14px;background-color:#f2f2f2;}.pb_feed_anim_mask{position:absolute;width:30px;top:0;left:0;}.pb_feed_loading_text{position:absolute;font-family:arial !important;font-size:11px !important;color:#aaa;text-align:center;width:100%;top:170px;direction:ltr;}@-webkit-keyframes pb_color_trans{0%{-webkit-transform:translateX(-60px)}34%{-webkit-transform:translateX(-30px)}100%{-webkit-transform:translateX(0)}}@-moz-keyframes pb_color_trans{0%{transform:translateX(-60px)}34%{transform:translateX(-30px)}100%{transform:translateX(0)}}@-ms-keyframes pb_color_trans{0%{transform:translateX(-60px)}34%{transform:translateX(-30px)}100%{transform:translateX(0)}}@keyframes pb_color_trans{0%{transform:translateX(-60px)}34%{transform:translateX(-30px)}100%{transform:translateX(0)}}</style><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_loader{background-color:#f5f6f7;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;bottom:0;left:0;right:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_mobile .fb_dialog_iframe{position:-webkit-sticky;top:0}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29487d;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f5f6f7;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}
+.fb_customer_chat_bounce_in_v2{animation-duration:300ms;animation-name:fb_bounce_in_v2;transition-timing-function:ease-in}.fb_customer_chat_bounce_out_v2{animation-duration:300ms;animation-name:fb_bounce_out_v2;transition-timing-function:ease-in}.fb_customer_chat_bounce_in_v2_mobile_chat_started{animation-duration:300ms;animation-name:fb_bounce_in_v2_mobile_chat_started;transition-timing-function:ease-in}.fb_customer_chat_bounce_out_v2_mobile_chat_started{animation-duration:300ms;animation-name:fb_bounce_out_v2_mobile_chat_started;transition-timing-function:ease-in}.fb_customer_chat_bubble_pop_in{animation-duration:250ms;animation-name:fb_customer_chat_bubble_bounce_in_animation}.fb_customer_chat_bubble_animated_no_badge{box-shadow:0 3px 12px rgba(0, 0, 0, .15);transition:box-shadow 150ms linear}.fb_customer_chat_bubble_animated_no_badge:hover{box-shadow:0 5px 24px rgba(0, 0, 0, .3)}.fb_customer_chat_bubble_animated_with_badge{box-shadow:-5px 4px 14px rgba(0, 0, 0, .15);transition:box-shadow 150ms linear}.fb_customer_chat_bubble_animated_with_badge:hover{box-shadow:-5px 8px 24px rgba(0, 0, 0, .2)}.fb_invisible_flow{display:inherit;height:0;overflow-x:hidden;width:0}.fb_mobile_overlay_active{background-color:#fff;height:100%;overflow:hidden;position:fixed;visibility:hidden;width:100%}@keyframes fb_bounce_in_v2{0%{opacity:0;transform:scale(0, 0);transform-origin:bottom right}50%{transform:scale(1.03, 1.03);transform-origin:bottom right}100%{opacity:1;transform:scale(1, 1);transform-origin:bottom right}}@keyframes fb_bounce_in_v2_mobile_chat_started{0%{opacity:0;top:20px}100%{opacity:1;top:0}}@keyframes fb_bounce_out_v2{0%{opacity:1;transform:scale(1, 1);transform-origin:bottom right}100%{opacity:0;transform:scale(0, 0);transform-origin:bottom right}}@keyframes fb_bounce_out_v2_mobile_chat_started{0%{opacity:1;top:0}100%{opacity:0;top:20px}}@keyframes fb_customer_chat_bubble_bounce_in_animation{0%{bottom:6pt;opacity:0;transform:scale(0, 0);transform-origin:center}70%{bottom:18pt;opacity:1;transform:scale(1.2, 1.2)}100%{transform:scale(1, 1)}}</style></head>
+<body class="okayNav-loaded">
+
+
+
+<div class="modal modalUser" id="loginPopup" tabindex="-1" role="dialog" aria-labelledby="loginPopupTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="loginPopupTitle">user.popup.loginHere</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div id="loginHeader">
+					</div>
+
+		<div class="styled_form login_form" id="formsHolder">
+			<ul class="logininfo" style="display:none">
+				<li><a href="https://sp-demo-tribune.s-lab.sourcefabric.org/security/logout">Logout</a></li>
+			</ul>
+
+			<form name="login" action="https://sp-demo-tribune.s-lab.sourcefabric.org/security/login_check" method="POST" id="loginform">
+				<div class="modalUser__inputWrap">
+					<label for="l_field_login">user.popup.username</label>
+					<input type="text" id="_username" name="_username" value="">
+				</div>
+
+				<div class="modalUser__inputWrap">
+					<label for="l_field_password">user.popup.password</label>
+					<input id="_password" type="password" name="_password" value="">
+				</div>
+
+				<div class="modalUser__inputWrap">
+					<input type="hidden" name="_login_success_path" value="">
+					<input type="hidden" name="_login_failure_path" value="">
+					<input type="submit" value="Sign In" class="button button--color">
+				</div>
+			</form>
+
+			<div id="userAuth" class="notification"></div>
+
+		</div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal modalUser" id="registerPopup" tabindex="-1" role="dialog" aria-labelledby="registerPopupTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="loginPopupTitle">Don't have account yet? Create one here:</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+		<div class="styled_form login_form" id="registerFormHolder">
+
+			<form name="register" action="https://sp-demo-tribune.s-lab.sourcefabric.org/app_dev.php/api/v1/users/register/" id="registerForm">
+				<div class="modalUser__inputWrap">
+					<label for="l_field_login">user.popup.email</label>
+					<input type="email" name="_email" value="">
+				</div>
+				<div class="modalUser__inputWrap">
+					<label for="l_field_login">user.popup.username</label>
+					<input type="text" name="_username" value="">
+				</div>
+				<div class="modalUser__inputWrap">
+					<label for="l_field_login">user.popup.password</label>
+					<input type="password" name="_password" value="">
+				</div>
+				<div class="modalUser__inputWrap">
+					<label for="l_field_login">user.popup.passwordConfirm</label>
+					<input type="password" name="_password2" value="">
+				</div>
+				<div class="modalUser__inputWrap">
+					<input type="submit" value="Sign Up" class="button button--color">
+				</div>
+			</form>
+
+			<div id="registrationResult" class="notification"></div>
+
+		</div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal modalUser" id="userProfile" tabindex="-1" role="dialog" aria-labelledby="userProfileTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="userProfileTitle">Edit Profile</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body" id="childHolder">
+        <form name="profile" action="https://sp-demo-tribune.s-lab.sourcefabric.org/" id="editProfile">
+
+          <div class="modalUser__inputWrap">
+            <label for="l_field_login" class="span2">user.popup.username</label>
+            <input type="text" id="_usernameP" name="_username" value="">
+          </div>
+
+          <div class="modalUser__inputWrap">
+            <label for="l_field_login" class="span2">user.popup.email</label>
+            <input type="email" id="_emailP" name="_email" value="">
+          </div>
+
+          <div class="modalUser__inputWrap">
+            <label for="l_field_login" class="span2">user.popup.email</label>
+            <input type="text" id="_fnameP" name="_fname" value="">
+          </div>
+
+          <div class="modalUser__inputWrap">
+            <label for="l_field_login" class="span2">user.popup.email</label>
+            <input type="text" id="_lnameP" name="_lname" value="">
+          </div>
+
+
+          <div class="modalUser__inputWrap">
+            <label for="l_field_login" class="span2">user.popup.about</label>
+            <textarea id="_aboutP" name="_about" placeholder=""></textarea>
+          </div>
+
+          <div class="modalUser__inputWrap">
+            <label for="l_field_login" class="span2">user.popup.password</label>
+            <input type="password" id="_passwordP" name="_password" value="">
+          </div>
+
+          <div class="modalUser__inputWrap">
+            <label for="l_field_login" class="span2">user.popup.passwordConfirm</label>
+            <input type="password" id="_password2P" name="_password2" value="">
+          </div>
+
+          <div class="modalUser__inputWrap">
+            <input type="submit" value="Save Profile" class="button button--color">
+          </div>
+
+        </form>
+
+
+        <div id="editProfileResult" class="notification"></div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="topBar">
+    <div class="container">
+      <div class="row">
+
+        <div class="topBar__links col-sm-9 col-md-8 col-xs-12">
+          <ul class="pull-left">
+                        <li><a href="https://sp-demo-tribune.s-lab.sourcefabric.org/about/cotact-us">Contact us</a></li>
+                        <li><a href="https://sp-demo-tribune.s-lab.sourcefabric.org/about/about-us">About us</a></li>
+                      </ul>
+
+          <ul class="pull-right">
+                      <li><a href="https://sp-demo-tribune.s-lab.sourcefabric.org/#" class="open_user_profile" data-toggle="modal" data-target="#loginPopup">Sign in</a></li>
+            <li>|</li>
+            <li><a href="https://sp-demo-tribune.s-lab.sourcefabric.org/#" class="open_user_profile" data-toggle="modal" data-target="#registerPopup">Sign up</a></li>
+                    </ul>
+        </div>
+
+        <div class="topBar__social col-sm-3 col-md-4 col-xs-12">
+          <ul>
+            <li><a href="https://www.facebook.com/Superdesk/"><img src="./The Tribune Theme for Superdesk Publisher_files/social-fb.svg"></a></li>
+            <li><a href="https://twitter.com/Sourcefabric"><img src="./The Tribune Theme for Superdesk Publisher_files/social-tw.svg"></a></li>
+            <li><a href="https://www.youtube.com/user/Sourcefabric"><img src="./The Tribune Theme for Superdesk Publisher_files/social-yt.svg"></a></li>
+            <li><a href="https://sp-demo-tribune.s-lab.sourcefabric.org/"><img src="./The Tribune Theme for Superdesk Publisher_files/social-rss.svg"></a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
 
   <header class="header">
-    <button class="header__hamburger"></button>
-    <div class="header__logo">
-      <a href="https://sp-magazine.s-lab.sourcefabric.org/" class="logo"></a>
-    </div>
 
-    <div class="header__linksWrap">
-      <div id="swp_container_eduodbvnccx" class="swp_container">                  <nav role="navigation" class="nav nav__wrap ng-scope" id="nav">
-         <ul>
+    <div class="container">
 
-                <li class="first">        <a href="https://sp-magazine.s-lab.sourcefabric.org/home">Home</a>
-    </li>
+      <div class="row">
 
+        <div class="verticalMiddle col-md-4 col-sm-4 col-xs-12">
+          <p class="header__weather"><span class="weather-temperature">21°C</span>
+          <span class="header__weather__info">
+            <span class="weather-place">Prague, CZ</span> <br>
+            <span class="weather-description">clear sky</span>
+          </span>
+          <img src="./The Tribune Theme for Superdesk Publisher_files/clear.png" class="weather-icon" alt="Weather Icon"></p>
+        </div>
 
-                <li>        <a href="https://sp-magazine.s-lab.sourcefabric.org/business">Business &amp; Tech</a>
-    </li>
+                <div class="verticalMiddle col-md-4 col-sm-4 col-xs-12">
+          <a class="header__logo" href="https://sp-demo-tribune.s-lab.sourcefabric.org/"><img src="./The Tribune Theme for Superdesk Publisher_files/logo.png"></a>
+        </div>
 
-
-                <li>        <a href="https://sp-magazine.s-lab.sourcefabric.org/news">News</a>
-    </li>
-
-
-                <li>        <a href="https://sp-magazine.s-lab.sourcefabric.org/culture">Culture</a>
-    </li>
+        <div class="header__search verticalMiddle col-sm-4 col-md-4 col-xs-12">
 
 
-                <li>        <a href="https://sp-magazine.s-lab.sourcefabric.org/lifestyle">Lifestyle</a>
-    </li>
 
+     </div>
 
-                <li class="last">        <a href="https://sp-magazine.s-lab.sourcefabric.org/magazine">Magazine</a>
-    </li>
+      </div>
 
-
-          </ul>
-        </nav>
-
-      <ul class="header__userProfile">
-                  <li><a href="https://sp-magazine.s-lab.sourcefabric.org/#" class="open_user_profile" data-toggle="modal" data-target="#loginPopup">Sign in</a></li>
-          <li>|</li>
-          <li><a href="https://sp-magazine.s-lab.sourcefabric.org/#" class="open_user_profile" data-toggle="modal" data-target="#registerPopup">Sign up</a></li>
-              </ul>
     </div>
 
   </header>
-  <div class="overlay"></div>
 
-  <section class="headerMargin">
-
-		<div class="col col--md2 ">
-
-<div class="box">
-  <div class="responsiveBg responsiveBg--loaded" data-xs="/media/20171013111040_5260d203-49cf-4532-aa87-ca0a76940d9e.jpeg" data-sm="/media/20171013111040_f2f8d9e9-fc6b-4060-9b23-4169007cc57c.jpeg" data-md="/media/20171013111040_9dd9fdc6-c382-4f04-a8f8-51b4e4a67033.jpeg" data-lg="/media/20171013111040_9dd9fdc6-c382-4f04-a8f8-51b4e4a67033.jpeg" style="background-image: url(&quot;/media/20171013111040_9dd9fdc6-c382-4f04-a8f8-51b4e4a67033.jpeg&quot;);"></div>
-
-  <a href="https://sp-magazine.s-lab.sourcefabric.org/magazine/but-since-i-have-a-poet-s-weakness-for-symbols" class="articleBox">
-    <div class="articleBox__heading">
-              <h5>Jane Stockwriter</h5>
-            <time datetime="2017-10-13T09:45:33+00:00">13 Oct 2017</time>
-      <h2>But since I have a poet’s weakness for symbols</h2>
-      <div class="articleBox__extras">
-        <p>It is far better to endure patiently a smart which nobody feels but yourself, than to commit a hasty action whose evil consequences will extend to all...</p>
-      </div>
-    </div>
-  </a>
-</div>
-	</div>
-
-
-			<div class="col col--sm2 col--md4 ">
-
-
-
-<div class="box">
-  <div class="responsiveBg responsiveBg--loaded" data-xs="/media/sd-sp_20170727160720_b4683eb0-d6a9-46da-8a39-3c0b04c1c32b.jpeg" data-sm="/media/sd-sp_20170727160720_220e182e-7e66-4faf-841e-e802867b5bc0.jpeg" data-md="/media/sd-sp_20170727160720_03c1cacf-c87b-4fa7-9b82-da67dc9b1182.jpeg" data-lg="/media/sd-sp_20170727160720_03c1cacf-c87b-4fa7-9b82-da67dc9b1182.jpeg" style="background-image: url(&quot;/media/sd-sp_20170727160720_03c1cacf-c87b-4fa7-9b82-da67dc9b1182.jpeg&quot;);"></div>
-
-  <a href="https://sp-magazine.s-lab.sourcefabric.org/magazine/i-stood-staring-not-as-yet-realising-that-this-was-death-leaping" class="articleBox">
-    <div class="articleBox__heading">
-              <h5>George Langsamer</h5>
-            <time datetime="2017-07-27T14:20:58+00:00">27 Jul 2017</time>
-      <h2>I stood staring, not as yet realising that this was death leaping</h2>
-      <div class="articleBox__extras">
-        <p>Beyond the pit stood the little wedge of people with the white flag at its apex, arrested by these phenomena, a little knot of small vertical black shapes...</p>
-      </div>
-    </div>
-  </a>
-</div>
-	</div>
-
-
-			<div class="col col--sm2 col--md4 ">
-
-<div class="box">
-  <div class="responsiveBg responsiveBg--loaded" data-xs="/media/20171013111052_216d465f-0328-4b53-b7db-adac12ee8a6e.jpeg" data-sm="/media/20171013111052_955aa1ae-724d-4b38-8656-35339f72e8bd.jpeg" data-md="/media/20171013111052_625799b6-8bea-4faf-902f-ca5a2e3530f4.jpeg" data-lg="/media/20171013111052_625799b6-8bea-4faf-902f-ca5a2e3530f4.jpeg" style="background-image: url(&quot;/media/20171013111052_625799b6-8bea-4faf-902f-ca5a2e3530f4.jpeg&quot;);"></div>
-
-  <a href="https://sp-magazine.s-lab.sourcefabric.org/business/who-being-loved-is-poor" class="articleBox">
-    <div class="articleBox__heading">
-              <h5>John Doe</h5>
-            <time datetime="2017-10-13T09:53:40+00:00">13 Oct 2017</time>
-      <h2>Who, being loved, is poor?</h2>
-      <div class="articleBox__extras">
-        <p>Twenty years from now you will be more disappointed by the things that you didn’t do than by the ones you did do.</p>
-      </div>
-    </div>
-  </a>
-</div>
-	</div>
-
-		 	<div id="swp_container_vx22zd2hpwc" class="swp_container col col--md2 ">
-<div class="box mostBox ng-scope swp_widget" id="#swp_widget_54"
-widget-type="contentlist" data-list-type="manual" data-list-id="11" data-container="vx22zd2hpwc">
-  <div class="tabs">
-    <div class="tabs__nav">
-      <a class="tabs__navItem tabs__navItem--active" href="https://sp-magazine.s-lab.sourcefabric.org/#tab1">Featured articles</a>
-    </div>
-
-    <div class="tabs__content tabs__content--active listBox__content" name="#tab1">
-      <ul class="list list--numbered">
-                  <li>
-            <a href="https://sp-magazine.s-lab.sourcefabric.org/news/uk-us-trade" class="mostBox__article">
-              <h2>President Trump predicts 'tremendous increase' in UK-US trade</h2>
-              <p>&lt;p style="border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch:...</p>
-            </a>
-          </li>
-                  <li>
-            <a href="https://sp-magazine.s-lab.sourcefabric.org/business/he-allowed-himself-to-be-swayed-by-his-conviction" class="mostBox__article">
-              <h2>He allowed himself to be swayed by his conviction</h2>
-              <p>&lt;p style=""&gt;There is an idea of a Patrick Bateman, some kind of abstraction, but there is no real me,...</p>
-            </a>
-          </li>
-                  <li>
-            <a href="https://sp-magazine.s-lab.sourcefabric.org/business/we-are-all-in-the-gutter-but-some-of-us-are-looking-at-the-stars" class="mostBox__article">
-              <h2>We are all in the gutter, but some of us are looking at the stars</h2>
-              <p>&lt;p style=""&gt;I must not fear. Fear is the mind-killer. Fear is the little-death that brings total obliteration....</p>
-            </a>
-          </li>
-
-      </ul>
-    </div>
-      </div>
-</div>
-</div></div>
-			<div class="col col--sm2 col--md4 ">
-
-
-<div class="box">
-  <div class="responsiveBg responsiveBg--loaded" data-xs="/media/20171013111020_c56fa800-90fb-48c4-9da0-23d1054eb03c.jpeg" data-sm="/media/20171013111020_9b28a94d-df10-42b2-ad14-cf1bfd25d0f1.jpeg" data-md="/media/20171013111020_d9aa69ff-1c3a-4241-b319-481441ae7045.jpeg" data-lg="/media/20171013111020_d9aa69ff-1c3a-4241-b319-481441ae7045.jpeg" style="background-image: url(&quot;/media/20171013111020_d9aa69ff-1c3a-4241-b319-481441ae7045.jpeg&quot;);"></div>
-
-  <a href="https://sp-magazine.s-lab.sourcefabric.org/news/every-one-suspects-himself-of-at-least-one-of-the-cardinal-virtues" class="articleBox">
-    <div class="articleBox__heading">
-              <h5>Jane Stockwriter</h5>
-            <time datetime="2017-10-13T09:24:26+00:00">13 Oct 2017</time>
-      <h2>Every one suspects himself</h2>
-      <div class="articleBox__extras">
-        <p>Every one suspects himself of at least one of the cardinal virtues, and this is mine: I am one of the few honest people that I have ever known.</p>
-      </div>
-    </div>
-  </a>
-</div>
-	</div>
-
-
-			<div class="col col--sm2 col--md4 ">
-
-
-
-
-<div class="box">
-  <div class="responsiveBg responsiveBg--loaded" data-xs="/media/sd-sp_20170704110720_e1edbbb1-fa9b-457c-810f-1cd0501012e3.jpeg" data-sm="/media/sd-sp_20170704110720_b5e806b5-1ae8-47ac-ba83-cff7eba82ee8.jpeg" data-md="/media/sd-sp_20170704110720_d877cbc9-4013-4b0d-a624-9dba9e864bbe.jpeg" data-lg="/media/sd-sp_20170704110720_d877cbc9-4013-4b0d-a624-9dba9e864bbe.jpeg" style="background-image: url(&quot;/media/sd-sp_20170704110720_d877cbc9-4013-4b0d-a624-9dba9e864bbe.jpeg&quot;);"></div>
-
-  <a href="https://sp-magazine.s-lab.sourcefabric.org/business/fresh-water-throws-him-into-the-hydrophobia" class="articleBox">
-    <div class="articleBox__heading">
-              <h5>Jane Stockwriter</h5>
-            <time datetime="2017-07-04T09:23:50+00:00">04 Jul 2017</time>
-      <h2>Fresh water throws him into the hydrophobia</h2>
-      <div class="articleBox__extras">
-        <p>"Water!" cried the captain; "he never drinks it; it's a sort of fits to him; fresh water throws him into the hydrophobia; but go on—go on with the arm...</p>
-      </div>
-    </div>
-  </a>
-</div>
-	</div>
-
-
-			<div class="col col--sm2 col--md4 ">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="box">
-  <div class="responsiveBg responsiveBg--loaded" data-xs="/media/sd-sp_20170704110740_266620c7-692e-404b-8e69-a155979a9d41.jpeg" data-sm="/media/sd-sp_20170704110740_554ea77b-7a53-4b29-bfad-0fb78aa18ba8.jpeg" data-md="/media/sd-sp_20170704110740_2a93af7f-8e2e-4fc4-ae49-71acb7e5e27c.jpeg" data-lg="/media/sd-sp_20170704110740_2a93af7f-8e2e-4fc4-ae49-71acb7e5e27c.jpeg" style="background-image: url(&quot;/media/sd-sp_20170704110740_2a93af7f-8e2e-4fc4-ae49-71acb7e5e27c.jpeg&quot;);"></div>
-
-  <a href="https://sp-magazine.s-lab.sourcefabric.org/news/my-grandfather-was-flying-out-with-his-band-when-he-saw-quelala" class="articleBox">
-    <div class="articleBox__heading">
-              <h5>John Doe</h5>
-            <time datetime="2017-07-04T09:43:34+00:00">04 Jul 2017</time>
-      <h2>My grandfather was flying out with his band when he saw Quelala</h2>
-      <div class="articleBox__extras">
-        <p>"My grandfather was at that time the King of the Winged Monkeys which lived in the forest near Gayelette's palace, and the old fellow loved a joke better...</p>
-      </div>
-    </div>
-  </a>
-</div>
-	</div>
-
-
-			<div class="col col--sm2 col--md4 ">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="box">
-  <div class="responsiveBg responsiveBg--loaded" data-xs="/media/sd-sp_20170704100756_90d83b31-2922-41c3-b8c0-ef2a3dcf4002.jpeg" data-sm="/media/sd-sp_20170704100756_ea74c361-e9db-421f-8d6c-d5de9ad7aa14.jpeg" data-md="/media/sd-sp_20170704100756_ef780aef-2db1-4d37-91b0-a20ff32a25c3.jpeg" data-lg="/media/sd-sp_20170704100756_ef780aef-2db1-4d37-91b0-a20ff32a25c3.jpeg" style="background-image: url(&quot;/media/sd-sp_20170704100756_ef780aef-2db1-4d37-91b0-a20ff32a25c3.jpeg&quot;);"></div>
-
-  <a href="https://sp-magazine.s-lab.sourcefabric.org/culture/little-cowled-figures-they-seemed-at-first-going-with-a-rolling-motion" class="articleBox">
-    <div class="articleBox__heading">
-              <h5>John Doe</h5>
-            <time datetime="2017-07-04T09:03:10+00:00">04 Jul 2017</time>
-      <h2>Little cowled figures they seemed at first, going with a rolling motion</h2>
-      <div class="articleBox__extras">
-        <p>Quickly, one after the other, one, two, three, four of the armoured Martians appeared, far away over the little trees, across the flat meadows that stretched...</p>
-      </div>
-    </div>
-  </a>
-</div>
-	</div>
-
-
-		<div class="col col--md2 ">
-	 	<div id="swp_container_mclhugcojs5" class="swp_container box centerBoth"> <div class="commentBox ng-scope">
-    <h4 class="commentBox__heading">selected comment</h4>
-    <blockquote class="commentBox__quote">
-      Local inovation and initiative can help us better understanding how to protect our environment.
-      <footer>
-        Gary Fisher
-      </footer>
-    </blockquote>
+<div id="swp_container_a4asn2ej0iy" class="swp_container "><div id="swp_widget_8" class="swp_widget" data-container="a4asn2ej0iy">              <div class="navigation">
+    <nav class="container">
+      <div id="header" class="navigation__header okayNav-header">
+            <nav role="navigation" id="nav-main" class="okayNav loaded">
+                <ul class="okayNav__nav--visible"><li class="first">        <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/home">Home</a>
+    </li><li>        <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/politics">Politics</a>
+    </li><li>        <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/business">Business</a>
+    </li><li>        <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/opinion">Opinion</a>
+    </li><li>        <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/sports">Sports</a>
+    </li><li>        <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/style">Style</a>
+    </li><li class="last">        <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/travel">Travel</a>
+    </li></ul>
+            <ul class="okayNav__nav--invisible transition-enabled nav-right" style=""></ul><a href="https://sp-demo-tribune.s-lab.sourcefabric.org/#" class="okayNav__menu-toggle okay-invisible"><span></span><span></span><span></span></a></nav>
+        </div><!-- /header -->
+    </nav>
   </div>
-</div></div>	</div>
-			<div class="col col--sm2 col--md4 ">
 
+</div></div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="box">
-  <div class="responsiveBg responsiveBg--loaded" data-xs="/media/sd-sp_20170703150720_4f089b8c-8ac7-43da-a1aa-a7a77ab1a86c.jpeg" data-sm="/media/sd-sp_20170703150720_17fb6deb-06ef-496d-ae6a-c1f3c7912a9c.jpeg" data-md="/media/sd-sp_20170703150720_9d045acf-b5e6-497e-acd3-e7405fc64d7b.jpeg" data-lg="/media/sd-sp_20170703150720_9d045acf-b5e6-497e-acd3-e7405fc64d7b.jpeg" style="background-image: url(&quot;/media/sd-sp_20170703150720_9d045acf-b5e6-497e-acd3-e7405fc64d7b.jpeg&quot;);"></div>
-
-  <a href="https://sp-magazine.s-lab.sourcefabric.org/culture/everyone-realizes-why-a-new-common-language-would-be-desirable" class="articleBox">
-    <div class="articleBox__heading">
-              <h5>John Doe</h5>
-            <time datetime="2017-07-03T13:23:22+00:00">03 Jul 2017</time>
-      <h2>Everyone realizes why a new common language would be desirable</h2>
-      <div class="articleBox__extras">
-        <p>Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators.</p>
+  <div class="trendingTopics">
+    <div class="container">
+      <div class="okayNav-header">
+        <nav role="navigation" id="topics" class="okayNav loaded">
+          <ul class="trendingTopics__items okayNav__nav--visible"><li>Trending topics</li><li><a href="https://sp-demo-tribune.s-lab.sourcefabric.org/app_dev.php/trending?topic=seaside">seaside</a></li><li><a href="https://sp-demo-tribune.s-lab.sourcefabric.org/app_dev.php/trending?topic=sherlock%20holmes">sherlock holmes</a></li></ul>
+        <ul class="okayNav__nav--invisible transition-enabled nav-right" style=""></ul><a href="https://sp-demo-tribune.s-lab.sourcefabric.org/#" class="okayNav__menu-toggle okay-invisible"><span></span><span></span><span></span></a></nav>
       </div>
     </div>
-  </a>
-</div>
-	</div>
-
-
-			<div class="col col--sm2 col--md4 ">
+  </div>
 
 
 
+
+  <main class="container">
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="box">
-  <div class="responsiveBg responsiveBg--loaded" data-xs="/media/sd-sp_20170703150716_9590fa3f-5503-40aa-a2df-0a4f886d5ab8.jpeg" data-sm="/media/sd-sp_20170703150716_eea6af8b-b36a-40df-ae84-9f005aff6b38.jpeg" data-md="/media/sd-sp_20170703150716_d2ec9100-17e0-4dfa-8792-5b2f62277925.jpeg" data-lg="/media/sd-sp_20170703150716_d2ec9100-17e0-4dfa-8792-5b2f62277925.jpeg" style="background-image: url(&quot;/media/sd-sp_20170703150716_d2ec9100-17e0-4dfa-8792-5b2f62277925.jpeg&quot;);"></div>
-
-  <a href="https://sp-magazine.s-lab.sourcefabric.org/culture/li-europan-lingues-es-membres-del-sam-familie" class="articleBox">
-    <div class="articleBox__heading">
-              <h5>Sarrah Staffwriter</h5>
-            <time datetime="2017-07-03T13:17:14+00:00">03 Jul 2017</time>
-      <h2>Li Europan lingues es membres del sam familie</h2>
-      <div class="articleBox__extras">
-        <p>en in li grammatica, li pronunciation e li plu commun vocabules. Omnicos directe al desirabilite de un nov lingua franca: On refusa continuar payar custosi...</p>
+    <div class="row">
+      <div class="gallery gallery__breakingNews marginBottom30 col-xs-12">
+        <figure class="gallery__image">
+          <a class="gallery__strip" href="https://sp-demo-tribune.s-lab.sourcefabric.org/politics">Breaking news</a>
+          <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/politics/i-waited-until-midnight-but-there-was-no-sign-of-his-return-so-i-retired-to-my-room">
+            <img src="./The Tribune Theme for Superdesk Publisher_files/20181009151044_a59c1ca4-5979-4598-844f-5d9746ad35c3.jpeg" alt="Muo after rain">
+          </a>
+        </figure>
+        <div class="gallery__text">
+          <h3 class="gallery__headline"><a href="https://sp-demo-tribune.s-lab.sourcefabric.org/politics/i-waited-until-midnight-but-there-was-no-sign-of-his-return-so-i-retired-to-my-room"><span class="lockIcon"><img src="./The Tribune Theme for Superdesk Publisher_files/lock-white.svg"></span>I waited until midnight, but there was no sign of his return, so I retired to my room</a></h3>
+          <p>"Oh, to the other side of the West End. It may be some time before I get back. Don't wait up for me in case I should be late."</p>
+          <div class="articleMetadata">
+                                    <span class="articleMetadata__byline articleMetadata__byline--white">by <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/authors/frank-n-stein">Frank N. Stein</a></span>
+                                    <a class="articleMetadata__shares articleMetadata__info articleMetadata__info--white" href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">240</a>
+              <a class="articleMetadata__comments articleMetadata__info articleMetadata__info--white" href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">20</a>
+           </div>
+        </div>
       </div>
     </div>
+      <div class="row">
+        <div class="col-md-9 col-sm-12 col-xs-12">
+          <div class="row">
+            <div class="col-md-8 col-sm-12 col-xs-12 pull-right">
+
+
+
+
+        <article class="mainArticle ">
+            <figure class="mainArticle__image  ">
+
+
+              <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/opinion/mr-gardiner-did-not-write-again-till-he-had-received-an-answer-from-colonel-forster">
+                                  <img src="./The Tribune Theme for Superdesk Publisher_files/2018100511104_ef611591-f418-45d7-b767-d74793bc5428.jpeg" alt="Livari Laguna">
+                              </a>
+
+            </figure>
+
+
+          <div class="mainArticle__text ">
+            <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/opinion/mr-gardiner-did-not-write-again-till-he-had-received-an-answer-from-colonel-forster">
+              <span class="mainArticle__kicker">Mr Gardiner</span>              <h2 class="mainArticle__headline"><span class="lockIcon"><img src="./The Tribune Theme for Superdesk Publisher_files/lock-black.svg"></span>Mr. Gardiner did not write again till he had received an answer from Colonel Forster</h2>
+            </a>
+
+            <div class="mainArticle__teaser">
+              <p>His former acquaintances had been numerous; but since he had been in the militia, it did not appear that he was on terms of particular friendship with any of them. </p>
+            </div>
+
+            <div class="articleMetadata">
+                                              <span class="articleMetadata__byline">by <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/authors/frank-n-stein">Frank N. Stein</a></span>
+                                            <a class="articleMetadata__shares articleMetadata__info" href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">240</a>
+              <a class="articleMetadata__comments articleMetadata__info" href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">20</a>
+            </div>
+          </div>
+        </article>
+      <div class="articleGrid row">
+
+
+
+
+<article class="articleGrid__item articleGrid__item--twoColumns col-md-6 col-sm-6 col-xs-12">
+  <a class="articleGrid__image articleGrid__image--smallMobile" href="https://sp-demo-tribune.s-lab.sourcefabric.org/opinion/all-we-wish-you-to-do-is-to-examine-the-machine">
+    <figure>
+      <img src="./The Tribune Theme for Superdesk Publisher_files/20181005121020_4b7f1cfb-ab8d-4d63-b07e-477e0ac5dc02.jpeg" alt="Stockholm square">
+    </figure>
   </a>
-</div>
-	</div>
 
 
-			<div class="col col--sm2 col--md4 ">
-
-
-
-
-
-
-
-
-
-
-
+  <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/opinion/all-we-wish-you-to-do-is-to-examine-the-machine">
+        <h3 class="articleGrid__headline"><span class="lockIcon"><img src="./The Tribune Theme for Superdesk Publisher_files/lock-black.svg"></span>All we wish you to do is to examine the machine</h3>
+  </a>
+  <p class="articleGrid__text">
+      No, no. This is only where we compress it. But never mind that. All we wish you to do is to examine the machine and to let us know what is wrong with it.
+  </p>
+  <div class="articleMetadata">
+        <a class="articleMetadata__shares articleMetadata__info" href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">240</a>
+    <a class="articleMetadata__comments articleMetadata__info" href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">20</a>
+  </div>
+</article>
 
 
 
 
+<article class="articleGrid__item articleGrid__item--twoColumns col-md-6 col-sm-6 col-xs-12">
+  <a class="articleGrid__image articleGrid__image--smallMobile" href="https://sp-demo-tribune.s-lab.sourcefabric.org/opinion/mr-utterson-stepped-out-and-touched-him-on-the-shoulder-as-he-passed">
+    <figure>
+      <img src="./The Tribune Theme for Superdesk Publisher_files/2018100316108_26df73b7-5dcc-414c-a992-67da5b8b0df0.jpeg" alt="Tabacchi">
+    </figure>
+  </a>
+
+
+  <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/opinion/mr-utterson-stepped-out-and-touched-him-on-the-shoulder-as-he-passed">
+    <span class="articleGrid__kicker">seaside</span>    <h3 class="articleGrid__headline"><span class="lockIcon"><img src="./The Tribune Theme for Superdesk Publisher_files/lock-black.svg"></span>Mr. Utterson stepped out and touched him on the shoulder as he passed</h3>
+  </a>
+  <p class="articleGrid__text">
+      Mr. Hyde shrank back with a hissing intake of the breath. But his fear was only momentary; and though he did not look the lawyer in the face, he answered...
+  </p>
+  <div class="articleMetadata">
+        <a class="articleMetadata__shares articleMetadata__info" href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">240</a>
+    <a class="articleMetadata__comments articleMetadata__info" href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">20</a>
+  </div>
+</article>
 
 
 
 
+<article class="articleGrid__item articleGrid__item--twoColumns col-md-6 col-sm-6 col-xs-12">
+  <a class="articleGrid__image articleGrid__image--smallMobile" href="https://sp-demo-tribune.s-lab.sourcefabric.org/politics/as-long-as-i-live-the-personality-of-dorian-gray-will-dominate-me">
+    <figure>
+      <img src="./The Tribune Theme for Superdesk Publisher_files/20181009131032_2b88f8cf-e3a9-4071-b36b-c8fb1c6cbd22.jpeg" alt="Mostar bridge">
+    </figure>
+  </a>
+
+
+  <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/politics/as-long-as-i-live-the-personality-of-dorian-gray-will-dominate-me">
+        <h3 class="articleGrid__headline">As long as I live, the personality of Dorian Gray will dominate me</h3>
+  </a>
+  <p class="articleGrid__text">
+      "Ah, my dear Basil, that is exactly why I can feel it. Those who are faithful know only the trivial side of love: it is the faithless who know love's...
+  </p>
+  <div class="articleMetadata">
+        <a class="articleMetadata__shares articleMetadata__info" href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">240</a>
+    <a class="articleMetadata__comments articleMetadata__info" href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">20</a>
+  </div>
+</article>
 
 
 
 
+<article class="articleGrid__item articleGrid__item--twoColumns col-md-6 col-sm-6 col-xs-12">
+  <a class="articleGrid__image articleGrid__image--smallMobile" href="https://sp-demo-tribune.s-lab.sourcefabric.org/business/a-youthful-mind-is-seldom-totally-free-from-ambition">
+    <figure>
+      <img src="./The Tribune Theme for Superdesk Publisher_files/20180816100824_263b54a3-1155-44e0-b82f-74f1d2b89908.jpeg" alt="Milos beach">
+    </figure>
+  </a>
+
+
+  <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/business/a-youthful-mind-is-seldom-totally-free-from-ambition">
+    <span class="articleGrid__kicker">Eveline</span>    <h3 class="articleGrid__headline">A youthful mind is seldom totally free from ambition</h3>
+  </a>
+  <p class="articleGrid__text">
+      Thus far, Madam, I cheerfully submit to your desire. In confiding my ward to the care of Lady Howard, I can feel no uneasiness from her absence, but what...
+  </p>
+  <div class="articleMetadata">
+        <a class="articleMetadata__shares articleMetadata__info" href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">240</a>
+    <a class="articleMetadata__comments articleMetadata__info" href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">20</a>
+  </div>
+</article>
 
 
 
 
+<article class="articleGrid__item articleGrid__item--twoColumns col-md-6 col-sm-6 col-xs-12">
+  <a class="articleGrid__image articleGrid__image--smallMobile" href="https://sp-demo-tribune.s-lab.sourcefabric.org/travel/elizabeth-could-safely-say-that-it-was-a-great-happiness-where-that-was-the-case">
+    <figure>
+      <img src="./The Tribune Theme for Superdesk Publisher_files/20180816160836_8147e03d-447c-4a86-a112-7a50796eb96e.jpeg" alt="Bridge">
+    </figure>
+  </a>
+
+
+  <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/travel/elizabeth-could-safely-say-that-it-was-a-great-happiness-where-that-was-the-case">
+    <span class="articleGrid__kicker">apple</span>    <h3 class="articleGrid__headline">Elizabeth could safely say that it was a great happiness where that was the case</h3>
+  </a>
+  <p class="articleGrid__text">
+      “But,” he added, “you will of course wish to have your humble respects delivered to them, with your grateful thanks for their kindness to you while you have...
+  </p>
+  <div class="articleMetadata">
+        <a class="articleMetadata__shares articleMetadata__info" href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">240</a>
+    <a class="articleMetadata__comments articleMetadata__info" href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">20</a>
+  </div>
+</article>
 
 
 
 
-<div class="box">
-  <div class="responsiveBg responsiveBg--loaded" data-xs="/media/sd-sp_20170703140756_6559624f-0fa2-4876-abbb-78a4b04b7292.jpeg" data-sm="/media/sd-sp_20170703140756_5195781d-7d5e-425d-a71a-5494c73f0a2d.jpeg" data-md="/media/sd-sp_20170703140756_3dc38598-3720-4204-b805-65e0cbf55c30.jpeg" data-lg="/media/sd-sp_20170703140756_3dc38598-3720-4204-b805-65e0cbf55c30.jpeg" style="background-image: url(&quot;/media/sd-sp_20170703140756_3dc38598-3720-4204-b805-65e0cbf55c30.jpeg&quot;);"></div>
+<article class="articleGrid__item articleGrid__item--twoColumns col-md-6 col-sm-6 col-xs-12">
+  <a class="articleGrid__image articleGrid__image--smallMobile" href="https://sp-demo-tribune.s-lab.sourcefabric.org/style/another-targeted-publishing-trst-by-ljuba">
+    <figure>
+      <img src="./The Tribune Theme for Superdesk Publisher_files/2018061211060_b5e83627-e854-4d32-a0b5-ffc68b54e894.jpeg" alt="Venice">
+    </figure>
+  </a>
 
-  <a href="https://sp-magazine.s-lab.sourcefabric.org/magazine/who-loves-or-pursues-or-desires-to-obtain" class="articleBox">
-    <div class="articleBox__heading">
-              <h5>Test Persona</h5>
-            <time datetime="2017-07-03T12:59:51+00:00">03 Jul 2017</time>
-      <h2>Who loves or pursues or desires to obtain</h2>
-      <div class="articleBox__extras">
-        <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account</p>
+
+  <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/style/another-targeted-publishing-trst-by-ljuba">
+        <h3 class="articleGrid__headline">Another targeted publishing trst by Ljuba</h3>
+  </a>
+  <p class="articleGrid__text">
+      It was a cold morning of the early spring, and we sat after breakfast on either side of a cheery fire in the old room at Baker Street.
+  </p>
+  <div class="articleMetadata">
+        <a class="articleMetadata__shares articleMetadata__info" href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">240</a>
+    <a class="articleMetadata__comments articleMetadata__info" href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">20</a>
+  </div>
+</article>
+
+
+
+
+<article class="articleGrid__item articleGrid__item--twoColumns col-md-6 col-sm-6 col-xs-12">
+  <a class="articleGrid__image articleGrid__image--smallMobile" href="https://sp-demo-tribune.s-lab.sourcefabric.org/travel/mary-wished-to-say-something-sensible-but-knew-not-how">
+    <figure>
+      <img src="./The Tribune Theme for Superdesk Publisher_files/2018053016054_05aa4491-f547-4c19-9e62-30d15c672154.jpeg" alt="Boats in Dakar">
+    </figure>
+  </a>
+
+
+  <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/travel/mary-wished-to-say-something-sensible-but-knew-not-how">
+    <span class="articleGrid__kicker">Pride and Prejudice</span>    <h3 class="articleGrid__headline">Mary wished to say something sensible, but knew not how</h3>
+  </a>
+  <p class="articleGrid__text">
+      I am sorry to hear that; but why did not you tell me that before? If I had known as much this morning I certainly would not have called on him.
+  </p>
+  <div class="articleMetadata">
+        <a class="articleMetadata__shares articleMetadata__info" href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">240</a>
+    <a class="articleMetadata__comments articleMetadata__info" href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">20</a>
+  </div>
+</article>
+
+
+
+
+<article class="articleGrid__item articleGrid__item--twoColumns col-md-6 col-sm-6 col-xs-12">
+  <a class="articleGrid__image articleGrid__image--smallMobile" href="https://sp-demo-tribune.s-lab.sourcefabric.org/politics/the-faces-of-the-others-were-set-and-harkers-grew-ashen-grey">
+    <figure>
+      <img src="./The Tribune Theme for Superdesk Publisher_files/20180607160612_f25f3b01-9fb9-4961-b8a4-dce14d6f84f5.jpeg" alt="Smoke on the water">
+    </figure>
+  </a>
+
+
+  <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/politics/the-faces-of-the-others-were-set-and-harkers-grew-ashen-grey">
+    <span class="articleGrid__kicker">dracula</span>    <h3 class="articleGrid__headline">The faces of the others were set and Harker's grew ashen grey</h3>
+  </a>
+  <p class="articleGrid__text">
+      This is what I can give into the hotch-pot." I could not but note the quaint legal phrase which she used in such a place, and with all seriousness. "What...
+  </p>
+  <div class="articleMetadata">
+        <a class="articleMetadata__shares articleMetadata__info" href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">240</a>
+    <a class="articleMetadata__comments articleMetadata__info" href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">20</a>
+  </div>
+</article>
+
+
+
+
+<article class="articleGrid__item articleGrid__item--twoColumns col-md-6 col-sm-6 col-xs-12">
+  <a class="articleGrid__image articleGrid__image--smallMobile" href="https://sp-demo-tribune.s-lab.sourcefabric.org/opinion/we-are-all-in-the-gutter-but-some-of-us-are-looking-at-the-stars">
+    <figure>
+      <img src="./The Tribune Theme for Superdesk Publisher_files/20171108111124_27f7623e-ca69-4039-91fe-6f08dccb5b7d.jpeg" alt="coffee">
+    </figure>
+  </a>
+
+
+  <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/opinion/we-are-all-in-the-gutter-but-some-of-us-are-looking-at-the-stars">
+        <h3 class="articleGrid__headline"><span class="lockIcon"><img src="./The Tribune Theme for Superdesk Publisher_files/lock-black.svg"></span>We are all in the gutter, but some of us are looking at the stars</h3>
+  </a>
+  <p class="articleGrid__text">
+      I must not fear. Fear is the mind-killer. Fear is the little-death that brings total obliteration.
+  </p>
+  <div class="articleMetadata">
+        <a class="articleMetadata__shares articleMetadata__info" href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">240</a>
+    <a class="articleMetadata__comments articleMetadata__info" href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">20</a>
+  </div>
+</article>
+
+
+
+
+<article class="articleGrid__item articleGrid__item--twoColumns col-md-6 col-sm-6 col-xs-12">
+  <a class="articleGrid__image articleGrid__image--smallMobile" href="https://sp-demo-tribune.s-lab.sourcefabric.org/business/there-was-nothing-in-the-office-but-a-couple-of-wooden-chairs-and-a-deal-table">
+    <figure>
+      <img src="./The Tribune Theme for Superdesk Publisher_files/20180816120840_cb7c5c25-def2-4e37-a5f1-6e03dff92538.jpeg" alt="Lefkas">
+    </figure>
+  </a>
+
+
+  <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/business/there-was-nothing-in-the-office-but-a-couple-of-wooden-chairs-and-a-deal-table">
+    <span class="articleGrid__kicker">holmes</span>    <h3 class="articleGrid__headline">There was nothing in the office but a couple of wooden chairs and a deal table</h3>
+  </a>
+  <p class="articleGrid__text">
+      "Your experience has been a most entertaining one," remarked Holmes as his client paused and refreshed his memory with a huge pinch of snuff.
+  </p>
+  <div class="articleMetadata">
+        <a class="articleMetadata__shares articleMetadata__info" href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">240</a>
+    <a class="articleMetadata__comments articleMetadata__info" href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">20</a>
+  </div>
+</article>
+
+              </div>
+
+          </div>
+
+          <div class="leftCol col-md-4 col-sm-12 col-xs-12 pull-right">
+            <div class="leftCol__item">
+              <div class="articleListSmall articleListSmall--latestNews marginBottom30">
+                <h3 class="sectionHeading">Latest news</h3>
+                                  <article class="articleListSmall__item">
+
+
+    <a class="articleListSmall__image" href="https://sp-demo-tribune.s-lab.sourcefabric.org/politics/perhaps-i-should-not-have-been-a-fisherman-he-thought-but-that-was-the-thing-that-i-was-born-for"><img src="./The Tribune Theme for Superdesk Publisher_files/2018050712050_ed5d93c3-b155-48af-9f24-ef072ec1de6d.jpeg" alt="Water traffic in Dubrovnik" width="90"></a>
+    <h4 class="articleListSmall__headline"><a href="https://sp-demo-tribune.s-lab.sourcefabric.org/politics/perhaps-i-should-not-have-been-a-fisherman-he-thought-but-that-was-the-thing-that-i-was-born-for">Perhaps I should not have been a fisherman, he thought. But that was the thing that I was born for</a></h4>
+  <div class="articleMetadata">
+          <span class="articleMetadata__byline">by <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/authors/sarrah-staffwriter">Sarrah Staffwriter</a></span>
+        </div>
+</article>
+                                  <article class="articleListSmall__item">
+
+
+    <a class="articleListSmall__image" href="https://sp-demo-tribune.s-lab.sourcefabric.org/politics/i-waited-until-midnight-but-there-was-no-sign-of-his-return-so-i-retired-to-my-room"><img src="./The Tribune Theme for Superdesk Publisher_files/20181009151044_7f7fa1f1-3b15-430c-8890-0c90fea1535f.jpeg" alt="Muo after rain" width="90"></a>
+    <h4 class="articleListSmall__headline"><a href="https://sp-demo-tribune.s-lab.sourcefabric.org/politics/i-waited-until-midnight-but-there-was-no-sign-of-his-return-so-i-retired-to-my-room"><span class="lockIcon"><img src="./The Tribune Theme for Superdesk Publisher_files/lock-black.svg"></span>I waited until midnight, but there was no sign of his return, so I retired to my room</a></h4>
+  <div class="articleMetadata">
+          <span class="articleMetadata__byline">by <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/authors/frank-n-stein">Frank N. Stein</a></span>
+        </div>
+</article>
+                                  <article class="articleListSmall__item">
+
+
+    <a class="articleListSmall__image" href="https://sp-demo-tribune.s-lab.sourcefabric.org/politics/as-long-as-i-live-the-personality-of-dorian-gray-will-dominate-me"><img src="./The Tribune Theme for Superdesk Publisher_files/20181009131032_2b88f8cf-e3a9-4071-b36b-c8fb1c6cbd22.jpeg" alt="Mostar bridge" width="90"></a>
+    <h4 class="articleListSmall__headline"><a href="https://sp-demo-tribune.s-lab.sourcefabric.org/politics/as-long-as-i-live-the-personality-of-dorian-gray-will-dominate-me">As long as I live, the personality of Dorian Gray will dominate me</a></h4>
+  <div class="articleMetadata">
+          <span class="articleMetadata__byline">by <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/authors/sarrah-staffwriter">Sarrah Staffwriter</a></span>
+        </div>
+</article>
+                                  <article class="articleListSmall__item">
+
+
+    <h4 class="articleListSmall__headline"><a href="https://sp-demo-tribune.s-lab.sourcefabric.org/politics/rafal-testing-gallery">rafal testing gallery</a></h4>
+  <div class="articleMetadata">
+          <span class="articleMetadata__byline">by <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/authors/frank-n-stein">Frank N. Stein</a></span>
+        </div>
+</article>
+                                  <article class="articleListSmall__item">
+
+
+    <a class="articleListSmall__image" href="https://sp-demo-tribune.s-lab.sourcefabric.org/opinion/all-we-wish-you-to-do-is-to-examine-the-machine"><img src="./The Tribune Theme for Superdesk Publisher_files/20181005121020_4b7f1cfb-ab8d-4d63-b07e-477e0ac5dc02.jpeg" alt="Stockholm square" width="90"></a>
+    <h4 class="articleListSmall__headline"><a href="https://sp-demo-tribune.s-lab.sourcefabric.org/opinion/all-we-wish-you-to-do-is-to-examine-the-machine"><span class="lockIcon"><img src="./The Tribune Theme for Superdesk Publisher_files/lock-black.svg"></span>All we wish you to do is to examine the machine</a></h4>
+  <div class="articleMetadata">
+          <span class="articleMetadata__byline">by <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/authors/frank-n-stein">Frank N. Stein</a></span>
+        </div>
+</article>
+                                  <article class="articleListSmall__item">
+
+
+    <a class="articleListSmall__image" href="https://sp-demo-tribune.s-lab.sourcefabric.org/opinion/mr-gardiner-did-not-write-again-till-he-had-received-an-answer-from-colonel-forster"><img src="./The Tribune Theme for Superdesk Publisher_files/2018100511104_3e0d2a1e-58bc-4549-b434-c7e14a145d75.jpeg" alt="Livari Laguna" width="90"></a>
+    <h4 class="articleListSmall__headline"><a href="https://sp-demo-tribune.s-lab.sourcefabric.org/opinion/mr-gardiner-did-not-write-again-till-he-had-received-an-answer-from-colonel-forster"><span class="lockIcon"><img src="./The Tribune Theme for Superdesk Publisher_files/lock-black.svg"></span>Mr. Gardiner did not write again till he had received an answer from Colonel Forster</a></h4>
+  <div class="articleMetadata">
+          <span class="articleMetadata__byline">by <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/authors/frank-n-stein">Frank N. Stein</a></span>
+        </div>
+</article>
+                              </div>
+            </div>
+
+            <div id="swp_container_9biad4ida9e" class="swp_container ">            <div class="ad marginBottom30 hidden-xs">
+              <img src="./The Tribune Theme for Superdesk Publisher_files/ad.png">
+            </div>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-3">
+
+        <div id="swp_container_0qluyyqh8zc" class="swp_container accordion marginBottom30"><div id="swp_widget_9" class="swp_widget" data-container="0qluyyqh8zc">   <div class="accordion__section">
+    <a class="accordion__sectionTitle active" href="https://sp-demo-tribune.s-lab.sourcefabric.org/#accordion-1">Most read</a>
+    <div id="accordion-1" class="accordion__sectionContent">
+
+            <article class="accordion__sectionItem">
+          <h4 class="accordion__sectionHeadline"><a href="https://sp-demo-tribune.s-lab.sourcefabric.org/opinion/he-allowed-himself-to-be-swayed-by-his-conviction">He allowed himself to be swayed by his conviction</a></h4>
+        <span class="accordion__sectionCount">2 reads</span>
+    </article>
+            <article class="accordion__sectionItem">
+          <h4 class="accordion__sectionHeadline"><a href="https://sp-demo-tribune.s-lab.sourcefabric.org/business/fresh-water-throws-him-into-the-hydrophobia">Fresh water throws him into the hydrophobia</a></h4>
+        <span class="accordion__sectionCount">2 reads</span>
+    </article>
+            <article class="accordion__sectionItem">
+          <h4 class="accordion__sectionHeadline"><a href="https://sp-demo-tribune.s-lab.sourcefabric.org/politics/everyone-realizes-why-a-new-common-language-would-be-desirable">Everyone realizes why a new common language would be desirable</a></h4>
+        <span class="accordion__sectionCount">1 reads</span>
+    </article>
+            <article class="accordion__sectionItem">
+          <h4 class="accordion__sectionHeadline"><a href="https://sp-demo-tribune.s-lab.sourcefabric.org/business/there-was-nothing-in-the-office-but-a-couple-of-wooden-chairs-and-a-deal-table">There was nothing in the office but a couple of wooden chairs and a deal table</a></h4>
+        <span class="accordion__sectionCount">0 reads</span>
+    </article>
+            <article class="accordion__sectionItem">
+          <h4 class="accordion__sectionHeadline"><a href="https://sp-demo-tribune.s-lab.sourcefabric.org/politics/i-waited-until-midnight-but-there-was-no-sign-of-his-return-so-i-retired-to-my-room">I waited until midnight, but there was no sign of his return, so I retired to my room</a></h4>
+        <span class="accordion__sectionCount">0 reads</span>
+    </article>
+
     </div>
-  </a>
+  </div>
 </div>
+<div id="swp_widget_10" class="swp_widget" data-widget-type="contentlist" data-list-type="automatic" data-list-id="2" data-container="0qluyyqh8zc">        <div class="accordion__section">
+        <a class="accordion__sectionTitle " href="https://sp-demo-tribune.s-lab.sourcefabric.org/#accordion-2">Most commented</a>
+        <div id="accordion-2" class="accordion__sectionContent">
+                    <article class="accordion__sectionItem">
+                <h4 class="accordion__sectionHeadline"><a href="https://sp-demo-tribune.s-lab.sourcefabric.org/app_dev.php/politics/perhaps-i-should-not-have-been-a-fisherman-he-thought-but-that-was-the-thing-that-i-was-born-for">Perhaps I should not have been a fisherman, he thought. But that was the thing that I was born for</a></h4>
+                <span class="accordion__sectionCount">120.406 views</span>
+            </article>
+                    <article class="accordion__sectionItem">
+                <h4 class="accordion__sectionHeadline"><a href="https://sp-demo-tribune.s-lab.sourcefabric.org/app_dev.php/travel/the-conversation-next-turned-on-the-philosophical-transactions">The conversation next turned on the Philosophical Transactions</a></h4>
+                <span class="accordion__sectionCount">120.406 views</span>
+            </article>
+                    <article class="accordion__sectionItem">
+                <h4 class="accordion__sectionHeadline"><a href="https://sp-demo-tribune.s-lab.sourcefabric.org/app_dev.php/business/lorem-ipsum-hhhh">lorem ipsum hhhh</a></h4>
+                <span class="accordion__sectionCount">120.406 views</span>
+            </article>
+                    <article class="accordion__sectionItem">
+                <h4 class="accordion__sectionHeadline"><a href="https://sp-demo-tribune.s-lab.sourcefabric.org/app_dev.php/style/test-name-custom-field">test name custom field</a></h4>
+                <span class="accordion__sectionCount">120.406 views</span>
+            </article>
+                    <article class="accordion__sectionItem">
+                <h4 class="accordion__sectionHeadline"><a href="https://sp-demo-tribune.s-lab.sourcefabric.org/app_dev.php/style/another-targeted-publishing-trst-by-ljuba">Another targeted publishing trst by Ljuba</a></h4>
+                <span class="accordion__sectionCount">120.406 views</span>
+            </article>
+                </div>
+    </div>
+</div>
+<div id="swp_widget_11" class="swp_widget" data-widget-type="contentlist" data-list-type="automatic" data-list-id="3" data-container="0qluyyqh8zc">        <div class="accordion__section">
+        <a class="accordion__sectionTitle " href="https://sp-demo-tribune.s-lab.sourcefabric.org/#accordion-3">Most shared</a>
+        <div id="accordion-3" class="accordion__sectionContent">
+                    <article class="accordion__sectionItem">
+                <h4 class="accordion__sectionHeadline"><a href="https://sp-demo-tribune.s-lab.sourcefabric.org/app_dev.php/business/there-was-nothing-in-the-office-but-a-couple-of-wooden-chairs-and-a-deal-table">There was nothing in the office but a couple of wooden chairs and a deal table</a></h4>
+                <span class="accordion__sectionCount">120.406 views</span>
+            </article>
+                    <article class="accordion__sectionItem">
+                <h4 class="accordion__sectionHeadline"><a href="https://sp-demo-tribune.s-lab.sourcefabric.org/app_dev.php/business/a-youthful-mind-is-seldom-totally-free-from-ambition">A youthful mind is seldom totally free from ambition</a></h4>
+                <span class="accordion__sectionCount">120.406 views</span>
+            </article>
+                    <article class="accordion__sectionItem">
+                <h4 class="accordion__sectionHeadline"><a href="https://sp-demo-tribune.s-lab.sourcefabric.org/app_dev.php/business/the-happiness-which-this-reply-produced-was-such-as-he-had-probably-never-felt-before">The happiness which this reply produced, was such as he had probably never felt before</a></h4>
+                <span class="accordion__sectionCount">120.406 views</span>
+            </article>
+                    <article class="accordion__sectionItem">
+                <h4 class="accordion__sectionHeadline"><a href="https://sp-demo-tribune.s-lab.sourcefabric.org/app_dev.php/business/lorem-ipsum-hhhh">lorem ipsum hhhh</a></h4>
+                <span class="accordion__sectionCount">120.406 views</span>
+            </article>
+                    <article class="accordion__sectionItem">
+                <h4 class="accordion__sectionHeadline"><a href="https://sp-demo-tribune.s-lab.sourcefabric.org/app_dev.php/business/lorem-psum-testing-update">websocket</a></h4>
+                <span class="accordion__sectionCount">120.406 views</span>
+            </article>
+                </div>
+    </div>
+</div></div>
+				<div class="subscribe subscribe--banner marginBottom30">
+					<h3 class="subscribe__headline">Subscribe</h3>
+					<a href="https://sp-demo-tribune.s-lab.sourcefabric.org/#" class="subscribe__image"><img src="./The Tribune Theme for Superdesk Publisher_files/subscribe.png" alt=""></a>
+					<p class="subscribe__text">Your subscription helps support independent investigative journalism</p>
+					<a href="https://hub.s-lab.sourcefabric.org/app_dev.php" class="button button--color">Subscribe</a>
+				</div>
+
+											<div class="authorBox">
+		<h3 class="authorBox__headline">Featured author</h3>
+		<div class="authorBox__wrap">
+			<figure class="authorBox__image"><a href="https://sp-demo-tribune.s-lab.sourcefabric.org/authors/admin-person"><img src="https://sp-demo-tribune.s-lab.sourcefabric.org/"></a></figure>
+			<div class="authorBox__info">
+				<h4 class="authorBox__authorName">Admin Person</h4>
+				<p class="authorBox__authorBio"></p>
+			</div>
+		</div>
 	</div>
 
+				<div id="swp_container_w93wup6hy24" class="swp_container ">
+				<div class="ad hidden-xs marginTop30 marginBottom30">
+					<img src="./The Tribune Theme for Superdesk Publisher_files/ad.png">
+				</div>
 
-			<div class="col col--sm2 col--md4 ">
+				<div class="marginTop30 marginBottom30">
+					<div class="fb-page fb_iframe_widget" data-href="https://www.facebook.com/Sourcefabric" data-width="290" data-small-header="false" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="true" fb-xfbml-state="rendered" fb-iframe-plugin-query="adapt_container_width=false&amp;app_id=&amp;container_width=263&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2FSourcefabric&amp;locale=en_US&amp;sdk=joey&amp;show_facepile=true&amp;small_header=false&amp;width=290"><span style="vertical-align: bottom; width: 290px; height: 181px;"><iframe name="f2c836ab7c6a10c" width="290px" height="1000px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" title="fb:page Facebook Social Plugin" src="./The Tribune Theme for Superdesk Publisher_files/page.html" style="border: none; visibility: visible; width: 290px; height: 181px;" class=""></iframe></span></div>
+				</div>
+
+				<div class="editorialComment marginTop30 marginBottom30">
+          <h3 class="editorialComment__headline">Selected comment</h3>
+          <blockquote>
+            <p>Local innovation and initiative can help us better understand how to protect our environment.</p>
+            <footer>
+              <cite>
+                <span class="editorialComment__name">- Gale Norton</span>
+                <span class="editorialComment__article">on <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">Some article name</a></span>
+              </cite>
+            </footer>
+          </blockquote>
+        </div>
+
+				</div>
+			</div>
+
+		</div>
+
+		<div class="row">
+			<div class="col-xs-12">
+				<h3 class="sectionHeadingBold marginTop30"><a href="https://sp-demo-tribune.s-lab.sourcefabric.org/politics">Politics</a></h3>
+			</div>
+
+			<div class="articleGrid">
+
+
+<article class="articleGrid__item articleGrid__item--fourColumns col-md-3 col-sm-6 col-xs-12">
+  <a class="articleGrid__image articleGrid__image--smallMobile" href="https://sp-demo-tribune.s-lab.sourcefabric.org/politics/perhaps-i-should-not-have-been-a-fisherman-he-thought-but-that-was-the-thing-that-i-was-born-for">
+    <figure>
+      <img src="./The Tribune Theme for Superdesk Publisher_files/2018050712050_ed5d93c3-b155-48af-9f24-ef072ec1de6d.jpeg" alt="Water traffic in Dubrovnik">
+    </figure>
+  </a>
+
+
+  <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/politics/perhaps-i-should-not-have-been-a-fisherman-he-thought-but-that-was-the-thing-that-i-was-born-for">
+    <span class="articleGrid__kicker">seaside</span>    <h3 class="articleGrid__headline">Perhaps I should not have been a fisherman, he thought. But that was the thing that I was born for</h3>
+  </a>
+  <p class="articleGrid__text">
+      And bed, he thought. Bed is my friend. Just bed, he thought. Bed will be a great thing. It is easy when you are beaten, he thought. I never knew how easy it...
+  </p>
+  <div class="articleMetadata">
+        <a class="articleMetadata__shares articleMetadata__info" href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">240</a>
+    <a class="articleMetadata__comments articleMetadata__info" href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">20</a>
+  </div>
+</article>
+
+<article class="articleGrid__item articleGrid__item--fourColumns col-md-3 col-sm-6 col-xs-12">
+  <a class="articleGrid__image articleGrid__image--smallMobile" href="https://sp-demo-tribune.s-lab.sourcefabric.org/politics/i-waited-until-midnight-but-there-was-no-sign-of-his-return-so-i-retired-to-my-room">
+    <figure>
+      <img src="./The Tribune Theme for Superdesk Publisher_files/20181009151044_7f7fa1f1-3b15-430c-8890-0c90fea1535f.jpeg" alt="Muo after rain">
+    </figure>
+  </a>
+
+
+  <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/politics/i-waited-until-midnight-but-there-was-no-sign-of-his-return-so-i-retired-to-my-room">
+    <span class="articleGrid__kicker">sherlock holmes</span>    <h3 class="articleGrid__headline"><span class="lockIcon"><img src="./The Tribune Theme for Superdesk Publisher_files/lock-black.svg"></span>I waited until midnight, but there was no sign of his return, so I retired to my room</h3>
+  </a>
+  <p class="articleGrid__text">
+      "Oh, to the other side of the West End. It may be some time before I get back. Don't wait up for me in case I should be late."
+  </p>
+  <div class="articleMetadata">
+        <a class="articleMetadata__shares articleMetadata__info" href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">240</a>
+    <a class="articleMetadata__comments articleMetadata__info" href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">20</a>
+  </div>
+</article>
+
+<article class="articleGrid__item articleGrid__item--fourColumns col-md-3 col-sm-6 col-xs-12">
+  <a class="articleGrid__image articleGrid__image--smallMobile" href="https://sp-demo-tribune.s-lab.sourcefabric.org/politics/as-long-as-i-live-the-personality-of-dorian-gray-will-dominate-me">
+    <figure>
+      <img src="./The Tribune Theme for Superdesk Publisher_files/20181009131032_2b88f8cf-e3a9-4071-b36b-c8fb1c6cbd22.jpeg" alt="Mostar bridge">
+    </figure>
+  </a>
+
+
+  <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/politics/as-long-as-i-live-the-personality-of-dorian-gray-will-dominate-me">
+        <h3 class="articleGrid__headline">As long as I live, the personality of Dorian Gray will dominate me</h3>
+  </a>
+  <p class="articleGrid__text">
+      "Ah, my dear Basil, that is exactly why I can feel it. Those who are faithful know only the trivial side of love: it is the faithless who know love's...
+  </p>
+  <div class="articleMetadata">
+        <a class="articleMetadata__shares articleMetadata__info" href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">240</a>
+    <a class="articleMetadata__comments articleMetadata__info" href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">20</a>
+  </div>
+</article>
+
+<article class="articleGrid__item articleGrid__item--fourColumns col-md-3 col-sm-6 col-xs-12">
+  <a class="articleGrid__image articleGrid__image--smallMobile" href="https://sp-demo-tribune.s-lab.sourcefabric.org/politics/rafal-testing-gallery">
+    <figure>
+      <img src="https://sp-demo-tribune.s-lab.sourcefabric.org/" alt="">
+    </figure>
+  </a>
+
+
+  <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/politics/rafal-testing-gallery">
+        <h3 class="articleGrid__headline">rafal testing gallery</h3>
+  </a>
+  <p class="articleGrid__text">
+      rafal testing gallery
+  </p>
+  <div class="articleMetadata">
+        <a class="articleMetadata__shares articleMetadata__info" href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">240</a>
+    <a class="articleMetadata__comments articleMetadata__info" href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">20</a>
+  </div>
+</article>
+
+
+			</div>
+
+		</div>
+
+		<div class="row">
+			<div class="col-md-9 col-sm-12 col-xs-12">
+				<div class="row opinions">
+					<div class="col-xs-12">
+						<h3 class="sectionHeadingBold marginTop30"><a href="https://sp-demo-tribune.s-lab.sourcefabric.org/opinion">Opinion</a></h3>
+					</div>
+
+																		<article class="opinionsItem col-sm-8 col-md-8 col-xs-12">
+            <a class="opinionsItem__image" href="https://sp-demo-tribune.s-lab.sourcefabric.org/opinion/all-we-wish-you-to-do-is-to-examine-the-machine">
+
+                                <figure>
+                   </figure>
+                <span class="opinions__author">by Frank N. Stein</span>
+
+            </a>
+            <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/opinion/all-we-wish-you-to-do-is-to-examine-the-machine">
+              <h3 class="opinionsItem__headline"><span class="lockIcon"><img src="./The Tribune Theme for Superdesk Publisher_files/lock-black.svg"></span>All we wish you to do is to examine the machine</h3>
+            </a>
+            <p class="opinionsItem__text">
+                                      No, no. This is only where we compress it. But never mind that. All we wish you to do is to examine the machine and to let us know what is wrong with it.
+                  </p>
+          </article>
+																								          <article class="opinionsItem opinionsItem--small col-sm-4 col-md-4 col-xs-12">
+
+            <div class="articleMetadata">
+
+                            <a class="opinionsItem__image opinionsItem__image--small" href="https://sp-demo-tribune.s-lab.sourcefabric.org/opinion/mr-gardiner-did-not-write-again-till-he-had-received-an-answer-from-colonel-forster">
+                <figure>
+                  </figure>
+              </a>
+              <span class="articleMetadata__byline">by <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/authors/frank-n-stein">Frank N. Stein</a></span>
+                                      </div>
+            <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/opinion/mr-gardiner-did-not-write-again-till-he-had-received-an-answer-from-colonel-forster">
+              <h3 class="opinionsItem__headline opinionsItem__headline--small"><span class="lockIcon"><img src="./The Tribune Theme for Superdesk Publisher_files/lock-black.svg"></span>Mr. Gardiner did not write again till he had received an answer from Colonel Forster</h3>
+            </a>
+          </article>
+																								          <article class="opinionsItem opinionsItem--small col-sm-4 col-md-4 col-xs-12">
+
+            <div class="articleMetadata">
+
+                            <a class="opinionsItem__image opinionsItem__image--small" href="https://sp-demo-tribune.s-lab.sourcefabric.org/opinion/mr-utterson-stepped-out-and-touched-him-on-the-shoulder-as-he-passed">
+                <figure>
+                  </figure>
+              </a>
+              <span class="articleMetadata__byline">by <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/authors/sarrah-staffwriter">Sarrah Staffwriter</a></span>
+                                      </div>
+            <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/opinion/mr-utterson-stepped-out-and-touched-him-on-the-shoulder-as-he-passed">
+              <h3 class="opinionsItem__headline opinionsItem__headline--small"><span class="lockIcon"><img src="./The Tribune Theme for Superdesk Publisher_files/lock-black.svg"></span>Mr. Utterson stepped out and touched him on the shoulder as he passed</h3>
+            </a>
+          </article>
+
+				</div>
+			</div>
+
+			<div class="stripBox col-md-3 col-sm-12 col-xs-12">
+				<a class="stripBox__title active" href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">Voting poll</a>
+
+				<div class="votingPoll stripBox__sectionContent">
+					<script type="text/javascript" src="./The Tribune Theme for Superdesk Publisher_files/feed.js"></script>
+					<div class="pb_feed pb_feed_anim pb_feed_rendered" data-embed-by="50ccef36-6400-449f-9126-95677cd3f996" data-game="/ljubar10/dailynews-example-poll" data-recommend="false" data-game-info="false" data-comments="false" data-shares="false" data-id="/ljubar10/dailynews-example-poll" data-show-info="false" data-show-share="false" data-rendered="true" data-item="/ljubar10/dailynews-example-poll" element-index="0" render-status="rendered" style="position: relative; min-height: auto;"><div class="pb_top_content_container pb_feed_anim" style="clear: both; padding-bottom: 10px; opacity: 1;"><div><iframe src="./The Tribune Theme for Superdesk Publisher_files/dailynews-example-poll.html" name="pb_feed_iframe" class="pb_feed_iframe" frameborder="0" scrolling="no" height="100%" iniframe="false" style="min-width: 100%; width: 1px; max-width: 640px; height: 319px; border: none; margin: auto; display: table; max-height: 319px !important;" allowfullscreen="true"></iframe></div></div><div class="pb_feed_placeholder_container" style="display: none;"><div class="pb_feed_placeholder_inner">    <div class="pb_feed_placeholder_content">        <div class="pb_feed_placeholder_preloader">            <div style="position:absolute;width:90px;height:38px;transform:translateX(-60px);-webkit-transform:translateX(-60px);                -webkit-animation:pb_color_trans 5s;                -moz-animation:pb_color_trans 5s;                -ms-animation:pb_color_trans 5s;                animation:pb_color_trans 5s;                -webkit-animation-fill-mode:forwards;-moz-animation-fill-mode:forwards;-ms-animation-fill-mode:forwards;animation-fill-mode:forwards;">                    <div style="width:33%;height:100%;float:left;background-color:#bc49ff"></div>                    <div style="width:33%;height:100%;float:left;background-color:#009cff"></div>                    <div style="width:34%;height:100%;float:left;background-color:#bdbdbd"></div>            </div>            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABUCAQAAACYJ/nYAAADp0lEQVR4Ae3aA7QkSRCF4Xjm2rZt27Zt27Zt27Zt27Z3u/Pe7DFi96jGUdWVLydXfxwrv3I1hJp2/oGAGh7DsX4jt2CvyX/olL+qjFWZEou4TXESHiMjAvAjz+Hi2ixG2syleDZ+6HEAnsWa2ijDZDLW4Us9B3gJi0qJ/LJ8MRiAn90m2iAl0wZsjd8CALjDTyiBYTzeUwqAgdhHeiRtwD7oXy/AuRWlB8Mq9PUAHBaWHs4tgN+KAuAWkAhhIfYqAMBArCmR8suiXz5gT4mY2yMHgLskatqAOwwAfuH4Ejk3Dn4aJYDbS8Fq82A/XoPn8RbfwDO4nLtipsKEzUYFeK3I4+anLuyLj6gjmdexrbZKgfDUSAF+uSJ6/Eg15jO3suTGxUcGeE1y+qUbt1ALzHnaIjnh6REAfsMc9fh8lVpwHv2hMwew2nAA/GIfvR86+TK1jrlHm+xXFvw8LOACMeN11PoGJ4kZTx8G4FYQI65PrRswGIvmnYgZAH21w9hd7fiOWmJet96ltIW1DICnTesu1HKD1cSID2YAnipGeLMsgPeIEY7JANjCuPVMSy076PdTl/Fw3iADWKcLt6eWH+vFzs2XAarTGDvq/BAA9jMeaJNkgMpYxh64NwTA86yrKwOIEZ4LAlwtRqMBgEvNO0F8gHWBu3HjA8x3rMpUowHg5zT2wILRAfjJehr4jaMDeJYY4fjIAAyoTmM/jGIDLhQjbSGiAvCjG0eM/DLUiAAM9EuLGS6ICMBgbC5m2sY/ogHQz20qOfkNqbEAn7v5JTe+FgfgcLR2SG5uZWogAM+Sw17zeNbtnr1XmGkjXwsE4Glt0ha3INf2u/ndsBUW+aVbjKy37DKAamUqKZ2fiNVAgNtUSqdNeJwaBrheAuJR1DDAV7+PKaVzm2JgEAADuXjot4RhgONDlmeNGgZ4VVukZFwffahhAO+ml1JpI47FYGooYDspVXXq7AupEADulBJpKw+ip4YDHCeo/5bjNs2+0AwGKD/FvtWxpWBuXO7Cz+2Fy1wFNdzsN8R4YlSb2G2C29HXXjToVoxBeA838RCuxSX8nJWpqtP42bEw1+MhvAof2IuVALhx8CM1YEIBuJWaEMDtqAkBmIm1hABt5RvUhACeTk0IcCthcEKAnwg/UZMBtIEPUBMCsBc1IaA2F/omBPzQiQ+pCQG4mJoQwHWpCQG9p+AfCQHahKepCQE8nJoQgIUxICHg9zH5JTUhgDf8/4fGdPMnaCBzQc6JVDQAAAAASUVORK5CYII=" class="pb_feed_anim_mask">        </div>        <div class="pb_ie_fixer"></div>        <div class="pb_feed_loading_text">Loading...</div>    </div></div></div></div>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="row">
+			<div class="col-xs-12">
+				<h3 class="sectionHeadingBold marginTop30"><a href="https://sp-demo-tribune.s-lab.sourcefabric.org/business">Business</a></h3>
+			</div>
+
+			<div class="articleGrid">
+
+															<article class="mainArticleList col-md-6 col-sm-12 col-xs-12">
+
+            <figure class="mainArticleList__image mainArticleList__image--small ">
+
+
+              <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/business/image-credit">
+                                  <img src="./The Tribune Theme for Superdesk Publisher_files/20180911140912_08a1ee60-9085-4399-bae1-991d70d056fb.jpeg" alt="bialowieza forest">
+                              </a>
+
+            </figure>
+
+
+          <div class="mainArticleList__text ">
+            <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/business/image-credit">
+                            <h2 class="mainArticleList__headline">bialowieza forest</h2>
+            </a>
+                        <div class="articleMetadata">
+                                                    <span class="articleMetadata__byline articleMetadata__byline--white">by <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/authors/sarrah-staffwriter">Sarrah Staffwriter</a></span>
+                                                <a class="articleMetadata__shares articleMetadata__info articleMetadata__info--white" href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">240</a>
+              <a class="articleMetadata__comments articleMetadata__info articleMetadata__info--white" href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">20</a>
+            </div>
+          </div>
+        </article>
+
+<article class="articleGrid__item col-md-3 col-sm-6 col-xs-12">
+  <a class="articleGrid__image articleGrid__image--smallMobile" href="https://sp-demo-tribune.s-lab.sourcefabric.org/business/there-was-nothing-in-the-office-but-a-couple-of-wooden-chairs-and-a-deal-table">
+    <figure>
+      <img src="./The Tribune Theme for Superdesk Publisher_files/20180816120840_cb7c5c25-def2-4e37-a5f1-6e03dff92538.jpeg" alt="Lefkas">
+    </figure>
+  </a>
+
+
+  <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/business/there-was-nothing-in-the-office-but-a-couple-of-wooden-chairs-and-a-deal-table">
+    <span class="articleGrid__kicker">holmes</span>    <h3 class="articleGrid__headline">There was nothing in the office but a couple of wooden chairs and a deal table</h3>
+  </a>
+  <p class="articleGrid__text">
+      "Your experience has been a most entertaining one," remarked Holmes as his client paused and refreshed his memory with a huge pinch of snuff.
+  </p>
+  <div class="articleMetadata">
+        <a class="articleMetadata__shares articleMetadata__info" href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">240</a>
+    <a class="articleMetadata__comments articleMetadata__info" href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">20</a>
+  </div>
+</article>
+
+<article class="articleGrid__item col-md-3 col-sm-6 col-xs-12">
+  <a class="articleGrid__image articleGrid__image--smallMobile" href="https://sp-demo-tribune.s-lab.sourcefabric.org/business/a-youthful-mind-is-seldom-totally-free-from-ambition">
+    <figure>
+      <img src="./The Tribune Theme for Superdesk Publisher_files/20180816100824_263b54a3-1155-44e0-b82f-74f1d2b89908.jpeg" alt="Milos beach">
+    </figure>
+  </a>
+
+
+  <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/business/a-youthful-mind-is-seldom-totally-free-from-ambition">
+    <span class="articleGrid__kicker">Eveline</span>    <h3 class="articleGrid__headline">A youthful mind is seldom totally free from ambition</h3>
+  </a>
+  <p class="articleGrid__text">
+      Thus far, Madam, I cheerfully submit to your desire. In confiding my ward to the care of Lady Howard, I can feel no uneasiness from her absence, but what...
+  </p>
+  <div class="articleMetadata">
+        <a class="articleMetadata__shares articleMetadata__info" href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">240</a>
+    <a class="articleMetadata__comments articleMetadata__info" href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">20</a>
+  </div>
+</article>
+
+			</div>
+		</div>
 
 
 
+		<div class="row">
+			<div class="gallery marginTop30 marginBottom30 col-xs-12">
+				<figure class="gallery__image">
+					<a class="gallery__strip" href="https://sp-demo-tribune.s-lab.sourcefabric.org/style">Style</a>
+					<a href="https://sp-demo-tribune.s-lab.sourcefabric.org/style/test-name-custom-field">
+						<img src="./The Tribune Theme for Superdesk Publisher_files/1250x600.png" alt="">
+					</a>
+				</figure>
+				<div class="gallery__text">
+					<h3 class="gallery__headline"><a href="https://sp-demo-tribune.s-lab.sourcefabric.org/style/test-name-custom-field">test name custom field</a></h3>
+					<p>test name custom field</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6 col-sm-12 col-xs-12">
+				<h3 class="sectionHeadingBold marginTop30"><a href="https://sp-demo-tribune.s-lab.sourcefabric.org/sports">Sports</a></h3>
+				<div class="row">
+					<div class="articleGrid col-md-6 col-sm-6 col-xs-12">
+
+<article class="articleGrid__item articleGrid__item--fourColumns">
+  <a class="articleGrid__image articleGrid__image--smallMobile" href="https://sp-demo-tribune.s-lab.sourcefabric.org/sports/with-respect-to-wickham-the-travellers-soon-found-that-he-was-not-held-there-in-much-estimation">
+    <figure>
+      <img src="./The Tribune Theme for Superdesk Publisher_files/20180521110512_ecef9c0f-6fab-4f07-870d-6b59805e30b3.jpeg" alt="Stockholm">
+    </figure>
+  </a>
 
 
+  <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/sports/with-respect-to-wickham-the-travellers-soon-found-that-he-was-not-held-there-in-much-estimation">
+    <span class="articleGrid__kicker">Derbyshire</span>    <h3 class="articleGrid__headline">With respect to Wickham, the travellers soon found that he was not held there in much estimation</h3>
+  </a>
+  <p class="articleGrid__text">
+      For though the chief of his concerns with the son of his patron were imperfectly understood, it was yet a well-known fact that, on his quitting Derbyshire,...
+  </p>
+  <div class="articleMetadata">
+        <a class="articleMetadata__shares articleMetadata__info" href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">240</a>
+    <a class="articleMetadata__comments articleMetadata__info" href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">20</a>
+  </div>
+</article>
+											</div>
+					<div class="articleListSmall col-md-6 col-sm-6 col-xs-12">
+														<article class="articleListSmall__item">
 
 
+    <a class="articleListSmall__image" href="https://sp-demo-tribune.s-lab.sourcefabric.org/sports/a-half-dozen-forms-lean-and-gray-glided-about-on-the-sand-hillocks"><img src="./The Tribune Theme for Superdesk Publisher_files/sd-sp_20170704110728_8cd64ca4-3b96-45eb-ad96-a701b5006520.jpeg" alt="Boka by Night" width="90"></a>
+    <h4 class="articleListSmall__headline"><a href="https://sp-demo-tribune.s-lab.sourcefabric.org/sports/a-half-dozen-forms-lean-and-gray-glided-about-on-the-sand-hillocks">A half dozen forms, lean and gray, glided about on the sand hillocks</a></h4>
+  <div class="articleMetadata">
+    <span class="articleMetadata__byline">by <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">Test Persona</a></span>
+    </div>
+</article>
+											</div>
+				</div>
+			</div>
+
+			<div class="col-md-6 col-sm-12 col-xs-12">
+				<h3 class="sectionHeadingBold marginTop30"><a href="https://sp-demo-tribune.s-lab.sourcefabric.org/travel">Travel</a></h3>
+				<div class="row">
+					<div class="articleGrid col-md-6 col-sm-6 col-xs-12">
+
+<article class="articleGrid__item articleGrid__item--fourColumns">
+  <a class="articleGrid__image articleGrid__image--smallMobile" href="https://sp-demo-tribune.s-lab.sourcefabric.org/travel/elizabeth-could-safely-say-that-it-was-a-great-happiness-where-that-was-the-case">
+    <figure>
+      <img src="./The Tribune Theme for Superdesk Publisher_files/20180816160836_8147e03d-447c-4a86-a112-7a50796eb96e.jpeg" alt="Bridge">
+    </figure>
+  </a>
 
 
+  <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/travel/elizabeth-could-safely-say-that-it-was-a-great-happiness-where-that-was-the-case">
+    <span class="articleGrid__kicker">apple</span>    <h3 class="articleGrid__headline">Elizabeth could safely say that it was a great happiness where that was the case</h3>
+  </a>
+  <p class="articleGrid__text">
+      “But,” he added, “you will of course wish to have your humble respects delivered to them, with your grateful thanks for their kindness to you while you have...
+  </p>
+  <div class="articleMetadata">
+        <a class="articleMetadata__shares articleMetadata__info" href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">240</a>
+    <a class="articleMetadata__comments articleMetadata__info" href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">20</a>
+  </div>
+</article>
+											</div>
+					<div class="articleListSmall col-md-6 col-sm-6 col-xs-12">
+														<article class="articleListSmall__item">
 
 
+    <a class="articleListSmall__image" href="https://sp-demo-tribune.s-lab.sourcefabric.org/travel/the-conversation-next-turned-on-the-philosophical-transactions"><img src="./The Tribune Theme for Superdesk Publisher_files/20180626110612_701cfddb-5098-4b48-9dae-b30708d5d477.jpeg" alt="Ne davimo Bgd" width="90"></a>
+    <h4 class="articleListSmall__headline"><a href="https://sp-demo-tribune.s-lab.sourcefabric.org/travel/the-conversation-next-turned-on-the-philosophical-transactions">The conversation next turned on the Philosophical Transactions</a></h4>
+  <div class="articleMetadata">
+          <span class="articleMetadata__byline">by <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/authors/sarrah-staffwriter">Sarrah Staffwriter</a></span>
+        </div>
+</article>
+														<article class="articleListSmall__item">
 
 
+    <a class="articleListSmall__image" href="https://sp-demo-tribune.s-lab.sourcefabric.org/travel/mary-wished-to-say-something-sensible-but-knew-not-how"><img src="./The Tribune Theme for Superdesk Publisher_files/2018053016054_05aa4491-f547-4c19-9e62-30d15c672154.jpeg" alt="Boats in Dakar" width="90"></a>
+    <h4 class="articleListSmall__headline"><a href="https://sp-demo-tribune.s-lab.sourcefabric.org/travel/mary-wished-to-say-something-sensible-but-knew-not-how">Mary wished to say something sensible, but knew not how</a></h4>
+  <div class="articleMetadata">
+          <span class="articleMetadata__byline">by <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/authors/frank-n-stein">Frank N. Stein</a></span>
+        </div>
+</article>
+														<article class="articleListSmall__item">
 
 
+    <h4 class="articleListSmall__headline"><a href="https://sp-demo-tribune.s-lab.sourcefabric.org/travel/rafal-test-new">hey there</a></h4>
+  <div class="articleMetadata">
+          <span class="articleMetadata__byline">by <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/authors/sarrah-staffwriter">Sarrah Staffwriter</a></span>
+        </div>
+</article>
+											</div>
+				</div>
+			</div>
+		</div>
 
 
+	</main>
 
+<!-- Footer -->
 
+<footer class="footer marginTop30">
+  <div class="container">
+    <div class="row">
 
-
-
-
-
-
-
-
-
-
-
-
-<div class="box">
-  <div class="responsiveBg responsiveBg--loaded" data-xs="/media/sd-sp_20170704110728_a8c8ad7f-9074-4e15-9e57-4ecb68425c17.jpeg" data-sm="/media/sd-sp_20170704110728_5806f427-3cd5-4675-b2c7-bc91330412ac.jpeg" data-md="/media/sd-sp_20170704110728_672cf957-0a00-45c5-9442-5d645e17fb80.jpeg" data-lg="/media/sd-sp_20170704110728_672cf957-0a00-45c5-9442-5d645e17fb80.jpeg" style="background-image: url(&quot;/media/sd-sp_20170704110728_672cf957-0a00-45c5-9442-5d645e17fb80.jpeg&quot;);"></div>
-
-  <a href="https://sp-magazine.s-lab.sourcefabric.org/news/a-half-dozen-forms-lean-and-gray-glided-about-on-the-sand-hillocks" class="articleBox">
-    <div class="articleBox__heading">
-              <h5>Test Persona</h5>
-            <time datetime="2017-07-04T09:32:44+00:00">04 Jul 2017</time>
-      <h2>A half dozen forms, lean and gray, glided about on the sand hillocks</h2>
-      <div class="articleBox__extras">
-        <p>Edwin arched an arrow that fell short. But Hare-Lip, with a sling such as David carried into battle against Goliath</p>
+      <div class="footer__logo col-md-3 col-sm-3 col-xs-12">
+        <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/"><img src="./The Tribune Theme for Superdesk Publisher_files/logo-white.png"></a>
       </div>
+
+<div id="swp_container_53bpsjhm5ib" class="swp_container "><div id="swp_widget_14" class="swp_widget" data-container="53bpsjhm5ib">                  <div class="footer__section col-sm-4 col-md-4 col-xs-12 hidden-xs">
+        <h4 class="footer__sectionHeadline">Sections</h4>
+        <ul class="footer__sectionTwoColumns">
+
+                <li class="first">        <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/politics">Politics</a>
+    </li>
+
+
+                <li>        <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/business">Business</a>
+    </li>
+
+
+                <li>        <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/opinion">Opinion</a>
+    </li>
+
+
+                <li>        <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/sports">Sports</a>
+    </li>
+
+
+                <li>        <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/style">Style</a>
+    </li>
+
+
+                <li class="last">        <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/travel">Travel</a>
+    </li>
+
+
+        </ul>
+      </div>
+
+</div></div>
+      <div class="footer__section col-sm-2 col-md-2 col-xs-12">
+        <h4 class="footer__sectionHeadline">Social</h4>
+        <ul>
+          <li><a href="https://www.facebook.com/Superdesk/">Facebook</a></li>
+          <li><a href="https://twitter.com/Sourcefabric">Twitter</a></li>
+          <li><a href="https://www.youtube.com/user/Sourcefabric">Youtube</a></li>
+          <li><a href="https://plus.google.com/+SourcefabricOrgHQ">Google+</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__subscribe col-sm-3 col-md-3 col-xs-12">
+        <h4 class="footer__sectionHeadline">Subscribe</h4>
+
+        <div class="footer__subscribeForm">
+          <form class="form" method="get" action="https://sp-demo-tribune.s-lab.sourcefabric.org/register">
+            <input type="text" name="proposed_email" placeholder="Your email">
+            <button class="footer__subscribeButton button button--color" type="submit">Send</button>
+          </form>
+        </div>
+
+        <div class="footer__text">
+          <p>© 2017 Sourcefabric All Rights Reserved <br>
+          <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">Terms of Use</a> / <a href="https://sp-demo-tribune.s-lab.sourcefabric.org/#">Privacy Policy</a></p>
+        </div>
+
+      </div>
+
     </div>
-  </a>
-</div>
-	</div>
-
-
-
-</section>
-
-  <script src="./Magazine Theme for Superdesk Publisher_files/webfont.js" type="text/javascript" async=""></script><script type="text/javascript">
-    WebFontConfig = {
-      google: { families: [ 'Open+Sans:300,300i,400,400i,600,600i,700,800' ] }
-    };
-    (function() {
-      var wf = document.createElement('script');
-      wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-        '://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js';
-      wf.type = 'text/javascript';
-      wf.async = 'true';
-      var s = document.getElementsByTagName('script')[0];
-      s.parentNode.insertBefore(wf, s);
-    })(); </script>
-
-
-
-</body></html>
+  </div>
+</footer>
